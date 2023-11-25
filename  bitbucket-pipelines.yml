@@ -7,6 +7,7 @@ pipelines:
         caches:
           - bundler
         script:
+          - apt install graphviz
           - gem install bundler:2.2.13
           - bundle config set --local path vendor/bundle
           - bundle install

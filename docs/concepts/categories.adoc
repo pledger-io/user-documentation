@@ -1,0 +1,49 @@
+ifndef::document-root[:document-root: ../]
+include::../_document-setup.adoc[]
+:page-title: Categories
+:page-parent: /concepts/
+:page-sort-order: 3
+
+Categories are very similar to xref:budgets.adoc[budgets] in that they are both used to group similar transactions together.
+For example 'lunch', 'interest', 'shoes' and 'candy' are very good categories, but would be terrible budgets.
+
+Another key difference between the two is that categories can also be used to group income. For example:
+
+- Salary
+- Tax returns
+- Declarations
+
+== Difference between categories and budgets
+
+If you have transactions that are monthly recurring, and you can save money on them then you should consider them as a budget and not a category.
+
+Examples of this are:
+
+- Groceries
+- Entertainment (e.g. cable or Netflix)
+
+If a transaction is occasionally then it should not be a budget itself.
+A category is used to group transactions that happen 'incidental'.
+Another reason to prefer a category over a budget is when you do not care about the costs.
+
+== Managing categories
+
+On the category overview all the categories are listed that are available in {application} for the current user.
+You can reach the overview by clicking the `Categories` option in the side navigation.
+Here you have the option to add new categories, update existing ones or remove no longer needed categories.
+
+.Category overview page
+image::categories/category-overview.png[]
+
+== Adding a new category
+
+To add a new category click the `Add new category` button on the category overview page.
+This will open the category form as depicted below.
+Using this form you can create a new category by clicking the `Save` button.
+
+.Category form
+image::categories/category-form.png[]
+
+For a category the following fields are mandatory:
+
+- Name, containing the display name of the category

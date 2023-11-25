@@ -1,0 +1,60 @@
+ifndef::document-root[:document-root: ../]
+include::../_document-setup.adoc[]
+:page-title: Accounts
+:page-parent: /concepts/
+:page-sort-order: 1
+
+{application} supports keeping track of multiple accounts for a full overview of your
+finances.
+The application has support for five types of accounts, each having various sub-categories.
+
+== Regular accounts
+
+Regular accounts are the accounts that hold your money.
+So these are usually bank accounts or debit cards.
+
+For individual accounts the following are recognized:
+
+* Checking account
+* Savings account
+
+If you share an account with a spouse then there are special account types available, being:
+
+* Shared checking account
+* Shared savings account
+
+The last group supported for regular accounts is the `Credit card`.
+This does not have any specific rules applied to it.
+As it is seen as a regular account similar to a checking account at this moment.
+
+== Cash accounts
+
+A cash account can be used to track money that you withdraw from an ATM and spent.
+These expenses need to be entered manually.
+This type of account can be useful to keep track of a household budget or emergency money.
+
+== Expense accounts
+
+Each location, or company you spent money at is registered under an `expense account`.
+This can be a supermarket, a restaurant, a gas station, etc.
+
+Typically, these accounts only receive money from you and never pay you any money.
+
+== Revenue accounts
+
+This category of accounts is reserved for companies that pay you money.
+Each company gets its own revenue account. Good examples of this are:
+
+* The company you work for
+* Monthly tax returns
+
+== Liability accounts
+
+In life, you engage in liabilities with banks or credit card companies.
+These are for example the following types:
+
+* Loans
+* Debts
+* Mortgage
+
+These all have in common that you have regular payments to the liability to reduce the amount of money you owe.

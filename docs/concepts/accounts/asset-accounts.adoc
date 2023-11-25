@@ -1,0 +1,64 @@
+:page-title: Asset accounts
+:page-parent: /concepts/accounts.html
+:page-sort-order: 1
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+Asset accounts are those that are owned by you.
+These can for example be banking accounts, credit cards or petty cash.
+
+== Managing accounts
+
+You can list all the regular accounts by clicking on the `Checking accounts` option in the side-bar navigation.
+This will open the account overview page with all the accounts that you have.
+
+image::accounts/asset-overview.png[]
+
+=== Creating an account
+
+Creating or editing accounts can be done by either clicking the `Add account` button in the top of the overview page or by clicking the icon:square-edit[] icon in the context menu.
+You will be presented a form which allows you to enter all the account information.
+
+.The account form
+image::accounts/asset-create.png[]
+
+On this form the following fields are mandatory:
+
+- `Name`, enter a descriptive name for the account
+- `Currency`, select one of the available currencies
+- `Type`, the type of account you wish
+
+== Reconcile an account
+
+Account reconciliation can be used to correct any missing funds or transactions in {application}.
+You can do this using a yearly bank statement you receive from your bank.
+{application} will then add a transaction correction to match the years end balance with your bank statement.
+
+You start an account reconciliation by clicking the icon:balance-scale[] icon in the context menu of the account you wish to reconcile.
+This will open a reconciliation form.
+
+.The account reconciliation form
+image::accounts/asset-reconcile.png[]
+
+In this form enter the year you wish to perform the reconciliation for as well as the opening and closing
+balance as indicated by your bank statement. Once you `Save` the reconciliation Personal Ledger will compare the
+opening and closing balance.
+
+If the accounts closing balance is off then {application} will automatically create a new transaction with the difference between the bank statement, and the recorded balance.
+If the opening balance differs then {application} will not complete the reconciliation.
+The previous year should be reconciled before you can continue.
+
+=== Correcting opening balance
+
+When account reconciliation fails due to a mismatch in opening balances you will be presented with the reconciliation overview.
+This is displayed on the `Checking accounts` overview page below the list of accounts.
+
+.Overview of account reconciliations
+image::accounts/asset-reconcile-overview.png[]
+
+You can now either correct the opening balance manually.
+By creating a new transaction with the difference, or start an account reconciliation for the previous year by clicking the icon:hammer[] icon.
+Once the previous year is reconciled {application} will automatically resume the incomplete account reconciliation as well.
+
+If you have chosen to enter a manual correction then you can click the icon:retry[] icon to retry the account reconciliation.

@@ -1,0 +1,82 @@
+ifndef::document-root[:document-root: ../]
+include::../_document-setup.adoc[]
+:page-title: Transactions
+:page-parent: /concepts/
+:page-sort-order: 5
+
+A transaction is a very simple thing.
+Money moves from one account into another.
+It does not matter if it is an expense, income or moving money around your own accounts.
+
+A transaction in {application} is stored as a single move of money with at least two accounts involved.
+So a deposit of your salary would look something similar to this:
+
+[plantuml, generated/transactions-deposit, svg]
+----
+@startuml
+
+usecase account1#HoneyDew [
+  Checking
+Account
+]
+
+usecase account2#Bisque [
+  Employer
+
+]
+
+rectangle deposit#LemonChiffon
+rectangle withdraw#LemonChiffon
+rectangle Transaction#LemonChiffon
+
+withdraw -up-> account1
+deposit -up-> account2
+
+Transaction -up-> withdraw : $200
+Transaction -up-> deposit : $-200
+
+@enduml
+----
+
+Where the three blocks representing 'withdrawal', 'deposit' and 'transaction' are one single transaction moving money from the boss his account into your account.
+
+== Type of transactions
+
+Within Personal Ledger you have three basic types of transactions:
+
+- Deposits, money coming in
+- Withdrawals, money going out
+- Transfers, money moving from one account to another
+
+Each transaction can contain the following information:
+
+- A description
+- The amount involved
+- The transaction date
+- The accounts involved (a source and destination)
+
+=== Deposits
+
+A deposit adds money to one of your accounts, from an account that is not yours.
+An example of this is your boss paying your salary.
+
+Each deposit supports the following additional fields on a transaction:
+
+- Category, for grouping transactions on reports
+
+=== Withdrawals
+
+A withdrawal removes money from one of your accounts, to an account that is not yours.
+An example of this is paying your rent or grocery shopping.
+
+Each withdrawal supports the following additional fields on a transaction:
+
+- Budget, where you can indicate how to group the transaction
+- Category, for grouping transactions on reports
+- Tags, for grouping transactions on reports
+- Contract, for transactions belonging to a contract (eg: rent)
+
+=== Transfers
+
+A transfer moves money from one of your accounts to another account that is yours.
+An example of this is moving money from your savings account to your checking account.

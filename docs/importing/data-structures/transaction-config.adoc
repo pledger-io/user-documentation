@@ -1,0 +1,110 @@
+:page-title: Transaction configuration
+:page-parent: /importing/data-structures/
+:page-sort-order: 1
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+The configuration is an essential part of the import of transactions, as this indicates what columns in the CSV contain which information for the transaction.
+
+The configuration file consists out of a JSON file with all the needed information for mapping columns from the CSV file to {application}.
+
+TIP: A set of working configurations is located at link:https://bitbucket.org/jongsoftdev/fintrack-importer-configuration[fintrack-importer-configuration].
+If you created a new configuration for a missing bank please feel free to submit it, and we will add it to this repository.
+
+== Data structure described
+
+[.data-structure]
+[cols="2,7"]
+|===
+|Element|Description
+
+|has-headers
+|Indicates if the CSV file has headers or not.
+
+|apply-rules
+|Should the rule configuration be applied during import
+
+|generate-accounts
+|Allow FinTrack to create missing accounts
+
+|date-format
+|The date format used in the CSV with
+
+|delimiter
+|The delimiter token used
+
+|column-roles
+|The mapping of the CSV columns to FinTrack transaction information
+
+|custom-indicator
+|Can be used if a custom deposit / withdrawal indicator is used
+
+|===
+
+== Possible column roles
+
+[.data-structure]
+[cols="2,7"]
+|===
+|Tag|Description
+
+|_ignore
+|Indicates this column is not used
+
+|booking-date
+|The date that the transaction was booked by the bank
+
+|transaction-date
+|This column contains the transaction date
+
+|interest-date
+|The date the bank started giving interest
+
+|opposing-name
+|A column that contains the opposing account name
+
+|opposing-iban
+|A column that contains the opposing account IBAN
+
+|account-iban
+|A column that contains your own IBAN
+
+|amount
+|A column that contains the amount of money transferred
+
+|custom-indicator
+|The column containing the custom deposit / withdrawal indicator
+
+|description
+|The column containing the transaction description
+
+|===
+
+== Example configuration
+
+[source,json,linenums]
+----
+{
+  "has-headers": true,
+  "apply-rules": true,
+  "generate-accounts": true,
+  "date-format": "yyyyMMdd",
+  "delimiter": ",",
+  "column-roles": [
+    "transaction-date",
+    "opposing-name",
+    "account-iban",
+    "opposing-iban",
+    "_ignore",
+    "custom-indicator",
+    "amount",
+    "_ignore",
+    "description"
+  ],
+  "custom-indicator": {
+    "deposit": "BIJ",
+    "credit": "AF"
+  }
+}
+----

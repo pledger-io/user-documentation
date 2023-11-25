@@ -1,0 +1,176 @@
+:page-title: Rule configuration
+:page-parent: /importing/data-structures/
+:page-sort-order: 2
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+The Rule JSON allows you to manually create a file containing all the rules you would like to be applied to transactions in {application}.
+
+== Data structure
+
+[.data-structure]
+[cols="2,7"]
+|===
+|Element|Description
+
+|slug
+|The import slug name
+
+|rules
+|A list of rule configurations
+
+|===
+
+== Rule structure
+
+[.data-structure]
+[cols="2,7"]
+|===
+|Element|Description
+
+|name
+|The logical name for the rule
+
+|description
+|The description for the rule
+
+|restrictive
+|Should all conditions match (true) or one of the conditions (false)
+
+|active
+|Should the rule be executed
+
+|sort
+|The sort order within the group
+
+|group
+|The name of the group the rule belongs in
+
+|conditions
+|The conditions that must be met for the rule to be applied
+
+|changes
+|The changes that should be applied to the transaction
+
+|===
+
+== Condition structure
+
+[.data-structure]
+[cols="2,7"]
+|===
+|Element|Description
+
+|field
+|The field of the transaction to match against, one of SOURCE_ACCOUNT, TO_ACCOUNT, DESCRIPTION, AMOUNT
+
+|operation
+|The type of match to use, one of EQUALS, CONTAINS, STARTS_WITH, LESS_THAN, MORE_THAN
+
+|value
+|The value that should be matched, should always be a text value
+
+|===
+
+Not all combinations of `field` and `operation` are supported, below is the support matrix:
+
+[.data-structure]
+[cols="2,4,4"]
+|===
+|Field|Supported operations|Value implication
+
+|SOURCE_ACCOUNT
+|EQUALS, CONTAINS, STARTS_WITH
+|The name of the account is matched
+
+|TO_ACCOUNT
+|EQUALS, CONTAINS, STARTS_WITH
+|The name of the account is matched
+
+|DESCRIPTION
+|EQUALS, CONTAINS, STARTS_WITH
+|The description is matched
+
+|AMOUNT
+|EQUALS, LESS_THAN, MORE_THAN
+|The amount is matched, amount is computed based on the from account of the transaction
+
+|===
+
+== Change structure
+
+[.data-structure]
+[cols="2,7"]
+|===
+|Element|Description
+
+|field
+|The field to apply the change to
+
+|value
+|The textual value to be applied to the field
+
+|===
+
+The following fields are supported in the change JSON:
+
+[.data-structure]
+[cols="2,7"]
+|===
+|Field|Value implication
+
+|SOURCE_ACCOUNT
+|The name of the account
+
+|TO_ACCOUNT
+|The name of the account
+
+|CHANGE_TRANSFER_FROM
+|The name of one of your own accounts
+
+|CHANGE_TRANSFER_TO
+|The name of one of your own accounts
+
+|CATEGORY
+|The name of the category
+
+|BUDGET
+|The name of the budget
+
+|CONTRACT
+|The name of the contract
+
+|===
+
+== Example rule
+
+[source,json,linenums]
+----
+{
+  "slug": "Sample rule import configuration",
+  "rules": [
+    {
+      "name": "Sample rule",
+      "description": "Description of the rule",
+      "restrictive": true,
+      "active": true,
+      "group": "Sample rules",
+      "sort": 0,
+      "conditions": [
+        {
+          "field": "DESCRIPTION",
+          "operation": "CONTAINS",
+          "value": "My first rule"
+        }
+      ],
+      "changes": [
+        {
+          "field": "TO_ACCOUNT",
+          "value": "Grocery Store 1"
+        }
+      ]
+    }
+  ]
+}
+----

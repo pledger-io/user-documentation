@@ -1,0 +1,51 @@
+image: ruby:2.7.7
+
+pipelines:
+  default:
+    - step:
+        name: Generate the blog with Jekyll
+        caches:
+          - bundler
+        script:
+          - gem install bundler:2.2.13
+          - bundle config set --local path vendor/bundle
+          - bundle install
+          - bundle exec jekyll build --destination public
+          - mkdir dist
+          - pipe: atlassian/azure-storage-deploy:1.0.2
+            variables:
+              SOURCE: 'public/*'
+              DESTINATION: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net/\\\$web?'
+              DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
+          - pipe: atlassian/azure-storage-deploy:1.0.2
+            variables:
+              SOURCE: 'public/about'
+              DESTINATION: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net/\\\$web?'
+              DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
+          - pipe: atlassian/azure-storage-deploy:1.0.2
+            variables:
+              SOURCE: 'public/images'
+              DESTINATION: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net/\\\$web?'
+              DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
+          - pipe: atlassian/azure-storage-deploy:1.0.2
+            variables:
+              SOURCE: 'public/concepts'
+              DESTINATION: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net/\\\$web?'
+              DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
+          - pipe: atlassian/azure-storage-deploy:1.0.2
+            variables:
+              SOURCE: 'public/importing'
+              DESTINATION: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net/\\\$web?'
+              DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
+          - pipe: atlassian/azure-storage-deploy:1.0.2
+            variables:
+              SOURCE: 'public/installation'
+              DESTINATION: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net/\\\$web?'
+              DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
+          - tar -czvf dist/package-${BITBUCKET_BUILD_NUMBER}.tar.gz -C public .
+        artifacts:
+          - dist/**
+
+definitions:
+  caches:
+    bundler: vendor/bundle

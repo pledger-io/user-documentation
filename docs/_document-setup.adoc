@@ -1,0 +1,18 @@
+
+ifndef::setup-done[]
+
+:application: Pledger.io
+:page-layout: page
+:jira-link: https://jongsoftdev.atlassian.net/browse/FIN-
+
+// Setup default generation options
+:icons: image
+:toclevels: 5
+:source-highlighter: rouge
+
+:iconsdir: {document-root}/images/icons
+:imagesdir: {document-root}/images
+:setup-done: true
+
+
+endif::[]

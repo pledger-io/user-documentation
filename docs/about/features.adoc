@@ -1,0 +1,34 @@
+:page-title: Features
+:page-parent: /about/
+:page-sort-order: 1
+
+ifndef::document-root[:document-root: ../]
+include::../_document-setup.adoc[]
+
+Since {application} runs on your own server you are in full control of the application and its data.
+No part of {application} will ever contact other websites.
+
+== Key features
+
+* Tracking of multiple accounts, each with separate transactions and statistics
+* Multiple users supported, all with their own accounts and transactions
+* Importing of bank statements using:
+** CSV import, with advanced mapping features
+* Budgets to keep track of your finances
+* Manage any running contracts with service providers
+* Easy installation using link:https://hub.docker.com/r/gjong/fintrack[Docker]
+
+== Other features
+
+* Importing & exporting of your entire profile configuration
+* You can store, edit and remove withdrawals, deposits and transfers for full financial management
+* Keep track of different types of accounts:
+** Checking accounts
+** Saving accounts
+** Shared accounts (Shared saving accounts)
+** Credit card
+** Cash
+* Organize your transactions into categories
+* Rule optimized transactions, where each transaction is analysed by rules and updated accordingly
+* Warn you before when a contract is about to expire (e.g.: your cable contract)
+* 2-factor authentication

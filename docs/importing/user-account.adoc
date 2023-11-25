@@ -1,0 +1,47 @@
+:page-title: User accounts
+:page-parent: /importing/
+:page-sort-order: 1
+
+ifndef::document-root[:document-root: ../]
+include::../_document-setup.adoc[]
+
+The configuration import updates the following entities in Personal Ledger:
+
+* Accounts
+** Own account
+** Creditors
+** Debtors
+* Categories
+* Contracts
+* Budgets
+* Transaction rules
+
+== Exporting your profile
+
+Exporting will generate a JSON file that will be downloaded to your computer.
+To start creating the file first visit the `User information` page.
+This can be found in a drop down menu under the profile picture.
+
+.Account popup
+image::importing/profile-menu-popup.png[]
+
+On your profile page you can select the `Download configuration` option.
+This will create a file and download it to your computer.
+
+.Profile page
+image::importing/profile-page.png[]
+
+== Importing your profile
+
+To start uploading your existing configuration first visit the `User information` page.
+This can be found in a drop down menu under the profile picture.
+
+.Account popup
+image::importing/profile-menu-popup.png[]
+
+Then click the `Import configuration` button to open a file selection dialog.
+In this dialog select the file containing your existing configuration and click the `Save` button.
+This will trigger {application} to start processing your file and append the configuration to the existing one.
+
+.Profile import dialog
+image::importing/profile-import.png[]

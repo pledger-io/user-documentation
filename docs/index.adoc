@@ -1,0 +1,13 @@
+include::_document-setup.adoc[]
+
+= {application} User Guide
+
+Using {application} you can keep track of your income vs spending as well as your credit card
+expenses.
+
+Currently, {application} has the following features:
+
+* Categories to group expenses
+* Budgets to track income vs. expenses
+* Contract notifications
+* Importing transactions from bank exports

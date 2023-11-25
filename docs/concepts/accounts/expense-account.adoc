@@ -1,0 +1,33 @@
+:page-title: Expense accounts
+:page-parent: /concepts/accounts.html
+:page-sort-order: 2
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+Each location, or company you spent money at is registered under an expense account.
+These include stores, service providers, etc…
+
+== Managing expense accounts
+
+You can access the listing of all expense accounts by clicking the `Expense accounts` in the side-bar menu.
+This will open the overview page with all the expense accounts that are stored in {application}.
+
+.Creditor overview page
+image::accounts/expense-accounts-overview.png[]
+
+The overview uses pagination, and you can use the pagination navigation under the creditor list to access different pages in the creditor overview.
+
+== Editing an expense accounts
+
+You can add an expense account by clicking the `Add expense account` button in the top of the overview page.
+Alternatively you can edit an existing expense account by clicking the icon:square-edit[] icon in the context menu on the overview.
+You will then be presented the edit expense account form.
+
+.Editing an expense account
+image::accounts/expense-accounts-edit.png[]
+
+In this form the following fields are mandatory:
+
+- `Name`, the display name for the expense account
+- `Currency`, the currency of the account

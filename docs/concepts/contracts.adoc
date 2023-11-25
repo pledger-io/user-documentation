@@ -1,0 +1,61 @@
+ifndef::document-root[:document-root: ../]
+include::../_document-setup.adoc[]
+:page-title: Contracts
+:page-parent: /concepts/
+:page-sort-order: 4
+
+A contract is a legally binding agreement that recognizes and governs the rights and duties of the parties to the agreement.
+
+{application} enables you to add contracts, which then support:
+
+- Linking all related transactions to the contract
+- Record the physical contract (in PDF format)
+- Warn you when the end date is near, so you can cancel in time if you wanted to stop the contract
+
+Examples of contracts could be:
+
+- Cable services
+- Internet services
+- Phone services
+- Electricity utilities
+
+== Managing contracts
+
+Contracts are split up into two separate groups.
+Those that are active, and those that have been archived (e.g.: expired and canceled contracts).
+Below is a screenshot of the overview page.
+
+.Contract overview page
+image::contracts/contract-overview.png[]
+
+== Editing a contract
+
+Adding or editing a contract can be done easily by either clicking the `Add contract` button, or the edit icon:square-edit[] icon on the overview page.
+You will then be presented with a form allowing you to enter the details of the contract.
+
+.Contract edit form
+image::contracts/contract-form.png[]
+
+On this edit form you need to enter the `Name` of the contract as well as the contractual period.
+In the `Company` field you will need to select the `Credit account` that is linked to the contract.
+
+== Uploading PDF
+
+Usually you will receive either a digital copy or physical copy of the contract from your service provider.
+You can upload this copy to {application}, so you can access it at a later time.
+To do this press the icon:upload[] icon in the contract overview page.
+This will open the upload dialog to select a PDF file for the contract.
+
+.Contract upload dialog
+image::contracts/contract-upload.png[]
+
+In the dialog select the file that is the copy of your contract and click on `Save` to start the upload.
+
+== Warning before contract expire date
+
+With most contracts if you want to terminate it you have to do this one month in advance.
+{application} can aid you with an e-mail reminder one month before the provided end date of the contract.
+This feature can be activated for each contract separately by clicking the icon:calendar-check[] icon on the contract overview page.
+
+WARNING: Please note that for {application} to be able to send the e-mail you must have the mail settings configured first.
+See the installation notes on how to do this.

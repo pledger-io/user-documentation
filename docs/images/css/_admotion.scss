@@ -1,0 +1,61 @@
+@import "colors";
+
+.admonitionblock {
+  margin: 1.5rem 0;
+
+  table {
+    width: 100%;
+    border-spacing: 0;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+  &.warning {
+    td.icon {
+      background-color: darken($warning-color, 2%);
+    }
+    td.content {
+      background-color: lighten($warning-color, 2%);
+    }
+  }
+
+  &.tip {
+    td.icon {
+      background-color: darken($tip-color, 2%);
+    }
+    td.content {
+      background-color: lighten($tip-color, 2%);
+    }
+  }
+  &.note {
+    td.icon {
+      background-color: darken($note-color, 2%);
+    }
+    td.content {
+      background-color: lighten($note-color, 2%);
+    }
+  }
+
+  td.icon {
+    width: 5.5rem;
+    text-align: center;
+
+    border-bottom-left-radius: .5rem;
+    border-top-left-radius: .5rem;
+
+    & > img {
+      width: 100%;
+      height: auto;
+
+      max-width: 60px;
+    }
+  }
+
+  td.content {
+    padding: .7rem;
+    border-bottom-right-radius: .5rem;
+    border-top-right-radius: .5rem;
+  }
+}

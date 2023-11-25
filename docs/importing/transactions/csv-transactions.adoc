@@ -1,0 +1,63 @@
+:page-title: CSV files
+:page-parent: /importing/transactions/
+:page-sort-order: 2
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+Various banks support downloading a transaction statement as a CSV file.
+Using the CSV import you can import these statements into {application}.
+
+== Starting an import
+
+Adding a new CSV import is achieved by visiting the `Import Transactions` option in the sidebar of {application}.
+This will load the historic run import list, which displays any previously run imports.
+
+.The historic import list
+image::importing/overview.png[]
+
+You will then be greeted by a form that allows you to select the correct import configuration as well as a file to be imported.
+
+.The upload import form
+image::importing/new-import.png[]
+
+== Import settings
+
+You can choose to change the import settings used, the default values from the import configuration will be filled in the form.
+
+Please note that you should always select an into account in this screen.
+This will be the account where all transactions will be created into.
+
+.The import settings
+image::importing/import-settings.png[]
+
+You can choose to `Apply configured rules`, this will run all transaction rules and update the transaction accordingly.
+For faster importing disable this feature.
+
+== Column mappings
+
+In the column mappings phase each column can be changed to match a detail field in the transaction for {application}.
+
+.The column mappings
+image::importing/column-mappings.png[]
+
+When you do not want a column to be processed into the transaction select the
+`Ignore option`.
+
+== Account matching
+
+Account mappings allow you to select the existing account to match an account name of the import file with.
+If you do not specify an account in this screen it will either throw an exception if you did not select `Automatically create missing accounts` option in the xref:_import_settings[Import settings] screen or create the account if you did.
+
+.The account mappings
+image::importing/account-mapping.png[]
+
+
+== Details after import
+
+Once the import is completed you can access the detail overview of the import by clicking it in the list view.
+This detail overview will provide you a summary of the transactions in the imported file.
+As well as a complete list of all transactions that were imported.
+
+.Import detail overview
+image::importing/import-detail.png[]

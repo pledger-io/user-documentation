@@ -1,0 +1,21 @@
+title: Pledger.io
+
+source: docs
+disable_disk_cache: true
+
+plugins:
+  - jekyll-asciidoc
+
+keep_files:
+  - images/generated
+
+asciidoctor:
+  base_dir: :docdir
+  safe: unsafe
+
+
+aux_links:
+  "Bug Tracker":
+    "https://jongsoftdev.atlassian.net/projects/FIN/issues"
+  "View on Bitbucket":
+    "https://bitbucket.org/jongsoftdev/personal-finance"

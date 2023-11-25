@@ -1,0 +1,10 @@
+:page-title: Release notes
+:page-parent: /about/
+:page-sort-order: 3
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+This page contains all the releases of {application}.
+Each release has a corresponding docker image in the docker.io registry.
+

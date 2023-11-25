@@ -1,0 +1,12 @@
+:page-title: Purpose
+:page-parent: /about/
+:page-sort-order: 0
+
+ifndef::document-root[:document-root: ../]
+include::../_document-setup.adoc[]
+
+For some people this means categorizing every transaction to track groups of expenses, others make budgets to track total expenses versus the income.
+
+{application} helps you to manage your money better and easier.
+It allows you to add categories, budget groups and predictions on your financial situation.
+As well as give you better inside in your spending behavior several types of reports are available.

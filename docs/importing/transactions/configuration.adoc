@@ -1,0 +1,34 @@
+:page-title: Configuration
+:page-parent: /importing/transactions/
+:page-sort-order: 1
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+The configuration is an essential part of the import of transactions, as this indicates what
+columns in the CSV contain which information for the transaction.
+
+Adding a new CSV configuration is achieved by visiting the `Import Transactions` option
+in the sidebar of {application}.
+This will load the historic run import list, which displays any previously run imports.
+
+TIP: You can download predefined configuration in the link:https://bitbucket.org/jongsoftdev/fintrack-importer-configuration[fintrack-importer-configuration] repository.
+
+.The historic import list
+image::importing/overview.png[]
+
+In this list view you can then click the `Add new import` to system button at the top of the list.
+This will open the import window. For adding a new configuration you should select the `Add new configuration` link in the window.
+
+.The import screen
+image::importing/new-import.png[]
+
+
+This will open a popup in which you can select the configuration file to be added to {application}.
+Select a file using the button or drag one onto the drop-zone.
+This will automatically add the configuration to {application}.
+
+.The add configuration dialog
+image::importing/add-configuration.png[]
+
+You can now use the just uploaded file in any future CSV import operation.

@@ -1,0 +1,64 @@
+@import "colors";
+
+$header-height: 80px;
+$header-image-width: 40px;
+
+body > header {
+
+  height: $header-height;
+  display: flex;
+  align-items: center;
+
+  box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1);
+  border-bottom: 1px solid #d4dadf;
+
+  & > * {
+    &:first-child {
+      padding: 0 0 0 1.5rem;
+
+      width: $nav-width;
+
+      img {
+        width: $header-image-width;
+        vertical-align: middle;
+      }
+      span {
+        vertical-align: middle;
+        padding-left: .5em;
+
+        font-weight: 500;
+        font-size: 24px;
+      }
+    }
+
+    &:nth-child(2) {
+      flex: 1;
+      max-width: 70rem;
+      text-align: end;
+
+      a {
+        color: #3884FF;
+        font-weight: 500;
+        line-height: 1.5;
+        text-decoration: none;
+        position: relative;
+        margin-right: .5rem;
+        padding-right: .5rem;
+
+        &:last-child:after {
+          display: none;
+        }
+        &:after {
+          top: 50%;
+          right: 0;
+          height: 25px;
+          content: " ";
+          position: absolute;
+          transform: translateY(-50%);
+          border-left: 1px solid #E6ECF1;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,6 @@
+:page-title: Data structures
+:page-parent: /importing/
+:page-sort-order: 3
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]

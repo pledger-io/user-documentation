@@ -1,0 +1,6 @@
+:page-title: Transactions
+:page-parent: /importing/
+:page-sort-order: 2
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]

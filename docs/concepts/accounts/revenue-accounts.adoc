@@ -1,0 +1,31 @@
+:page-title: Revenue accounts
+:page-parent: /concepts/accounts.html
+:page-sort-order: 3
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+Revenue accounts are those accounts that regularly pay you money.
+Your employer is a good example of a debtor.
+
+== Managing revenue accounts
+
+You can access the revenue accounts overview page by clicking the `Revenue accounts` option in the side-bar navigation.
+This will open the overview page listing all revenue accounts currently registered to your account.
+
+.Debtor overview page
+image::accounts/debtor-overview.png[]
+
+== Editing a revenue accounts
+
+You can add a revenue account by clicking the Add revenue account button in the top of the overview page.
+Alternatively you can edit an existing revenue account by clicking the icon:square-edit[] icon in the context menu on the overview.
+You will then be presented the edit revenue account form.
+
+.Debtor edit form
+image::accounts/debot-edit.png[]
+
+In this form the following fields are mandatory:
+
+- `Name`, the display name for the revenue account
+- `Currency`, the currency of the account

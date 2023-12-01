@@ -1,0 +1,6 @@
+:page-title: Design
+:page-description: Architectural design of the project
+:page-layout: architecture
+:page-parent: /architecture/index.adoc
+
+include::../../_document-setup.adoc[]

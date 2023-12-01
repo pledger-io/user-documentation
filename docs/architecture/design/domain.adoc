@@ -1,0 +1,23 @@
+:page-title: Domain design
+:page-layout: architecture
+:page-parent: /architecture/design/
+:page-sort-order: 2
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+The diagram below depicts the domain model that is used in {application}.
+In this domain you can clearly see that the `Transaction` is linked to the `Account` using at least two `Parts`.
+It also indicates that there are multiple concepts that describe the context of a transaction, these are:
+
+- `Budget`
+- `Category`
+- `Tag`
+- `Contract`
+
+.Domain model
+image::architecture/data-model.png[]
+
+In this design the choice was made to attach everything on a `UserAccount`.
+Where the `Account` is the primary entity, with an enumeration in it to indicate the type of account.
+

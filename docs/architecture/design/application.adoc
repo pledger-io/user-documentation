@@ -1,0 +1,64 @@
+:page-title: Application design
+:page-layout: architecture
+:page-parent: /architecture/design/
+:page-sort-order: 1
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+{application} is a web application that consists out of several repositories.
+Each of the repositories has a dedicated goal and is designed to be bundled into a single application.
+
+== Involved repositories
+
+At this point in time, the following repositories are available:
+
+*Code repositories*
+
+* link:https://bitbucket.org/jongsoftdev/fintrack-application/src[fintrack-application],
+    the main application repository containing the Java REST-api.
+* link:https://bitbucket.org/jongsoftdev/user-interface/src[user-interface],
+    the React based user interface.
+* link:https://bitbucket.org/jongsoftdev/fintrack-deployment/src[fintrack-deployment],
+    the deployment repository bundling the user-interface and fintrack-application artifacts.
+
+*Documentation repositories*
+
+* link:https://bitbucket.org/jongsoftdev/user-documentation/src[user-documentation],
+    the repository that generates this website.
+* link:https://bitbucket.org/jongsoftdev/fintrack-importer-configuration/src[fintrack-importer-configuration],
+    the repository containing default configuration for the CSV based transaction importer.
+
+== {application} REST-api
+
+The REST-api is the main component of the application.
+This part of {application} is build using the following tooling:
+
+- link:https://gradle.org/[Gradle],
+    used as the build tool.
+- link:https://micronaut.io/[Micronaut framework],
+    used as the DI and API framework.
+- link:https://camunda.com/[Camunda BPM],
+    used to automate workflows inside {application}.
+
+=== Internal design
+
+The REST-api is designed to be a stateless application.
+Inside this part of the application several layers are recognized:
+
+- The `REST-api layer`, which is the entry point for all requests.
+- The `Application domain` layer, which contains the business logic.
+- The `Business Process layer`, which contains the workflow logic and is based on Camunda BPM.
+- The `JPA database layer`, which contains the database access logic.
+
+
+.System design
+image::architecture/java.backend.design.png[]
+
+In this design the `Application domain` layer does not directly communicate with any of the other layers.
+If an action occurs on any of the entities in this layer an event is published on the internal event bus.
+This event bus is provided by Micronaut and is only accessible inside the application.
+
+== {application} user interface
+
+== {application} deployment

@@ -10,8 +10,6 @@
     <title>{{ site.title }} - {{ page.title }}</title>
 </head>
 
-<body>
-
 <header>
     <div>
         <img src="/images/logo.png" class="image"/>
@@ -26,37 +24,24 @@
 
 <main>
     <nav>
-        {% assign sections = site.pages | where: 'parent', '/index.adoc' | sort: 'sort-order' %}
-        {%- for path in sections -%}
+        <section>
+            <a href="/">&twoheadleftarrow; Back to documentation</a>
+        </section>
 
+        {% assign sections = site.pages | where: 'parent', '/architecture/index.adoc' | sort: 'sort-order' %}
+
+        {%- for path in sections -%}
         <section>
             <h1>{{ path.title }}</h1>
 
             {%- assign subpages = site.pages | where: 'parent', path.url | sort: 'sort-order' -%}
-
             {%- for subpage in subpages -%}
             <a href="{{ subpage.url }}">
                 {{ subpage.title }}
             </a>
-
-            {%- assign children = site.pages | where: 'parent', subpage.url | sort: 'sort-order' -%}
-            <div class="sub-nav">
-            {%- for child in children -%}
-                <a href="{{ child.url }}">
-                    {{ child.title }}
-                </a>
             {%- endfor -%}
-            </div>
-
-            {%- endfor -%}
-
         </section>
         {%- endfor -%}
-
-        <section>
-            <h1>Technical</h1>
-            <a href="/architecture/">Architecture</a>
-        </section>
     </nav>
 
     <article>
@@ -65,6 +50,3 @@
         {{ content }}
     </article>
 </main>
-<script>hljs.highlightAll();</script>
-
-</body>

@@ -29,7 +29,7 @@ At this point in time, the following repositories are available:
 * link:https://bitbucket.org/jongsoftdev/fintrack-importer-configuration/src[fintrack-importer-configuration],
     the repository containing default configuration for the CSV based transaction importer.
 
-== {application} REST-api
+== REST-api
 
 The REST-api is the main component of the application.
 This part of {application} is build using the following tooling:
@@ -59,6 +59,41 @@ In this design the `Application domain` layer does not directly communicate with
 If an action occurs on any of the entities in this layer an event is published on the internal event bus.
 This event bus is provided by Micronaut and is only accessible inside the application.
 
-== {application} user interface
+== User interface
 
-== {application} deployment
+The user interface is a React based application.
+It is build up using the following frameworks and tools:
+
+- link:https://reactjs.org/[React],
+    used as the UI framework.
+- link:https://www.typescriptlang.org/[Typescript],
+    used as the programming language.
+- link:https://www.chartjs.org/[Chart.js],
+    used for the rendering of the various charts inside the application.
+- link:https://axios-http.com/docs/intro[axios],
+    used for the communication with the REST-api.
+
+== Deployment
+
+The deployment repository is used to bundle the user-interface and REST-api into a single deployable artifact.
+This repository is build using the following tooling:
+
+- link:https://gradle.org/[Gradle],
+    used as the build tool.
+- link:https://www.docker.com/[Docker],
+    used to create the docker images.
+- link:https://www.electron.build/[Electron],
+    used to create the desktop application.
+
+=== Build process
+
+.Build process
+image::architecture/application-build-process.png[]
+
+1. Pulling the latest version of the `user-interface` and `REST-api`.
+2. Building an output archive for the combined REST-api and user-interface.
+3. Building a `docker` image for the combined REST-api and user-interface.
+4. Building an `electron application` for the combined REST-api and user-interface.
+5. Pushing the docker image to the docker registry.
+6. Pushing the desktop application to the release repository.
+

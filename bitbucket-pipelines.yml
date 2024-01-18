@@ -16,7 +16,7 @@ pipelines:
             variables:
               SOURCE: 'public'
               DESTINATION_STORAGE_ACCOUNT_NAME: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net'
-              DESTINATION_CONTAINER_NAME: '\\$web'
+              DESTINATION_CONTAINER_NAME: '${AZURE_CONTAINER_NAME}'
               DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
               OVERWRITE: 'true'
           - mkdir dist

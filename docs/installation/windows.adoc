@@ -35,6 +35,20 @@ After the installer has finished a new application named '{application}' should 
 
 == History
 
+=== 3.0.0
+
+[cols="1,7"]
+|===
+|Release date
+|2024-01-18
+
+|Release note
+|Major front-end update
+
+|Download
+|link:{win-binary-location}/Pledger.io%20Setup%203.0.0.exe[Pledger.io Setup 3.0.0.exe]
+|===
+
 === 2.2.0
 
 [cols="1,7"]
@@ -46,7 +60,7 @@ After the installer has finished a new application named '{application}' should 
 |Phase out chart / time libraries in front-end
 
 |Download
-|link:https://jdocstorage.z6.web.core.windows.net/project/fintrack/FinTrack%20Setup%202.2.0.exe[FinTrack Setup 2.2.0.exe]
+|link:{win-binary-location}/FinTrack%20Setup%202.2.0.exe[FinTrack Setup 2.2.0.exe]
 |===
 
 === 2.1.0
@@ -60,7 +74,7 @@ After the installer has finished a new application named '{application}' should 
 |Added icons to accounts, add overview of active sessions for the current account
 
 |Download
-|link:https://jdocstorage.z6.web.core.windows.net/project/fintrack/FinTrack%20Setup%202.2.0.exe[FinTrack Setup 2.2.0.exe]
+|link:{win-binary-location}/FinTrack%20Setup%202.1.0.exe[FinTrack Setup 2.1.0.exe]
 |===
 
 === 2.0.0
@@ -74,5 +88,5 @@ After the installer has finished a new application named '{application}' should 
 |Initial release of the standalone application
 
 |Download
-|link:https://jdocstorage.z6.web.core.windows.net/project/fintrack/FinTrack%20Setup%202.0.0.exe[FinTrack Setup 2.0.0.exe]
+|link:{win-binary-location}/FinTrack%20Setup%202.0.0.exe[FinTrack Setup 2.0.0.exe]
 |===

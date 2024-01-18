@@ -4,6 +4,7 @@ ifndef::setup-done[]
 :application: Pledger.io
 :page-layout: page
 :jira-link: https://jongsoftdev.atlassian.net/browse/FIN-
+:win-binary-location: https://jdocstorage.z6.web.core.windows.net/project/fintrack
 
 // Setup default generation options
 :icons: image

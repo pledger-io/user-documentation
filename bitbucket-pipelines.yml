@@ -13,36 +13,48 @@ pipelines:
           - bundle install
           - bundle exec jekyll build --destination public
           - mkdir dist
-          - pipe: atlassian/azure-storage-deploy:1.0.2
+          - pipe: atlassian/azure-storage-deploy:2.1.0
             variables:
               SOURCE: 'public/*'
-              DESTINATION: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net/\\\$web?'
+              DESTINATION_STORAGE_ACCOUNT_NAME: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net'
+              DESTINATION_CONTAINER_NAME: '$web'
               DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
-          - pipe: atlassian/azure-storage-deploy:1.0.2
+              OVERWRITE: 'true'
+          - pipe: atlassian/azure-storage-deploy:2.1.0
             variables:
               SOURCE: 'public/about'
-              DESTINATION: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net/\\\$web?'
+              DESTINATION_STORAGE_ACCOUNT_NAME: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net'
+              DESTINATION_CONTAINER_NAME: '$web'
               DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
-          - pipe: atlassian/azure-storage-deploy:1.0.2
+              OVERWRITE: 'true'
+          - pipe: atlassian/azure-storage-deploy:2.1.0
             variables:
               SOURCE: 'public/images'
-              DESTINATION: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net/\\\$web?'
+              DESTINATION_STORAGE_ACCOUNT_NAME: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net'
+              DESTINATION_CONTAINER_NAME: '$web'
               DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
-          - pipe: atlassian/azure-storage-deploy:1.0.2
+              OVERWRITE: 'true'
+          - pipe: atlassian/azure-storage-deploy:2.1.0
             variables:
               SOURCE: 'public/concepts'
-              DESTINATION: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net/\\\$web?'
+              DESTINATION_STORAGE_ACCOUNT_NAME: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net'
+              DESTINATION_CONTAINER_NAME: '$web'
               DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
-          - pipe: atlassian/azure-storage-deploy:1.0.2
+              OVERWRITE: 'true'
+          - pipe: atlassian/azure-storage-deploy:2.1.0
             variables:
               SOURCE: 'public/importing'
-              DESTINATION: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net/\\\$web?'
+              DESTINATION_STORAGE_ACCOUNT_NAME: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net'
+              DESTINATION_CONTAINER_NAME: '$web'
               DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
-          - pipe: atlassian/azure-storage-deploy:1.0.2
+              OVERWRITE: 'true'
+          - pipe: atlassian/azure-storage-deploy:2.1.0
             variables:
               SOURCE: 'public/installation'
-              DESTINATION: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net/\\\$web?'
+              DESTINATION_STORAGE_ACCOUNT_NAME: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net'
+              DESTINATION_CONTAINER_NAME: '$web'
               DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
+              OVERWRITE: 'true'
           - tar -czvf dist/package-${BITBUCKET_BUILD_NUMBER}.tar.gz -C public .
         artifacts:
           - dist/**

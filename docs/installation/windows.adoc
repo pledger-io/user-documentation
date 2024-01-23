@@ -15,9 +15,9 @@ Make sure you back up the database regularly to prevent data-loss.
 === Install Java runtime
 
 At this time Java is not included in the {application} installer.
-Follow the steps below to install Java 21:
+Follow the steps below to install Java {java-version}:
 
-1. Download the Java 21 installer from https://adoptopenjdk.net/releases.html?variant=openjdk11&jvmVariant=hotspot
+1. Download the Java {java-version} installer from link:https://adoptium.net/en-GB/temurin/releases/?os=windows&version={java-version}[Adoptium JDK]
 2. Run the installer and follow the instructions
 
 === Install {application}
@@ -34,6 +34,20 @@ your PC in the %appdata%\pledger-electron-app directory.
 After the installer has finished a new application named '{application}' should have been added to the Windows menu.
 
 == History
+
+=== 3.0.2
+
+[cols="1,7"]
+|===
+|Release date
+|2024-01-23
+
+|Release note
+|Bugfix release for reporting
+
+|Download
+|link:{win-binary-location}/Pledger.io%20Setup%203.0.2.exe[Pledger.io Setup 3.0.2.exe]
+|===
 
 === 3.0.1
 

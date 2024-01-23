@@ -15,5 +15,7 @@ ifndef::setup-done[]
 :imagesdir: {document-root}/images
 :setup-done: true
 
+:java-version: 21
+
 
 endif::[]

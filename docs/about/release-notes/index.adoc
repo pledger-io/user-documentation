@@ -8,6 +8,18 @@ include::../../_document-setup.adoc[]
 This page contains all the releases of {application}.
 Each release has a corresponding docker image in the docker.io registry.
 
+== 3.0.2
+
+*Release date: 2024-01-23*
+
+=== Bug fixes
+
+- link:{jira-link}342[FIN-342] Spacing autocomplete accounts incorrect
+- link:{jira-link}343[FIN-343] Tabbing out of account autocomplete invalidates field
+- link:{jira-link}344[FIN-344] The balance graph for account detail overview is wrong on initial load
+- link:{jira-link}345[FIN-345] Logos on the yearly income / expense to large
+- link:{jira-link}346[FIN-346] Category report monthly spending table not updating correctly
+
 == 3.0.1
 
 *Release date: 2024-01-19*

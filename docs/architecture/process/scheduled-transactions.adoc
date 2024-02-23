@@ -1,0 +1,8 @@
+:page-title: Scheduled transactions
+:page-description: Business processes modeled
+:page-layout: architecture
+:page-parent: /architecture/process/
+:page-sort-order: 3
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]

@@ -1,0 +1,7 @@
+:page-title: Process
+:page-description: Business processes modeled
+:page-layout: architecture
+:page-parent: /architecture/index.adoc
+:page-sort-order: 1
+
+include::../../_document-setup.adoc[]

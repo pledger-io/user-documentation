@@ -40,7 +40,7 @@ WARNING: It is advised to set up a separate container with link:https://hub.dock
 
 === Creating the volumes
 
-{pledger} uses various storage locations in the container to store user data.
+{application} uses various storage locations in the container to store user data.
 It is advised to create one volume for each of the type of storage that the application uses.
 
 [source,shell,linenums]

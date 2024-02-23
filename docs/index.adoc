@@ -1,3 +1,4 @@
+ifndef::document-root[:document-root: .]
 include::_document-setup.adoc[]
 
 = {application} User Guide
@@ -11,3 +12,9 @@ Currently, {application} has the following features:
 * Budgets to track income vs. expenses
 * Contract notifications
 * Importing transactions from bank exports
+
+== Some screenshots of {application}
+
+image:overview-dashboard.png[Overview,50%]image:overview-income-report.png[Income report,50%]
+
+image:overview-budget-report.png[Overview,50%]image:overview-category-report.png[Category report,50%]

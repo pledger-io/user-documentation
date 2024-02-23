@@ -1,0 +1,34 @@
+:page-title: Profile import
+:page-description: Business processes modeled
+:page-layout: architecture
+:page-parent: /architecture/process/
+:page-sort-order: 1
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+This process is responsible for importing user profiles exported from other installations into the running {application}.
+
+The import is JSON based and adheres to the link:{schema-location}/profile.schema.json[user profile JSON schema].
+This schema can contain any of the following:
+
+- Accounts
+- Categories
+- Contacts
+- Transaction rules
+- Budgets
+- Transaction tags
+
+== The business process model
+
+Below is the BPMN diagram for the user profile import process.
+
+.Process diagram
+image::architecture/process/user.profile.import.png[]
+
+[NOTE]
+====
+The process will first import the core entities (accounts, categories, budgets and tags) followed by the contracts and any transaction rules.
+
+This is due to the fact that both contracts and transaction rules can reference the core entities.
+====

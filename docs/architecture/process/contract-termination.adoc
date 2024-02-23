@@ -1,0 +1,20 @@
+:page-title: Contract termination
+:page-description: Business processes modeled
+:page-layout: architecture
+:page-parent: /architecture/process/
+:page-sort-order: 4
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+The contract termination process is used warn the user before the contract end date is near.
+It has to be manually created by the user in the UX.
+
+== The business process model
+
+Below is a business process model for contract termination.
+
+.Process diagram
+image::architecture/process/contract.warn.termination.png[]
+
+NOTE: If a contracts end date is already in the past the process will terminate without any warning.

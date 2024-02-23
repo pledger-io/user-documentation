@@ -1,0 +1,8 @@
+:page-title: Transaction import
+:page-description: Business processes modeled
+:page-layout: architecture
+:page-parent: /architecture/process/
+:page-sort-order: 2
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]

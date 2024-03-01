@@ -49,4 +49,29 @@
 
         {{ content }}
     </article>
+
+    <div class="popup" id="popup" onclick="closePopup()">
+        <div id="content"></div>
+    </div>
+
+    <script type="application/javascript">
+        const popover = document.getElementById('content');
+        const scalable = document.getElementsByClassName('scalable-image');
+        for (const scalableElement of scalable) {
+            scalableElement.addEventListener('click', () => {
+                const image = scalableElement.getElementsByTagName('img')[0];
+                const title = () => image.alt ? `<h1>${image.alt}</h1>` : ''
+
+                popover.innerHTML = `${title()}${image.outerHTML}`
+
+                document.getElementById('popup')
+                    .classList.add('open')
+            })
+        }
+
+        function closePopup() {
+            document.getElementById('popup')
+                .classList.remove('open')
+        }
+    </script>
 </main>

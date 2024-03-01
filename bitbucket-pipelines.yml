@@ -14,10 +14,27 @@ pipelines:
           - bundle exec jekyll build --destination public
           - pipe: atlassian/azure-storage-deploy:2.1.0
             variables:
-              SOURCE: 'public'
+              SOURCE: 'public/about'
               DESTINATION_STORAGE_ACCOUNT_NAME: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net'
               DESTINATION_CONTAINER_NAME: '${AZURE_CONTAINER_NAME}'
               DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
+              DESTINATION_BLOB_RELATIVE_PATH: 'about'
+              OVERWRITE: 'true'
+          - pipe: atlassian/azure-storage-deploy:2.1.0
+            variables:
+              SOURCE: 'public/architecture'
+              DESTINATION_STORAGE_ACCOUNT_NAME: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net'
+              DESTINATION_CONTAINER_NAME: '${AZURE_CONTAINER_NAME}'
+              DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
+              DESTINATION_BLOB_RELATIVE_PATH: 'architecture'
+              OVERWRITE: 'true'
+          - pipe: atlassian/azure-storage-deploy:2.1.0
+            variables:
+              SOURCE: 'public/concepts'
+              DESTINATION_STORAGE_ACCOUNT_NAME: 'https://${AZURE_STORAGE_KEY}.blob.core.windows.net'
+              DESTINATION_CONTAINER_NAME: '${AZURE_CONTAINER_NAME}'
+              DESTINATION_SAS_TOKEN: '${AZURE_SAS_TOKEN}'
+              DESTINATION_BLOB_RELATIVE_PATH: 'concepts'
               OVERWRITE: 'true'
           - mkdir dist
           - tar -czvf dist/package-${BITBUCKET_BUILD_NUMBER}.tar.gz -C public .

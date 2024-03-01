@@ -9,26 +9,55 @@ include::../../_document-setup.adoc[]
 
 This process is responsible for importing user profiles exported from other installations into the running {application}.
 
+== Required variables
+
+The import process requires the following variables to be set when starting:
+
+- `storageToken`,
+the file token that was returned after a file upload to {application}.
+The uploaded file must adhere to the link:{schema-location}/profile.schema.json[user profile JSON schema].
+
+=== The profile JSON file
+
 The import is JSON based and adheres to the link:{schema-location}/profile.schema.json[user profile JSON schema].
 This schema can contain any of the following:
 
-- Accounts
-- Categories
-- Contacts
-- Transaction rules
-- Budgets
-- Transaction tags
+- link:{schema-location}/account.schema.json[Accounts], as described in the linked JSON schema.
+- link:{schema-location}/category.schema.json[Categories], as described in the linked JSON schema.
+- link:{schema-location}/contract.schema.json[Contacts], as described in the linked JSON schema.
+- link:{schema-location}/rule.schema.json[Transaction rules], as described in the linked JSON schema.
+- link:{schema-location}/budget.schema.json[Budgets], as described in the linked JSON schema.
+- Transaction tags, as described a list of strings.
+- link:{schema-location}/transaction.schema.json[Transactions], as described in the linked JSON schema.
 
 == The business process model
 
-Below is the BPMN diagram for the user profile import process.
+The process for importing a profile is split in:
 
-.Process diagram
-image::architecture/process/user.profile.import.png[]
+- The main process that imports accounts, budgets, categories, tags and transactions.
+- A dedicated sub-process to import the transaction rules.
 
 [NOTE]
 ====
 The process will first import the core entities (accounts, categories, budgets and tags) followed by the contracts and any transaction rules.
-
 This is due to the fact that both contracts and transaction rules can reference the core entities.
 ====
+
+
+=== Main import process
+
+.Main import process
+[.scalable-image]
+image::architecture/process/user.profile.import.png[Profile import process]
+
+=== Transaction rule sub-process
+
+.Sub-process for transaction rules
+[.scalable-image]
+image::architecture/process/transaction.rules.import.png[Sub-process transactionrules import]
+
+
+
+
+
+

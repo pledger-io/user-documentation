@@ -16,7 +16,8 @@ It also indicates that there are multiple concepts that describe the context of 
 - `Contract`
 
 .Domain model
-image::architecture/data-model.png[]
+[.scalable-image]
+image::architecture/data-model.png[Domain model {application}]
 
 In this design the choice was made to attach everything on a `UserAccount`.
 Where the `Account` is the primary entity, with an enumeration in it to indicate the type of account.

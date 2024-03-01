@@ -3,3 +3,9 @@
 :page-layout: architecture
 
 include::../_document-setup.adoc[]
+
+This part of the documentation contains the architectural design for {application}.
+
+Architectural design is a concept that focuses on the components or structure of a system, the relationships between the components, and the principles guiding its design and evolution.
+
+This design ensures that {application} achieves its goals of allowing managing and maintaining a bookkeeping system while ensuring robustness, reliability, maintainability, and easy scalability.

@@ -6,3 +6,69 @@
 
 ifndef::document-root[:document-root: ../../]
 include::../../_document-setup.adoc[]
+
+== Required variables
+
+- `importJobSlug`,
+the unique slug that was on the import job.
+This can be obtained using the API.
+
+== The business process
+
+The transaction import process is interactive and has multiple points in time where the user is expected to provide information.
+The following user tasks are in the process:
+
+- `task_configure`,
+this task will get activated after the import configuration is read to confirm it with the user.
+- `confirm_mappings`,
+this task will ask the user to confirm and adjust the mappings between account names in the CSV and the ones known in {application}.
+- `user_create_account`,
+this task can occur multiple times in during the import.
+This will be triggered for each account in the CSV where no mapping was provided in the `confirm_mappings` task, but only if the feature that allows the process to create accounts is disabled.
+
+.Process diagram
+[.scalable-image]
+image::architecture/process/import-job.png[Transaction import process]
+
+=== User task: task_configure
+
+This user task allows the user to change the configuration used during the CSV import.
+Initially the user selected a pre-configured configuration, but this may be slightly outdated.
+Or the user may wish to enable or disable automatic account creation.
+
+==== Ingoing variables
+
+- `initialConfig`, the default configuration used by the process.
+This is loaded from the importer configuration settings known in {application}.
+
+==== Outgoing variables
+
+- `updatedConfig`, the updated configuration by the user.
+This will be the version of the configuration that is actually used during the import process.
+
+=== User task: confirm_mappings
+
+This user task gives the user the opportunity to change the mapping between account names found in the CSV and ones already present in {application}.
+
+==== Ingoing variables
+
+- `account_mappings`, the mappings that {application} detected for itself using existing accounts.
+
+==== Outgoing variables
+
+- `account_mappings`, the updated mappings as they were set by the user.
+
+.Example of the JSON for the account_mappings
+[source,json,linenums]
+....
+{
+  "content": [{
+    "name": "The account name in the CSV",
+    "accountId": 123,
+    "_type": "com.jongsoft.finance.bpmn.delegate.importer.ExtractionMapping"
+  }],
+  "_type": "com.jongsoft.finance.rest.process.VariableMap$VariableList"
+}
+....
+
+=== User task: user_create_account

@@ -10,11 +10,21 @@ include::../../_document-setup.adoc[]
 The contract termination process is used warn the user before the contract end date is near.
 It has to be manually created by the user in the UX.
 
+== Required variables
+
+The import process requires the following variables to be set when starting:
+
+- `warnAt`,
+the date at which the warning should be sent for this contract.
+- `contractId`,
+the unique identifier of the contract.
+
 == The business process model
 
 Below is a business process model for contract termination.
 
 .Process diagram
-image::architecture/process/contract.warn.termination.png[]
+[.scalable-image]
+image::architecture/process/contract.warn.termination.png[Contract termination process]
 
 NOTE: If a contracts end date is already in the past the process will terminate without any warning.

@@ -14,7 +14,7 @@ jobs:
           ruby-version: 2.7
       - name: Install dependencies
         run: |
-          apt update && apt install -y graphviz
+          sudo apt update && sudo apt install -y graphviz
           gem install bundler:2.2.13
           bundle install
       - name: Build documentation

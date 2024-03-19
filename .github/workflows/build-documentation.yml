@@ -25,4 +25,4 @@ jobs:
         with:
           name: documentation
           path: |
-            build/**
+            public/**

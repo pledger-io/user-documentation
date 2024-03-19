@@ -9,6 +9,7 @@ jobs:
   build:
     uses: ./.github/workflows/build-documentation.yml
   deployment:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

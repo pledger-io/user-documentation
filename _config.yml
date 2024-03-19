@@ -17,5 +17,5 @@ asciidoctor:
 aux_links:
   "Bug Tracker":
     "https://jongsoftdev.atlassian.net/projects/FIN/issues"
-  "View on Bitbucket":
-    "https://bitbucket.org/jongsoftdev/personal-finance"
+  "Source code":
+    "https://github.com/pledger-io"

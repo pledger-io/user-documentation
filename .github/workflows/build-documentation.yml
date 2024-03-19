@@ -1,0 +1,28 @@
+name: Build documentation
+
+on: [workflow_call]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
+        with:
+          ruby-version: 2.7
+      - name: Install dependencies
+        run: |
+          apt update && apt install -y graphviz
+          gem install bundler:2.2.13
+          bundle install
+      - name: Build documentation
+        run: |
+          bundle exec jekyll build --destination public
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentation
+          path: |
+            build/**

@@ -1,0 +1,10 @@
+name: Build PRs
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    uses: ./.github/workflows/build-documentation.yml

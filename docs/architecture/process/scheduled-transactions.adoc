@@ -6,3 +6,35 @@
 
 ifndef::document-root[:document-root: ../../]
 include::../../_document-setup.adoc[]
+
+== Required variables
+
+*Generic variables that are required for the scheduling process:*
+
+* `subProcess` - the name of the sub-process that is triggered by the scheduled transaction.
+For this process, the sub-process is `ScheduledTransaction`.
+* `start` - the start date for the schedule.
+* `end` - the end date for the schedule.
+* `interval` - the interval between the scheduled transactions.
+* `periodicity` - the frequency of the scheduled transactions.
+
+*Specif variables needed for the scheduled transaction process:*
+
+* `ScheduledTransaction` - a map with the settings for the sub-process.
+** `id` - the unique identifier for the scheduled transaction.
+
+== The business process
+
+A scheduled transaction is a business process that is modeled as a scheduled event.
+The event is triggered by a scheduled date and time.
+The reoccurrence of the event is determined by the interval and periodicity of the scheduled transaction.
+
+This process re-uses the generic process scheduler BPMN flow to trigger the start of the more specific scheduled transaction process.
+
+.Generic scheduling diagram
+[.scalable-image]
+image::architecture/process/process_scheduler.png[Process scheduler]
+
+.Transaction creation diagram
+[.scalable-image]
+image::architecture/process/scheduled.transaction.png[Transaction creation]

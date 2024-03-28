@@ -72,3 +72,13 @@ This user task gives the user the opportunity to change the mapping between acco
 ....
 
 === User task: user_create_account
+
+This user task is triggered when the user did not provide a mapping for an account in the `confirm_mappings` task and the feature to automatically create accounts is disabled.
+
+==== Ingoing variables
+
+- `accountName`, the name of the account that needs to be created.
+
+==== Outgoing variables
+
+- `accountId`, the ID of the account that was created.

@@ -17,17 +17,16 @@ There are various builds for various different target platforms.
 
 Personal Ledger is currently built for:
 
-- AMD64, under image `gjong/amd64-fintrack`
-- ARMv8, work in progress
+- AMD64, under image `{docker-image}`
+- ARMv8, under image `ghcr.io/pledger-io/arm64-core`
 
 The instructions here will assume usage of the tag `latest`.
 Other tags that are used are:
 
-- `gjong/<architecture>-fintrack:latest`, this tag will always point to the latest release that was run
--  `gjong/<architecture>-fintrack:x.x.x`, these are version specific tags.
-Each release of Personal Ledger will add an additional tag.
+- `ghcr.io/pledger-io/<architecture>-core:latest`, this tag will always point to the latest release that was run
+-  `ghcr.io/pledger-io/<architecture>-core:x.x.x`, these are version specific tags.
 
-Currently, only AMD-64 builds are available in the official docker hub, we are working on ARM builds.
+Currently, only AMD-64 and ARM64 builds are available in the official docker hub.
 
 == Single container
 
@@ -54,7 +53,7 @@ docker volume create pledger_upload
 You can use the command below to start the container with {application}.
 Make sure to edit any environment variables to match your setup.
 
-[source,shell,linenums]
+[source,shell,linenums,subs="attributes"]
 ....
  docker run -d \
          -v pledger_logs:/opt/storage/logs \
@@ -66,7 +65,7 @@ Make sure to edit any environment variables to match your setup.
          -e DATABASE_SCHEMA=pledger
          -e DATABASE_USER=pledger
          -e DATABASE_PASSWORD=pledger
-         gjong/amd64-fintrack:latest
+         {docker-image}:latest
 ....
 
 Once this command is run a docker container with {application} will start, this may take some time when run the first time.
@@ -85,14 +84,14 @@ When managing the images and volumes needed for {application} this method is pre
 A compose file describes how the deployment of the various images should happen.
 To be able to deploy Personal Ledger you can use the compose file below as a template.
 
-[source,yaml,linenums]
+[source,yaml,linenums,subs="attributes"]
 ....
 version: '3.7'
 services:
 
     pledger:
       container_name: pledger
-      image: gjong/amd64-fintrack
+      image: {docker-image}
       ports:
         - "80:8080"
       restart: unless-stopped

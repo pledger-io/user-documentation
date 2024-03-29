@@ -8,6 +8,19 @@ include::../../_document-setup.adoc[]
 This page contains all the releases of {application}.
 Each release has a corresponding docker image in the docker.io registry.
 
+== 3.3.0
+
+*Release date: 2024-03-29*
+
+=== Added
+
+- link:{jira-link}353[FIN-353] Re-add the functionality to start new budget periods and adjust expenses
+
+=== Changed
+
+- link:{jira-link}352[FIN-352] Update the architectural documentation to include the business processes
+- link:{jira-link}354[FIN-354] Modernize the build scripting for the backend system
+
 == 3.2.0
 
 *Release date: 2024-03-01*

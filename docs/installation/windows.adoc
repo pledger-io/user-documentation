@@ -35,6 +35,20 @@ After the installer has finished a new application named '{application}' should 
 
 == History
 
+=== 3.3.0
+
+[cols="1,7"]
+|===
+|Release date
+|2024-03-29
+
+|Release note
+|Add support for modifying budgets properly
+
+|Download
+|link:{win-binary-location}/Pledger.io%20Setup%203.3.0.exe[Pledger.io Setup 3.3.0.exe]
+|===
+
 === 3.2.0
 
 [cols="1,7"]

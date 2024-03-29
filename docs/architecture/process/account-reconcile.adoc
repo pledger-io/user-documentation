@@ -1,0 +1,17 @@
+:page-title: Account reconciliation
+:page-description: Business processes modeled
+:page-layout: architecture
+:page-parent: /architecture/process/
+:page-sort-order: 5
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+The account reconciliation process is a business process that is responsible for ensuring that the financial records are accurate and up-to-date.
+To achieve this the starting and ending balance for a given year are compared and any discrepancies are resolved.
+
+== Required variables
+
+The following variables are required to be set in the process:
+
+-

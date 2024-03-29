@@ -16,7 +16,7 @@ WARNING: kubernetes is an advanced platform and should only be used if you alrea
 The following snippet can be used to deploy {application} in a Kubernetes cluster.
 This will start a single pod with a single container running {application}.
 
-[source, yaml, linenums]
+[source, yaml, linenums, subs="attributes"]
 ....
 apiVersion: apps/v1
 kind: Deployment
@@ -47,7 +47,7 @@ spec:
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       containers:
-        - image: gjong/amd64-fintrack:latest
+        - image: {docker-image}:stable
           name: pledger
           ports:
             - name: http

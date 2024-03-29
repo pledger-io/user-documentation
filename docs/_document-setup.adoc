@@ -18,5 +18,7 @@ ifndef::setup-done[]
 
 :java-version: 21
 
+:docker-image: ghcr.io/pledger-io/amd64-core
+
 
 endif::[]

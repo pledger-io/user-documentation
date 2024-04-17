@@ -1,0 +1,40 @@
+.listingblock {
+
+  .highlight {
+    background-color: #183055;
+    margin-bottom: 15px;
+
+    pre {
+      margin: 0;
+    }
+
+    .na {
+      color: #71a7ff;
+    }
+
+    .m, .o {
+      color: #ff9d3d;
+    }
+
+    .s1, .s1 + .s {
+      color: #B5460A;
+    }
+
+    .s2, .s2 + .s {
+      color: #B5460A;
+    }
+
+    code {
+      color: #faf6e4;
+
+      &:empty {
+        padding: .5rem;
+      }
+    }
+
+    table td {
+      padding: .5rem;
+    }
+
+  }
+}

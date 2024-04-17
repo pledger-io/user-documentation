@@ -9,6 +9,7 @@
 @import "header";
 @import "tableblock";
 @import "popover";
+@import "codeblocks";
 
 body {
   margin: 0;
@@ -77,37 +78,6 @@ main {
       p {
         margin: 0;
       }
-    }
-
-    .highlight {
-      background-color: #183055;
-      margin-bottom: 15px;
-
-      pre {
-        margin: 0;
-      }
-
-      .na {
-        color: #71a7ff;
-      }
-
-      .m, .o {
-        color: #ff9d3d;
-      }
-
-      .s1, .s1 + .s {
-        color: #B5460A;
-      }
-
-      .s2, .s2 + .s {
-        color: #B5460A;
-      }
-
-      table td {
-        color: #faf6e4;
-        padding: .5rem;
-      }
-
     }
   }
 }

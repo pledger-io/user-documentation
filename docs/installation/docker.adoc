@@ -20,13 +20,60 @@ Personal Ledger is currently built for:
 - AMD64, under image `{docker-image}`
 - ARMv8, under image `ghcr.io/pledger-io/arm64-core`
 
-The instructions here will assume usage of the tag `latest`.
+The instructions here will assume usage of the tag `stable`.
 Other tags that are used are:
 
-- `ghcr.io/pledger-io/<architecture>-core:latest`, this tag will always point to the latest release that was run
+- `ghcr.io/pledger-io/<architecture>-core:stable`, this tag will always point to the latest release that was run
 -  `ghcr.io/pledger-io/<architecture>-core:x.x.x`, these are version specific tags.
 
 Currently, only AMD-64 and ARM64 builds are available in the official docker hub.
+
+== Environment variables
+
+{application} uses environment variables to configure the application.
+
+=== General configuration options
+
+[.data-structure]
+[%header,cols="1,2,1"]
+|===
+
+| Variable | Description | Default
+
+| `DB_TYPE` | The type of database to use, allowed are `h2` or `mysql` | h2
+
+|===
+
+=== MySQL configuration options
+
+If the database type is set to `mysql` then the following environment variables are used.
+
+[.data-structure]
+[%header,cols="1,2,1"]
+|===
+
+| Variable | Description | Default
+
+| `DATABASE_HOST` | The MySQL server host, only if `DB_TYPE` is mysql | localhost
+| `DATABASE_SCHEMA` | The MySQL schema to use, only if `DB_TYPE` is mysql | fintrack
+| `DATABASE_PASSWORD` | The MySQL user for authentication, only if `DB_TYPE` is mysql | fintrack
+
+|===
+
+=== Mail configuration options
+
+When using the mail feature of {application} the following environment variables are used.
+
+[.data-structure]
+[%header,cols="1,2,1"]
+|===
+| Variable | Description | Default
+
+| `SMTP_HOST` | The SMTP server host | -
+| `SMTP_USER` | The SMTP user for authentication | -
+| `SMTP_PASSWORD` | The SMTP password for authentication | -
+
+|===
 
 == Single container
 
@@ -53,7 +100,7 @@ docker volume create pledger_upload
 You can use the command below to start the container with {application}.
 Make sure to edit any environment variables to match your setup.
 
-[source,shell,linenums,subs="attributes"]
+[source,shell,subs="attributes",linenums]
 ....
  docker run -d \
          -v pledger_logs:/opt/storage/logs \
@@ -65,7 +112,7 @@ Make sure to edit any environment variables to match your setup.
          -e DATABASE_SCHEMA=pledger
          -e DATABASE_USER=pledger
          -e DATABASE_PASSWORD=pledger
-         {docker-image}:latest
+         {docker-image}:stable
 ....
 
 Once this command is run a docker container with {application} will start, this may take some time when run the first time.
@@ -91,7 +138,7 @@ services:
 
     pledger:
       container_name: pledger
-      image: {docker-image}
+      image: {docker-image}:stable
       ports:
         - "80:8080"
       restart: unless-stopped

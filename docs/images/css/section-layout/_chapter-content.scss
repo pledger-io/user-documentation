@@ -48,6 +48,11 @@ $text-color: rgb(0, 0, 0, .8);
     line-height: 1.2em;
   }
 
+  a {
+    text-decoration: none;
+    color: lighten(#1f527b, 30%);
+  }
+
   code {
     color: #B5460A
   }

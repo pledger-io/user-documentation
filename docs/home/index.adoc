@@ -5,3 +5,48 @@
 :page-title: Pledger.io documentation
 :page-layout: section
 :page-order: 0
+
+ifndef::document-root[:document-root: ../]
+include::../_document-setup.adoc[]
+
+Welcome to the {application} documentation.
+This documentation is intended to help you get started with {application} and to provide you with the information you need to use {application} effectively.
+
+== xref:{document-root}/getting-started/index.adoc[Getting started]
+
+Do you want to know the basic usage of {application}?
+Then check out the getting started guide and find out information about:
+
+* xref:{document-root}/getting-started/introduction/first-account.adoc[Creating accounts and transactions]
+* xref:{document-root}/getting-started/introduction/catagorizing.adoc[Categorizing transactions]
+
+More getting started guides are available in the xref:{document-root}/getting-started/index.adoc[getting started] section.
+
+== xref:{document-root}/how-to/index.adoc[How-to guides]
+
+Do you want to know how to do something specific with {application}?
+Then check out the how-to guides and find out information about:
+
+* xref:{document-root}/how-to/installation/docker.adoc[Installing {application} with Docker]
+* xref:{document-root}/how-to/managing-budgets.adoc[Managing budgets]
+
+More how-to guides are available in the xref:{document-root}/how-to/index.adoc[how-to guides] section.
+
+== xref:{document-root}/architecture/index.adoc[Reference guide]
+
+Do you want to know more about the architecture of {application}?
+Then check out the reference guide and find out information about:
+
+* xref:{document-root}/architecture/design/application.adoc[Application design]
+* xref:{document-root}/architecture/process/index.adoc[Business processes used in {application}]
+
+More reference guides are available in the xref:{document-root}/architecture/index.adoc[reference guide] section.
+
+== xref:{document-root}/concepts/index.adoc[Explanations]
+
+Do you want to know more about the concepts used in {application}?
+Then check out the explanations and find out information about:
+
+* xref:{document-root}/concepts/financial/transactions.adoc[What financial concepts are behind {application}]
+
+More explanations are available in the xref:{document-root}/concepts/index.adoc[explanations] section.

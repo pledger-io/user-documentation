@@ -1,6 +1,6 @@
 :page-id: how-to
 :page-module: section
-:page-nav-title: How to guides
+:page-nav-title: How-to guides
 :page-section: how-to-guides
 :page-layout: section
 :page-order: 2

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="{{ "/images/css/landing.css" | relative_url }}">
+
+    <title>{{ site.title }} - {{ page.title }}</title>
+</head>
+
+<body>
+<header>
+    <div class="container">
+        <h1>{{ site.title }}</h1>
+        <div class="buttons">
+            <a href="/about/purpose">Documentation</a>
+            <a href="/installation">Download</a>
+        </div>
+    </div>
+</header>
+<main>
+    {{ content }}
+</main>
+</body>

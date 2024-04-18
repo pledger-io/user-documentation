@@ -1,0 +1,354 @@
+:page-id: concepts::pledger::releases
+:page-parent: concepts::pledger
+:page-nav-title: Release history
+:page-module: chapter
+:page-title: Release history of Pledger.io
+:page-section: concepts
+:page-layout: section
+:page-order: 2
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+This page lists the release history of {application}.
+It is intended to provide a high-level overview of the changes made to the software over time.
+
+== 3.3.0
+
+*Release date: 2024-03-29*
+
+=== Added
+
+- link:{jira-link}353[FIN-353] Re-add the functionality to start new budget periods and adjust expenses
+
+=== Changed
+
+- link:{jira-link}352[FIN-352] Update the architectural documentation to include the business processes
+- link:{jira-link}354[FIN-354] Modernize the build scripting for the backend system
+
+== 3.2.0
+
+*Release date: 2024-03-01*
+
+=== Added
+
+- link:{jira-link}275[FIN-275] Update the import transactions view
+- link:{jira-link}348[FIN-348] Update the testing framework for BPMN flows
+
+=== Bug fixes
+
+- link:{jira-link}349[FIN-349] Importing of budgets in a profile fails
+- link:{jira-link}350[FIN-350] When exporting and importing liability accounts the initial transaction should be included
+
+== 3.1.0
+
+*Release date: 2024-02-06*
+
+=== Added
+
+- link:{jira-link}271[FIN-271] Update the automated rules view
+- link:{jira-link}326[FIN-326] Add the reconciling to the own account view
+- link:{jira-link}338[FIN-338] Create support to create an account from the account autocomplete
+- link:{jira-link}347[FIN-347] Add creation of category from the autocomplete
+
+=== Bug fixes
+
+- link:{jira-link}339[FIN-339] Updating a saving goal with date in the past fails
+
+== 3.0.2
+
+*Release date: 2024-01-23*
+
+=== Bug fixes
+
+- link:{jira-link}342[FIN-342] Spacing autocomplete accounts incorrect
+- link:{jira-link}343[FIN-343] Tabbing out of account autocomplete invalidates field
+- link:{jira-link}344[FIN-344] The balance graph for account detail overview is wrong on initial load
+- link:{jira-link}345[FIN-345] Logos on the yearly income / expense to large
+- link:{jira-link}346[FIN-346] Category report monthly spending table not updating correctly
+
+== 3.0.1
+
+*Release date: 2024-01-19*
+
+=== Bug fixes
+
+- link:{jira-link}340[FIN-340] Creating of transaction fails
+- link:{jira-link}341[FIN-341] Incorrect double / in breadcrumb with links
+
+== 3.0.0
+
+*Release date: 2024-01-18*
+
+=== Added
+
+- link:{jira-link}263[FIN-263] Update the dashboard page
+- link:{jira-link}264[FIN-264] Update the `Income & Expense` report
+- link:{jira-link}265[FIN-265] Update the `Budget vs Spent` report
+- link:{jira-link}266[FIN-266] Update the `Category` report
+- link:{jira-link}267[FIN-267] Update the Budget section
+- link:{jira-link}268[FIN-268] Update the contract management
+- link:{jira-link}269[FIN-269] Update the global transaction view
+- link:{jira-link}270[FIN-270] Update the Recurring transaction view
+- link:{jira-link}271[FIN-271] Update the automated rules view
+- link:{jira-link}272[FIN-272] Update the account view
+- link:{jira-link}273[FIN-273] Update the options view
+- link:{jira-link}274[FIN-274] Update the categories view
+- link:{jira-link}319[FIN-319] Update the localization files using the localization project
+- link:{jira-link}320[FIN-320] Update the release pipeline to the new front-end
+- link:{jira-link}333[FIN-333] Add architectural documentation
+- link:{jira-link}334[FIN-334] Update the profile pages
+
+=== Bug fixes
+
+- link:{jira-link}329[FIN-329] Dropdown of currency in reports is incorrectly formatted
+- link:{jira-link}330[FIN-330] Autocomplete cannot be changed after a value is selected
+- link:{jira-link}331[FIN-331] Initial value of own account selector undefined
+- link:{jira-link}335[FIN-335] The transaction detail in the listing shows incorrect amount
+- link:{jira-link}336[FIN-336] Category page does not load without categories
+- link:{jira-link}337[FIN-337] Default account type incorrect when creating account
+
+== 2.4.2
+
+*Release date: 2022-11-28*
+
+=== Changes
+
+- Upgrade to various libraries underneath the backend of {application}.
+
+== 2.4.1
+
+*Release date: 2021-11-05*
+
+=== Bug fixes
+
+- link:{jira-link}255[FIN-255] Contract warning never gets triggered
+- link:{jira-link}254[FIN-254] Scheduled transaction does not add new transactions
+- link:{jira-link}256[FIN-256] Correct styling profile page with new layout
+- link:{jira-link}253[FIN-253] Fix styling in the income / expense report table for difference
+- link:{jira-link}252[FIN-252] Fix styling of overview buttons in the dashboard
+- link:{jira-link}251[FIN-251] Fix table styling in account overview
+- link:{jira-link}250[FIN-250] Fix styling in month / year selector in the breadcrumb bar
+- link:{jira-link}249[FIN-249] Fix account logo position in the transaction overview
+- link:{jira-link}248[FIN-248] Fix styling in phone resolution
+- link:{jira-link}247[FIN-247] Fix styling in the logon / register dialogs
+
+== 2.4.0
+
+*Release date: 2021-09-09*
+
+=== Added
+
+- link:{jira-link}242[FIN-242] Add support for saving goals
+
+=== Changes
+
+- link:{jira-link}246[FIN-246] Update API documentation for next release
+- link:{jira-link}244[FIN-244] Redesign sidebar menu
+- link:{jira-link}245[FIN-245] Add help text to various edit screens
+
+=== Bug fixes
+
+- link:{jira-link}239[FIN-239] Split of transaction fails on database exception
+- link:{jira-link}237[FIN-237] Y-axis displays undefined in the income/expense report
+- link:{jira-link}236[FIN-236] Y-axis displays undefined in the dashboard graphs
+
+== 2.3.0
+
+*Release date: 2021-05-17*
+
+=== Added
+
+- link:{jira-link}235[FIN-235] Setup a relation between contracts and scheduled transactions
+- link:{jira-link}190[FIN-190] Redesign the account transaction page
+- link:{jira-link}231[FIN-231] Create scheduled transaction from a transaction
+
+=== Changes
+
+- link:{jira-link}232[FIN-232] Tags are not correctly saved during the creation of a transaction
+
+=== Bug fixes
+
+- link:{jira-link}234[FIN-234] Upgrade the front-end frameworks
+- link:{jira-link}233[FIN-233] Select all transaction on the page
+
+== 2.2.0
+
+*Release date: 2021-02-25*
+
+=== Added
+
+- link:{jira-link}218[FIN-218] Update upload locations to include new drag and drop system
+
+=== Changes
+
+- link:{jira-link}215[FIN-215] Move to front-end created graphs
+- link:{jira-link}224[FIN-224] Phase out Moment.js in front-end
+
+=== Bug fixes
+
+- link:{jira-link}226[FIN-226] Cannot change company of a contract even though interface allows it
+- link:{jira-link}228[FIN-228] Images for the upload account logo are not displaying correctly
+- link:{jira-link}219[FIN-219] Update dashboard for correct budget display in graph
+
+== 2.1.0
+
+*Release date: 2020-12-07*
+
+=== Added
+
+- link:{jira-link}187[FIN-187] Add an overview of the active tokens on profile page
+- link:{jira-link}188[FIN-188] Add support for long-lived refresh tokens for API B2B
+- link:{jira-link}189[FIN-189] Add support for account icons
+- link:{jira-link}197[FIN-197] Add archive option for failed importer jobs
+
+=== Bug fixes
+
+- link:{jira-link}198[FIN-198] Last transaction on own-overview shows undefined
+- link:{jira-link}223[FIN-223] Contract creation results in exception
+
+== 2.0.2
+
+*Release date: 2020-11-16*
+
+=== Bug fixes
+
+- link:{jira-link}192[FIN-192] Autocomplete of tags does not work
+- link:{jira-link}193[FIN-193] Income / Expense report the revenue list shows negative numbers
+- link:{jira-link}194[FIN-194] Interest not shown in liabilities / edit
+- link:{jira-link}195[FIN-195] Export of profile fails with transaction issue
+- link:{jira-link}196[FIN-196] 2-Factor authentication code fails
+
+== 2.0.0
+
+*Release date: 2020-11-12*
+
+WARNING: This is a major release, before migrating please back up your database and storage locations.
+The entire application core has been reworked.
+
+=== Added
+
+- link:{jira-link}160[FIN-160] Add API documentation viewer
+- link:{jira-link}185[FIN-185] Create standalone deployment option
+- link:{jira-link}168[FIN-168] Add support for long living tokens
+
+=== Changed
+
+- link:{jira-link}137[FIN-137] Rewrite the core layer to Micronaut framework for better performance
+- link:{jira-link}138[FIN-138] Add the REST-api layer for security
+- link:{jira-link}139[FIN-139] Setup angular project into new gradle setup
+- link:{jira-link}140[FIN-140] Setup new gradle structure
+- link:{jira-link}141[FIN-141] Rework the JPA layer for micronaut
+- link:{jira-link}142[FIN-142] Add the rule engine module
+- link:{jira-link}143[FIN-143] Add the domain module
+- link:{jira-link}144[FIN-144] Add the bpmn module
+- link:{jira-link}145[FIN-145] Move UI to separate repository for improved build speeds
+- link:{jira-link}146[FIN-146] Create automated build script for Angular application
+- link:{jira-link}148[FIN-148] Create a repository to bundle the Java Application and the Angular application
+- link:{jira-link}149[FIN-149] Add the account REST end-points
+- link:{jira-link}150[FIN-150] Add the CSV Import REST end-points
+- link:{jira-link}151[FIN-151] Add the budget REST end-points
+- link:{jira-link}152[FIN-152] Add the contract REST end-points
+- link:{jira-link}153[FIN-153] Add the attachment REST end-poitns
+- link:{jira-link}154[FIN-154] Add the BPMN process end-points
+- link:{jira-link}155[FIN-155] Add the application setting end-points
+- link:{jira-link}156[FIN-156] Add the global transaction end-points
+- link:{jira-link}157[FIN-157] Add the category REST end-points
+- link:{jira-link}158[FIN-158] Add the transaction rule REST end-points
+- link:{jira-link}159[FIN-159] Create the account transaction REST end-points
+- link:{jira-link}164[FIN-164] Add profile export to JSON
+- link:{jira-link}165[FIN-165] Add transaction export to CSV
+- link:{jira-link}166[FIN-166] Hook in artifact release to osshr
+- link:{jira-link}171[FIN-171] Rework JPA repositories to new ReactiveEntityManager
+- link:{jira-link}184[FIN-184] Improve performance of the BPMN tests
+
+=== Bug fixes
+
+- link:{jira-link}147[FIN-147] Font files not loading correctly in angular
+- link:{jira-link}161[FIN-161] Creation of new user fails on missing userService.create operation
+- link:{jira-link}162[FIN-162] Account creation fails on introspect exception
+- link:{jira-link}172[FIN-172] Graph end points are not working correctly
+- link:{jira-link}173[FIN-173] Front-End does not redirect to login after session expires
+- link:{jira-link}174[FIN-174] Top creditor / debtor end point not working
+- link:{jira-link}175[FIN-175] Flowable with empty stream returns only ]
+- link:{jira-link}176[FIN-176] Graphs do not render properly on front-end
+- link:{jira-link}177[FIN-177] Global transaction overview crashes without transactions
+- link:{jira-link}178[FIN-178] Local-date is returned as array should be a string
+- link:{jira-link}179[FIN-179] Role based authorization is not working correctly
+- link:{jira-link}180[FIN-180] Unable to bulk modify transactions
+- link:{jira-link}181[FIN-181] Account extraction result not correctly served
+- link:{jira-link}182[FIN-182] Reconcile account not successfully created after registration
+- link:{jira-link}183[FIN-183] Reconcile a year with deviating start balance incorrect reconcile
+- link:{jira-link}186[FIN-186] Page sizes front-end do not match backend when changed in settings
+
+== 1.4.3
+
+*Release date: 2020-08-19*
+
+=== Added
+
+- link:{jira-link}94[FIN-94] Add debt recording into the backend
+- link:{jira-link}130[FIN-130] Add correlation to logging to relate log lines to requests
+
+=== Changed
+
+- link:{jira-link}125[FIN-125] Allow for creating new rule groups in UI
+- link:{jira-link}129[FIN-129] Extract the transaction rule matcher / applier to separate system
+
+=== Bug fixes
+
+- link:{jira-link}126[FIN-126] Paging on contract detail page not working
+- link:{jira-link}127[FIN-127] The top account listing on the expense report is sorted incorrectly
+- link:{jira-link}128[FIN-128] Profile export budgets wrong serialized date
+- link:{jira-link}134[FIN-134] Issue with first transaction day counted double in the balance per account graph
+- link:{jira-link}135[FIN-135] Missing liability percentage on overview screen
+
+== 1.3.1
+
+*Release date: 2020-06-05*
+
+=== Added
+
+- link:{jira-link}84[FIN-84], link:{jira-link}80[FIN-80], link:{jira-link}83[FIN-83] - Add tagging support in backend
+
+=== Changed
+
+- link:{jira-link}108[FIN-108] Setup language selection to survive the users session
+
+=== Bug fixes
+
+- link:{jira-link}105[FIN-105] The total income per month is not visible on budget report
+- link:{jira-link}110[FIN-110] Paging not stored in history on account expense list
+
+== 1.2.0
+
+*Release date: 2020-05-18*
+
+=== Added
+
+- link:{jira-link}60[FIN-60] Add functionality to set category, budget and contract on multiple transactions at once
+- link:{jira-link}79[FIN-79] Allow for transaction exporting
+
+=== Changed
+
+- link:{jira-link}77[FIN-77] Enable the contract expiration warning BPMN flow
+- link:{jira-link}104[FIN-104] Add create transaction option from the global transaction overview
+
+=== Bug fixes
+
+- link:{jira-link}103[FIN-103] Scheduled transaction only records one transaction
+
+== 1.1.0
+
+*Release date: 2020-05-12*
+
+=== Added
+
+- link:{jira-link}58[FIN-58] Add text search and page ordering for the account detail page
+- link:{jira-link}59[FIN-59] Add search feature on the creditor / debtor overview page
+- link:{jira-link}64[FIN-64] Add page history when navigating between the transaction overview pages
+- link:{jira-link}101[FIN-101] Add a category and budget PIE charts to global transaction overview
+
+=== Bug fixes
+
+- link:{jira-link}102[FIN-102] Fix issue in editing flag setting type in the setting form

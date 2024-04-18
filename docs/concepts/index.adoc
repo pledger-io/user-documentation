@@ -1,3 +1,7 @@
-:page-title: Concepts
-:page-parent: /index.adoc
-:page-sort-order: 3
+:page-id: concepts
+:page-module: section
+:page-section: concepts
+:page-nav-title: Explanations
+:page-title: Concepts used within Pledger.io
+:page-layout: section
+:page-order: 4

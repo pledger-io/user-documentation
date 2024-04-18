@@ -1,0 +1,6 @@
+:page-nav-title: Creating your user
+:page-parent: getting-started::introduction
+:page-title: Creating your user to login to Pledger.io
+:page-section: getting-started
+:page-layout: section
+:page-order: 1

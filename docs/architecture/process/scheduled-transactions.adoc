@@ -1,8 +1,10 @@
+:page-id: architecture::process::schedule::transaction
+:page-nav-title: Scheduled transactions
+:page-parent: architecture::process
 :page-title: Scheduled transactions
-:page-description: Business processes modeled
-:page-layout: architecture
-:page-parent: /architecture/process/
-:page-sort-order: 3
+:page-section: architecture
+:page-layout: section
+:page-order: 3
 
 ifndef::document-root[:document-root: ../../]
 include::../../_document-setup.adoc[]

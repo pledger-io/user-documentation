@@ -1,0 +1,55 @@
+$base-color: rgb(29 77 116);
+
+& {
+  padding: .5rem 1rem;
+  background-color: $base-color;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    & > a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+    }
+
+    .source {
+      color: rgb(255, 255, 255);
+
+      display: flex;
+      align-items: center;
+      gap: .25em;
+
+      text-decoration: none;
+
+      &:hover {
+        opacity: .8;
+      }
+
+      svg {
+        fill: rgb(255, 255, 255);
+      }
+
+      .title {
+        font-size: .8em;
+      }
+
+      .details {
+        display: flex;
+        flex-direction: row;
+        gap: .25rem;
+      }
+
+      .information {
+        font-size: .6em;
+        color: rgb(255, 255, 255, .7);
+
+        gap: .1em;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

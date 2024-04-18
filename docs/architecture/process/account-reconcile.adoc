@@ -1,8 +1,10 @@
+:page-id: architecture::process::account-reconciliation
+:page-nav-title: Account reconciliation
+:page-parent: architecture::process
 :page-title: Account reconciliation
-:page-description: Business processes modeled
-:page-layout: architecture
-:page-parent: /architecture/process/
-:page-sort-order: 5
+:page-section: architecture
+:page-layout: section
+:page-order: 5
 
 ifndef::document-root[:document-root: ../../]
 include::../../_document-setup.adoc[]
@@ -13,5 +15,3 @@ To achieve this the starting and ending balance for a given year are compared an
 == Required variables
 
 The following variables are required to be set in the process:
-
--

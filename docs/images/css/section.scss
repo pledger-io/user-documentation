@@ -1,0 +1,66 @@
+---
+---
+
+$max-width: 61rem;
+$base-color: rgb(29 77 116);
+
+:root {
+  font-size: 1.375em;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+
+  .container {
+    width: $max-width;
+    margin: 0 auto;
+  }
+
+  header {
+    @import "section-layout/header";
+  }
+
+  & > nav {
+    background-color: lighten($base-color, 2%);
+    padding: .3rem 0 .5rem 0;
+    font-size: .75em;
+
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(255, 255, 255, .7);
+
+      &.active {
+        color: rgb(255, 255, 255);
+      }
+    }
+  }
+
+  main {
+    padding-top: 2rem;
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      gap: .5rem;
+
+      & > nav {
+        @import "section-layout/chapter-navigation";
+      }
+
+      & > .content {
+        @import "section-layout/chapter-content";
+      }
+
+      & > .page-nav {
+        @import "section-layout/page-navigation";
+      }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+$text-color: rgb(0, 0, 0, .8);
+
+& {
+  h1 {
+    font-size: 1.2em;
+    margin: 0 0 .5rem 0;
+
+    color: rgb(0, 0, 0, .55);
+  }
+
+  h2 {
+    font-size: 1em;
+    margin: 2rem 0 .5rem 0;
+    color: rgb(0, 0, 0, .7);
+  }
+
+  h3 {
+    font-size: .8em;
+    margin: 1.5rem 0 .5rem 0;
+
+    font-weight: bold;
+    color: $text-color;
+  }
+
+  .imageblock {
+    .title {
+      font-size: .8em;
+      margin: 0 2.5rem 0 0;
+      color: rgba(131, 3, 3, 0.7);
+
+      text-align: right;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  p {
+    margin: 1em 0;
+
+    color: $text-color;
+    font-size: .8em;
+    line-height: 1.2em;
+  }
+
+  code {
+    color: #B5460A
+  }
+
+  ul {
+    margin: .25rem 1.5em;
+    padding:0;
+    vertical-align: middle;
+    list-style: none;
+
+    li {
+      margin: 0;
+      display: flex;
+
+      &::before {
+        content: "•";
+        margin-right: .5em;
+        color: $text-color;
+      }
+
+      p {
+        margin: 0;
+        line-height: unset;
+      }
+    }
+  }
+
+  ol {
+    margin: 1em .5em;
+
+    li {
+      margin: 0;
+      padding: 0;
+
+      &::marker {
+        font-size: .8em;
+        color: $text-color;
+      }
+
+      p {
+        margin: 0;
+        line-height: unset;
+      }
+    }
+  }
+
+  .listingblock {
+    @import "code-bocks";
+  }
+
+  .release-table {
+    @import "release-table";
+  }
+
+  .admonitionblock {
+    @import "admotion";
+  }
+}

@@ -1,0 +1,26 @@
+:page-id: concepts::financial::contracts
+:page-parent: concepts::financial
+:page-nav-title: Contracts
+:page-module: chapter
+:page-title: Contracts in finance
+:page-section: concepts
+:page-layout: section
+:page-order: 4
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+A contract is a legally binding agreement that recognizes and governs the rights and duties of the parties to the agreement.
+
+{application} enables you to add contracts, which then support:
+
+- Linking all related transactions to the contract
+- Record the physical contract (in PDF format)
+- Warn you when the end date is near, so you can cancel in time if you wanted to stop the contract
+
+Examples of contracts could be:
+
+- Cable services
+- Internet services
+- Phone services
+- Electricity utilities

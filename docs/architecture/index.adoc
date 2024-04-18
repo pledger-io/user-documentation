@@ -1,6 +1,10 @@
-:page-title: Architectural design
-:page-description: Architectural design of the project
-:page-layout: architecture
+:page-id: architecture
+:page-module: section
+:page-section: architecture
+:page-nav-title: Reference guide
+:page-title: Architectural design for Pledger.io
+:page-layout: section
+:page-order: 3
 
 include::../_document-setup.adoc[]
 

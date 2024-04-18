@@ -1,8 +1,10 @@
+:page-id: architecture::process::transaction::import
+:page-nav-title: Transaction import
+:page-parent: architecture::process
 :page-title: Transaction import
-:page-description: Business processes modeled
-:page-layout: architecture
-:page-parent: /architecture/process/
-:page-sort-order: 2
+:page-section: architecture
+:page-layout: section
+:page-order: 2
 
 ifndef::document-root[:document-root: ../../]
 include::../../_document-setup.adoc[]

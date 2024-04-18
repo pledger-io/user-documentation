@@ -1,0 +1,7 @@
+:page-id: home
+:page-module: section
+:page-section: home
+:page-nav-title: Home
+:page-title: Pledger.io documentation
+:page-layout: section
+:page-order: 0

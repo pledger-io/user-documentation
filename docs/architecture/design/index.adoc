@@ -1,6 +1,10 @@
-:page-title: Design
-:page-description: Architectural design of the project
-:page-layout: architecture
-:page-parent: /architecture/index.adoc
+:page-id: architecture::design
+:page-parent: architecture
+:page-nav-title: Design
+:page-module: chapter
+:page-title: Architectural design of the project
+:page-section: architecture
+:page-layout: section
+:page-order: 2
 
 include::../../_document-setup.adoc[]

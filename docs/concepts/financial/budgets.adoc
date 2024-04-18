@@ -1,0 +1,31 @@
+:page-id: concepts::financial::budgets
+:page-parent: concepts::financial
+:page-nav-title: Budgets
+:page-module: chapter
+:page-title: Budgets in finance
+:page-section: concepts
+:page-layout: section
+:page-order: 3
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+A budget is the sum of money allocated for a particular purpose, and the summary of intended expenditures along with proposals for how to meet them.
+
+After a while of creating transactions you may find the same type of transaction always recurring.
+Or alternatively you may want to reduce spending on certain type of transactions, or at the very least keep track that the spending does not increase dramatically.
+
+Good examples of budgets are:
+
+- Bills
+- Groceries
+- Gasoline
+
+These type of transactions can be grouped together in *budgets*, as they are recurring costs.
+For each budget you can allocate a specific amount of money every month.
+{application} will then keep track of your expected and the actual expenses.
+
+== The difference between budgets and categories
+
+The difference with categories is that budgets are used to budget your expenses, and can be used to monitor your spending around a specific subject.
+Most people use categories to add more fine-grained details to a transaction, but categories cannot be "monetized".

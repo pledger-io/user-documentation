@@ -1,0 +1,8 @@
+:page-id: how-to::installation
+:page-parent: how-to
+:page-nav-title: Installing the software
+:page-module: chapter
+:page-title: Guide to installing the software
+:page-section: how-to-guides
+:page-layout: section
+:page-order: 1

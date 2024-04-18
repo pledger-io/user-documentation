@@ -1,0 +1,49 @@
+& {
+  & > .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    & > * {
+      flex: 1;
+    }
+
+    .imageblock img {
+      width: 100%;
+      height: auto;
+    }
+
+    .exampleblock {
+      .title {
+        font-size: 2em;
+        font-weight: bold;
+        color: rgb(0, 0, 0, .8);
+
+        margin-bottom: .5em;
+      }
+
+      .description {
+        font-size: 1.2em;
+        line-height: 1.8em;
+        color: rgb(0, 0, 0, .7);
+      }
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  &.left > .content {
+    .exampleblock > * {
+      margin-left: 10em;
+      margin-right: 2em;
+    }
+  }
+
+  &.right > .content {
+    .exampleblock > * {
+      margin-right: 10em;
+      margin-left: 2em;
+    }
+  }
+}

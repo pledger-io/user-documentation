@@ -1,0 +1,20 @@
+:page-id: concepts::financial::recurring-transactions
+:page-parent: concepts::financial
+:page-nav-title: Recurring transactions
+:page-module: chapter
+:page-title: Recurring transactions in finance
+:page-section: concepts
+:page-layout: section
+:page-order: 5
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+{application} allows you to create recurring transactions.
+These are transactions that are automatically created at regular intervals.
+For example, you can create a recurring transaction for your rent, which will be created every month.
+
+Recurring transactions are useful for transactions that are repeated at regular intervals, such as rent, salaries, and utility bills.
+They help you to manage your finances by automating the creation of these transactions.
+
+Recurring transactions can be created for any type of transaction, such as expenses, income, and transfers.

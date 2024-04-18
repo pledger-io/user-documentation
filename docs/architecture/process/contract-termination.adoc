@@ -1,8 +1,10 @@
+:page-id: architecture::process::contract-termination
+:page-nav-title: Contract termination
+:page-parent: architecture::process
 :page-title: Contract termination
-:page-description: Business processes modeled
-:page-layout: architecture
-:page-parent: /architecture/process/
-:page-sort-order: 4
+:page-section: architecture
+:page-layout: section
+:page-order: 4
 
 ifndef::document-root[:document-root: ../../]
 include::../../_document-setup.adoc[]

@@ -1,7 +1,9 @@
-:page-title: Process
-:page-description: Business processes modeled
-:page-layout: architecture
-:page-parent: /architecture/index.adoc
-:page-sort-order: 1
+:page-id: architecture::process
+:page-nav-title: Business processes
+:page-parent: architecture
+:page-title: Business processes modeled
+:page-section: architecture
+:page-layout: section
+:page-order: 3
 
 include::../../_document-setup.adoc[]

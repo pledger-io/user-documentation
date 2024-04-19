@@ -1,0 +1,15 @@
+
+== 1.1.0
+
+*Release date: 2020-05-12*
+
+=== Added
+
+- link:{jira-link}58[FIN-58] Add text search and page ordering for the account detail page
+- link:{jira-link}59[FIN-59] Add search feature on the creditor / debtor overview page
+- link:{jira-link}64[FIN-64] Add page history when navigating between the transaction overview pages
+- link:{jira-link}101[FIN-101] Add a category and budget PIE charts to global transaction overview
+
+=== Bug fixes
+
+- link:{jira-link}102[FIN-102] Fix issue in editing flag setting type in the setting form

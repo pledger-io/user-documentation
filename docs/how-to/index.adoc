@@ -1,6 +1,21 @@
 :page-id: how-to
 :page-module: section
 :page-nav-title: How-to guides
+:page-title: How-to guides
 :page-section: how-to-guides
 :page-layout: section
 :page-order: 2
+
+ifndef::document-root[:document-root: ../]
+include::../_document-setup.adoc[]
+
+In this guide, we'll walk you through the essential steps and features of our platform, designed to streamline your financial management tasks with ease and efficiency.
+Whether you're a seasoned professional or just starting out in the world of finance, our user-friendly interface and robust functionalities will empower you to take control of your finances like never before.
+
+From tracking expenses to generating detailed reports, our financial system is equipped with a range of tools to help you achieve your financial goals with confidence.
+In this how-to section, we'll provide clear and concise instructions on how to navigate the system, perform key tasks, and leverage its capabilities to optimize your financial processes.
+
+Whether you're looking to manage personal finances, track business expenses, or streamline accounting procedures, our user manual is your go-to resource for mastering our financial system.
+So let's dive in and unlock the full potential of our platform together!
+
+The menu on the left side of the page are the how-to guides that are available for *{application}*.

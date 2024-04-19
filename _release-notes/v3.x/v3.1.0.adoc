@@ -1,0 +1,15 @@
+
+== 3.1.0
+
+*Release date: 2024-02-06*
+
+=== Added
+
+- link:{jira-link}271[FIN-271] Update the automated rules view
+- link:{jira-link}326[FIN-326] Add the reconciling to the own account view
+- link:{jira-link}338[FIN-338] Create support to create an account from the account autocomplete
+- link:{jira-link}347[FIN-347] Add creation of category from the autocomplete
+
+=== Bug fixes
+
+- link:{jira-link}339[FIN-339] Updating a saving goal with date in the past fails

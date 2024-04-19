@@ -1,0 +1,53 @@
+:page-id: how-to::installation::configuration
+:page-parent: how-to::installation
+:page-nav-title: Configure Pledger.io
+:page-module: chapter
+:page-title: How to configure Pledger.io after installation
+:page-section: how-to-guides
+:page-layout: section
+:page-order: 4
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+{application} uses environment variables to configure the application.
+
+== General configuration options
+
+[%header,cols="1,2,1"]
+|===
+
+| Variable | Description | Default
+
+| `DB_TYPE` | The type of database to use, allowed are `h2` or `mysql` | h2
+
+|===
+
+== MySQL configuration options
+
+If the database type is set to `mysql` then the following environment variables are used.
+
+[%header,cols="1,2,1"]
+|===
+
+| Variable | Description | Default
+
+| `DATABASE_HOST` | The MySQL server host, only if `DB_TYPE` is mysql | localhost
+| `DATABASE_SCHEMA` | The MySQL schema to use, only if `DB_TYPE` is mysql | fintrack
+| `DATABASE_PASSWORD` | The MySQL user for authentication, only if `DB_TYPE` is mysql | fintrack
+
+|===
+
+== Mail configuration options
+
+When using the mail feature of {application} the following environment variables are used.
+
+[%header,cols="1,2,1"]
+|===
+| Variable | Description | Default
+
+| `SMTP_HOST` | The SMTP server host | -
+| `SMTP_USER` | The SMTP user for authentication | -
+| `SMTP_PASSWORD` | The SMTP password for authentication | -
+
+|===

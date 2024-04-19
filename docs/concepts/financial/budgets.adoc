@@ -10,16 +10,24 @@
 ifndef::document-root[:document-root: ../../]
 include::../../_document-setup.adoc[]
 
-A budget is the sum of money allocated for a particular purpose, and the summary of intended expenditures along with proposals for how to meet them.
+A budget serves as a detailed plan for how you will allocate your financial resources over a specific period, typically monthly or annually.
+It outlines your expected income and expenses, and allows you to compare your actual financial performance against your budgeted performance.
 
-After a while of creating transactions you may find the same type of transaction always recurring.
-Or alternatively you may want to reduce spending on certain type of transactions, or at the very least keep track that the spending does not increase dramatically.
+== Why is the income budgeted?
 
-Good examples of budgets are:
+Your budget starts with an estimation or listing of all your sources of income.
+This includes salaries, wages, bonuses, freelance earnings, rental income, investment dividends, etc.
+Your total income serves as the foundation upon which you'll base your spending and saving decisions.
 
-- Bills
-- Groceries
-- Gasoline
+== Budgeting your expenses
+
+- *Fixed Expenses*,
+these are expenses that remain relatively stable from month to month and are typically necessary for maintaining your lifestyle.
+Examples include rent or mortgage payments, insurance premiums, loan payments, and utilities.
+- *Variable Expenses*,
+these expenses fluctuate based on your usage or behavior and may include groceries, dining out, entertainment, transportation, clothing, and discretionary spending.
+- *Savings and Investments*,
+a crucial component of your budget is allocating a portion of your income towards savings, investments, or debt repayment. This can include contributions to retirement accounts, emergency funds, investment accounts, or paying down debts like credit cards or student loans.
 
 These type of transactions can be grouped together in *budgets*, as they are recurring costs.
 For each budget you can allocate a specific amount of money every month.
@@ -28,4 +36,5 @@ For each budget you can allocate a specific amount of money every month.
 == The difference between budgets and categories
 
 The difference with categories is that budgets are used to budget your expenses, and can be used to monitor your spending around a specific subject.
-Most people use categories to add more fine-grained details to a transaction, but categories cannot be "monetized".
+
+Categories organize your financial transactions, while budgets provide a framework for managing and controlling your spending within those categories. Think of categories as the buckets that hold your transactions, and budgets as the rules that govern how much goes into each bucket. Together, they form the backbone of effective financial management.

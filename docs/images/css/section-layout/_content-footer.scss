@@ -1,0 +1,30 @@
+@import "constants";
+
+footer {
+  font-size: .6em;
+  color: lighten($text-color, 30%);
+
+  margin-top: .75em;
+  padding-top: .25em;
+  border-top: 1px solid lighten($text-color, 90%);
+
+  display: flex;
+  justify-content: space-between;
+
+  .last-modified {
+    svg {
+      height: 16px;
+      vertical-align: middle;
+      margin-right: .25em;
+
+      fill: lighten($text-color, 30%);
+    }
+  }
+
+  .edit-link {
+    svg {
+      height: 16px;
+      fill: lighten($text-color, 30%);
+    }
+  }
+}

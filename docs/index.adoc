@@ -5,6 +5,9 @@ ifndef::document-root[:document-root: .]
 include::_document-setup.adoc[]
 [.lead]
 ====
+
+image::logo.png[]
+
 [.title]
 {application}
 

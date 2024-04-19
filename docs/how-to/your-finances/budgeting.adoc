@@ -1,0 +1,8 @@
+:page-id: how-to::finances::budgeting
+:page-parent: how-to::finances
+:page-nav-title: How to manage budgets
+:page-module: chapter
+:page-title: How to manage your budgets
+:page-section: how-to-guides
+:page-layout: section
+:page-order: 1

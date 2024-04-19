@@ -1,0 +1,18 @@
+== 2.3.0
+
+*Release date: 2021-05-17*
+
+=== Added
+
+- link:{jira-link}235[FIN-235] Setup a relation between contracts and scheduled transactions
+- link:{jira-link}190[FIN-190] Redesign the account transaction page
+- link:{jira-link}231[FIN-231] Create scheduled transaction from a transaction
+
+=== Changes
+
+- link:{jira-link}232[FIN-232] Tags are not correctly saved during the creation of a transaction
+
+=== Bug fixes
+
+- link:{jira-link}234[FIN-234] Upgrade the front-end frameworks
+- link:{jira-link}233[FIN-233] Select all transaction on the page

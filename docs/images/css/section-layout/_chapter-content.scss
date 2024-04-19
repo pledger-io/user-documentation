@@ -1,6 +1,9 @@
-$text-color: rgb(0, 0, 0, .8);
+@import "constants";
 
 & {
+  margin-bottom: .25em;
+  flex: 1;
+
   h1 {
     font-size: 1.2em;
     margin: 0 0 .5rem 0;
@@ -57,46 +60,11 @@ $text-color: rgb(0, 0, 0, .8);
     color: #B5460A
   }
 
-  ul {
-    margin: .25rem 1.5em;
-    padding:0;
-    vertical-align: middle;
-    list-style: none;
+  @import "lists";
+  @import "content-footer";
 
-    li {
-      margin: 0;
-      display: flex;
-
-      &::before {
-        content: "•";
-        margin-right: .5em;
-        color: $text-color;
-      }
-
-      p {
-        margin: 0;
-        line-height: unset;
-      }
-    }
-  }
-
-  ol {
-    margin: 1em .5em;
-
-    li {
-      margin: 0;
-      padding: 0;
-
-      &::marker {
-        font-size: .8em;
-        color: $text-color;
-      }
-
-      p {
-        margin: 0;
-        line-height: unset;
-      }
-    }
+  table.tableblock {
+    @import "table";
   }
 
   .listingblock {

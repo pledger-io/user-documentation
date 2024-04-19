@@ -1,9 +1,10 @@
-:page-title: 2021 releases
-:page-parent: /about/release-notes/
-:page-sort-order: 1
+== 2.4.2
 
-ifndef::document-root[:document-root: ../../]
-include::../../_document-setup.adoc[]
+*Release date: 2022-11-28*
+
+=== Changes
+
+- Upgrade to various libraries underneath the backend of {application}.
 
 == 2.4.1
 
@@ -41,41 +42,3 @@ include::../../_document-setup.adoc[]
 - link:{jira-link}239[FIN-239] Split of transaction fails on database exception
 - link:{jira-link}237[FIN-237] Y-axis displays undefined in the income/expense report
 - link:{jira-link}236[FIN-236] Y-axis displays undefined in the dashboard graphs
-
-== 2.3.0
-
-*Release date: 2021-05-17*
-
-=== Added
-
-- link:{jira-link}235[FIN-235] Setup a relation between contracts and scheduled transactions
-- link:{jira-link}190[FIN-190] Redesign the account transaction page
-- link:{jira-link}231[FIN-231] Create scheduled transaction from a transaction
-
-=== Changes
-
-- link:{jira-link}232[FIN-232] Tags are not correctly saved during the creation of a transaction
-
-=== Bug fixes
-
-- link:{jira-link}234[FIN-234] Upgrade the front-end frameworks
-- link:{jira-link}233[FIN-233] Select all transaction on the page
-
-== 2.2.0
-
-*Release date: 2021-02-25*
-
-=== Added
-
-- link:{jira-link}218[FIN-218] Update upload locations to include new drag and drop system
-
-=== Changes
-
-- link:{jira-link}215[FIN-215] Move to front-end created graphs
-- link:{jira-link}224[FIN-224] Phase out Moment.js in front-end
-
-=== Bug fixes
-
-- link:{jira-link}226[FIN-226] Cannot change company of a contract even though interface allows it
-- link:{jira-link}228[FIN-228] Images for the upload account logo are not displaying correctly
-- link:{jira-link}219[FIN-219] Update dashboard for correct budget display in graph

@@ -1,0 +1,41 @@
+@import "constants";
+
+ul {
+  margin: .25rem 1.25em;
+  padding:0;
+  vertical-align: middle;
+  list-style-type: disc;
+
+  li {
+    margin: 0;
+
+    &::marker {
+      font-size: .9em;
+      color: $text-color;
+    }
+
+    p {
+      margin: 0;
+      line-height: unset;
+    }
+  }
+}
+
+ol {
+  margin: 1em .5em;
+
+  li {
+    margin: 0;
+    padding: 0;
+
+    &::marker {
+      font-size: .8em;
+      color: $text-color;
+    }
+
+    p {
+      margin: 0;
+      line-height: unset;
+    }
+  }
+}

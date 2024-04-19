@@ -7,11 +7,24 @@
   align-items: center;
 
   background-color: rgb(29, 77, 116);
-;
   height: 10em;
 
-  .content {
-    margin-left: 45%;
+  position: relative;
+
+  & > .content {
+    padding-left: 35%;
+
+    .imageblock {
+      position: absolute;
+      left: 15%;
+      top: 0;
+
+      img {
+        width: 10em;
+        height: 10em;
+        border-radius: 50%;
+      }
+    }
 
     p {
       margin: 0;

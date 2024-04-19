@@ -28,7 +28,7 @@ Do you want to know how to do something specific with {application}?
 Then check out the how-to guides and find out information about:
 
 * xref:{document-root}/how-to/installation/docker.adoc[Installing {application} with Docker]
-* xref:{document-root}/how-to/managing-budgets.adoc[Managing budgets]
+* xref:{document-root}/how-to/your-finances/budgeting.adoc[Managing budgets]
 
 More how-to guides are available in the xref:{document-root}/how-to/index.adoc[how-to guides] section.
 

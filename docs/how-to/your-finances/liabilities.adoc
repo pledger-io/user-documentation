@@ -1,0 +1,8 @@
+:page-id: how-to::finances::liabilities
+:page-parent: how-to::finances
+:page-nav-title: How to manage liabilities
+:page-module: chapter
+:page-title: How to manage liabilities
+:page-section: how-to-guides
+:page-layout: section
+:page-order: 5

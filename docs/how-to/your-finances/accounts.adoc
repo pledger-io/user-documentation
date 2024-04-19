@@ -1,0 +1,8 @@
+:page-id: how-to::finances::accounts
+:page-parent: how-to::finances
+:page-nav-title: How to manage accounts
+:page-module: chapter
+:page-title: How to manage your accounts
+:page-section: how-to-guides
+:page-layout: section
+:page-order: 0

@@ -1,0 +1,8 @@
+:page-id: how-to::finances::contracts
+:page-parent: how-to::finances
+:page-nav-title: How to manage contracts
+:page-module: chapter
+:page-title: How to manage contracts
+:page-section: how-to-guides
+:page-layout: section
+:page-order: 3

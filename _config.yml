@@ -4,11 +4,15 @@ release:
   version: 3.3.1
   date: 2024-03-29
 
+github:
+  repository: pledger-io/user-documentation
+
 source: docs
 disable_disk_cache: true
 
 plugins:
   - jekyll-asciidoc
+  - jekyll-last-modified-at
 
 keep_files:
   - images/generated
@@ -17,6 +21,8 @@ asciidoctor:
   base_dir: :docdir
   safe: unsafe
 
+last-modified-at:
+  date-format: '%d-%b-%y'
 
 aux_links:
   "Bug Tracker":

@@ -1,0 +1,18 @@
+
+== 1.2.0
+
+*Release date: 2020-05-18*
+
+=== Added
+
+- link:{jira-link}60[FIN-60] Add functionality to set category, budget and contract on multiple transactions at once
+- link:{jira-link}79[FIN-79] Allow for transaction exporting
+
+=== Changed
+
+- link:{jira-link}77[FIN-77] Enable the contract expiration warning BPMN flow
+- link:{jira-link}104[FIN-104] Add create transaction option from the global transaction overview
+
+=== Bug fixes
+
+- link:{jira-link}103[FIN-103] Scheduled transaction only records one transaction

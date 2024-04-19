@@ -1,0 +1,8 @@
+:page-id: how-to::advanced
+:page-parent: how-to
+:page-nav-title: Advanced topics
+:page-module: chapter
+:page-title: Advanced topics in how-to guides
+:page-section: how-to-guides
+:page-layout: section
+:page-order: 3

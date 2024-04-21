@@ -5,3 +5,4 @@
 :page-section: getting-started
 :page-layout: section
 :page-order: 1
+:page-status: published

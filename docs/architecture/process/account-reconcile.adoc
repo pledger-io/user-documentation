@@ -5,6 +5,7 @@
 :page-section: architecture
 :page-layout: section
 :page-order: 5
+:page-status: draft
 
 ifndef::document-root[:document-root: ../../]
 include::../../_document-setup.adoc[]

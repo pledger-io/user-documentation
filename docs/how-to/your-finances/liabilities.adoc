@@ -6,3 +6,4 @@
 :page-section: how-to-guides
 :page-layout: section
 :page-order: 5
+:page-status: draft

@@ -6,6 +6,7 @@
 :page-section: how-to-guides
 :page-layout: section
 :page-order: 4
+:page-status: published
 
 ifndef::document-root[:document-root: ../../]
 include::../../_document-setup.adoc[]

@@ -5,3 +5,5 @@
 :page-title: Concepts used within Pledger.io
 :page-layout: section
 :page-order: 4
+:page-status: published
+

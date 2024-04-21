@@ -5,6 +5,7 @@
 :page-title: Architectural design for Pledger.io
 :page-layout: section
 :page-order: 3
+:page-status: published
 
 include::../_document-setup.adoc[]
 

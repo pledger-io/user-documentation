@@ -6,5 +6,6 @@
 :page-section: architecture
 :page-layout: section
 :page-order: 2
+:page-status: published
 
 include::../../_document-setup.adoc[]

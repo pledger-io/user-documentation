@@ -5,6 +5,7 @@
 :page-section: architecture
 :page-layout: section
 :page-order: 2
+:page-status: published
 
 ifndef::document-root[:document-root: ../../]
 include::../../_document-setup.adoc[]

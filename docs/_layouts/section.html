@@ -60,7 +60,7 @@
 
             <h2>{{ mainChapter.nav-title }}</h2>
 
-            {% assign chapters = site.pages | where: 'parent', mainChapter.id | sort: 'order' %}
+            {% assign chapters = site.pages | where: 'parent', mainChapter.id | where: 'status', 'published' | sort: 'order' %}
             {%- if chapters.size >= 1 -%}
             {%- if page.url == mainChapter.url -%}
             <a href="{{ mainChapter.url }}" class="active">Home</a>
@@ -71,7 +71,7 @@
 
             {%- for chapter in chapters -%}
 
-            {% assign subChapters = site.pages | where: 'parent', chapter.id | sort: 'order' %}
+            {% assign subChapters = site.pages | where: 'parent', chapter.id | where: 'status', 'published' | sort: 'order' %}
             {%- if subChapters.size >= 1 -%}
             {%- if page.url contains chapter.url -%}
             <section id="{{ chapter.id }}" class="active">
@@ -89,17 +89,17 @@
 
                     {%- if page.url contains chapter.url -%}
                     <div class="children expanded">
+                    {%- else -%}
+                    <div class="children">
+                        {%- endif -%}
+                        {%- for subChapter in subChapters -%}
+                        {%- if page.url contains subChapter.url -%}
+                        <a href="{{ subChapter.url }}" class="active">{{ subChapter.nav-title }}</a>
                         {%- else -%}
-                        <div class="children">
-                            {%- endif -%}
-                            {%- for subChapter in subChapters -%}
-                            {%- if page.url contains subChapter.url -%}
-                            <a href="{{ subChapter.url }}" class="active">{{ subChapter.nav-title }}</a>
-                            {%- else -%}
-                            <a href="{{ subChapter.url }}">{{ subChapter.nav-title }}</a>
-                            {%- endif -%}
-                            {%- endfor -%}
-                        </div>
+                        <a href="{{ subChapter.url }}">{{ subChapter.nav-title }}</a>
+                        {%- endif -%}
+                        {%- endfor -%}
+                    </div>
                 </section>
                 {%- else -%}
                 {%- if page.url contains chapter.url -%}

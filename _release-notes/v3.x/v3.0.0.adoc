@@ -1,0 +1,53 @@
+
+== 3.0.2
+
+*Release date: 2024-01-23*
+
+=== Bug fixes
+
+- link:{jira-link}342[FIN-342] Spacing autocomplete accounts incorrect
+- link:{jira-link}343[FIN-343] Tabbing out of account autocomplete invalidates field
+- link:{jira-link}344[FIN-344] The balance graph for account detail overview is wrong on initial load
+- link:{jira-link}345[FIN-345] Logos on the yearly income / expense to large
+- link:{jira-link}346[FIN-346] Category report monthly spending table not updating correctly
+
+== 3.0.1
+
+*Release date: 2024-01-19*
+
+=== Bug fixes
+
+- link:{jira-link}340[FIN-340] Creating of transaction fails
+- link:{jira-link}341[FIN-341] Incorrect double / in breadcrumb with links
+
+== 3.0.0
+
+*Release date: 2024-01-18*
+
+=== Added
+
+- link:{jira-link}263[FIN-263] Update the dashboard page
+- link:{jira-link}264[FIN-264] Update the `Income & Expense` report
+- link:{jira-link}265[FIN-265] Update the `Budget vs Spent` report
+- link:{jira-link}266[FIN-266] Update the `Category` report
+- link:{jira-link}267[FIN-267] Update the Budget section
+- link:{jira-link}268[FIN-268] Update the contract management
+- link:{jira-link}269[FIN-269] Update the global transaction view
+- link:{jira-link}270[FIN-270] Update the Recurring transaction view
+- link:{jira-link}271[FIN-271] Update the automated rules view
+- link:{jira-link}272[FIN-272] Update the account view
+- link:{jira-link}273[FIN-273] Update the options view
+- link:{jira-link}274[FIN-274] Update the categories view
+- link:{jira-link}319[FIN-319] Update the localization files using the localization project
+- link:{jira-link}320[FIN-320] Update the release pipeline to the new front-end
+- link:{jira-link}333[FIN-333] Add architectural documentation
+- link:{jira-link}334[FIN-334] Update the profile pages
+
+=== Bug fixes
+
+- link:{jira-link}329[FIN-329] Dropdown of currency in reports is incorrectly formatted
+- link:{jira-link}330[FIN-330] Autocomplete cannot be changed after a value is selected
+- link:{jira-link}331[FIN-331] Initial value of own account selector undefined
+- link:{jira-link}335[FIN-335] The transaction detail in the listing shows incorrect amount
+- link:{jira-link}336[FIN-336] Category page does not load without categories
+- link:{jira-link}337[FIN-337] Default account type incorrect when creating account

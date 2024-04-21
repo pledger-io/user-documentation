@@ -1,0 +1,27 @@
+:page-id: getting-started
+:page-module: section
+:page-nav-title: Getting started
+:page-title: Getting started
+:page-section: getting-started
+:page-layout: section
+:page-order: 1
+
+ifndef::document-root[:document-root: ../]
+include::../_document-setup.adoc[]
+
+
+Check out the following getting started guides to get started with *{application}*.
+
+If you want more information on how to install {application} then check out the xref:{document-root}/how-to/installation/docker.adoc[how-to guides].
+This will not be covered in this section.
+
+The menu on the left side of the page are the getting started guides that are available for *{application}*.
+
+
+== Missing something in the getting started guides?
+
+- Are you missing a specific getting started guide?
+- Do you have a suggestion for a new getting started guide?
+
+If you think something is missing in the getting started guides, then please create an issue on the GitHub repository for this documentation.
+You can find the repository at link: link:https://github.com/pledger-io/user-documentation[user-documentation].

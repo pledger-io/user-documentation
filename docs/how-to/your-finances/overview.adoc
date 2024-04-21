@@ -1,0 +1,9 @@
+:page-id: how-to::finances::overview
+:page-parent: how-to::finances
+:page-nav-title: How to use the overview
+:page-module: chapter
+:page-title: How to manage the overview
+:page-section: how-to-guides
+:page-layout: section
+:page-order: 6
+:page-status: draft

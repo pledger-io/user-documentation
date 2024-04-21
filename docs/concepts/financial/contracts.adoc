@@ -1,0 +1,32 @@
+:page-id: concepts::financial::contracts
+:page-parent: concepts::financial
+:page-nav-title: Contracts
+:page-module: chapter
+:page-title: Contracts in finance
+:page-section: concepts
+:page-layout: section
+:page-order: 4
+:page-status: published
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+In {application} contracts are agreements between two or more parties to do something for each other.
+
+== What are contracts in finance?
+
+Imagine you and your friend want to trade something valuable, like toys.
+You both want to make sure the trade is fair and everyone keeps their promises.
+So, you decide to write down what each of you will give and get in a piece of paper.
+That piece of paper is like a contract.
+
+Now, in a financial bookkeeping system, contracts are kind of like those papers.
+When businesses or people agree to do something for each other, like buying or selling goods, lending money, or providing services, they write down the terms of their agreement in a contract.
+This helps everyone involved remember what they agreed to and makes sure everyone sticks to their promises.
+
+== Why are contracts important in finance?
+
+In the bookkeeping system, contracts are important because they record the transactions between different parties.
+These transactions can involve money, goods, services, or anything else of value.
+By keeping track of contracts, businesses can stay organized, make sure they get paid for what they do, and make sure they fulfill their obligations to others.
+It's like a written agreement that helps keep everything running smoothly and fairly in the world of finance.

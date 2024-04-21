@@ -1,0 +1,44 @@
+== 2.4.2
+
+*Release date: 2022-11-28*
+
+=== Changes
+
+- Upgrade to various libraries underneath the backend of {application}.
+
+== 2.4.1
+
+*Release date: 2021-11-05*
+
+=== Bug fixes
+
+- link:{jira-link}255[FIN-255] Contract warning never gets triggered
+- link:{jira-link}254[FIN-254] Scheduled transaction does not add new transactions
+- link:{jira-link}256[FIN-256] Correct styling profile page with new layout
+- link:{jira-link}253[FIN-253] Fix styling in the income / expense report table for difference
+- link:{jira-link}252[FIN-252] Fix styling of overview buttons in the dashboard
+- link:{jira-link}251[FIN-251] Fix table styling in account overview
+- link:{jira-link}250[FIN-250] Fix styling in month / year selector in the breadcrumb bar
+- link:{jira-link}249[FIN-249] Fix account logo position in the transaction overview
+- link:{jira-link}248[FIN-248] Fix styling in phone resolution
+- link:{jira-link}247[FIN-247] Fix styling in the logon / register dialogs
+
+== 2.4.0
+
+*Release date: 2021-09-09*
+
+=== Added
+
+- link:{jira-link}242[FIN-242] Add support for saving goals
+
+=== Changes
+
+- link:{jira-link}246[FIN-246] Update API documentation for next release
+- link:{jira-link}244[FIN-244] Redesign sidebar menu
+- link:{jira-link}245[FIN-245] Add help text to various edit screens
+
+=== Bug fixes
+
+- link:{jira-link}239[FIN-239] Split of transaction fails on database exception
+- link:{jira-link}237[FIN-237] Y-axis displays undefined in the income/expense report
+- link:{jira-link}236[FIN-236] Y-axis displays undefined in the dashboard graphs

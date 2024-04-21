@@ -1,0 +1,6 @@
+$nav-width: 5rem;
+
+& {
+  width: $nav-width;
+  min-width: $nav-width;
+}

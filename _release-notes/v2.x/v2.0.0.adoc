@@ -1,0 +1,73 @@
+== 2.0.2
+
+*Release date: 2020-11-16*
+
+=== Bug fixes
+
+- link:{jira-link}192[FIN-192] Autocomplete of tags does not work
+- link:{jira-link}193[FIN-193] Income / Expense report the revenue list shows negative numbers
+- link:{jira-link}194[FIN-194] Interest not shown in liabilities / edit
+- link:{jira-link}195[FIN-195] Export of profile fails with transaction issue
+- link:{jira-link}196[FIN-196] 2-Factor authentication code fails
+
+== 2.0.0
+
+*Release date: 2020-11-12*
+
+WARNING: This is a major release, before migrating please back up your database and storage locations.
+The entire application core has been reworked.
+
+=== Added
+
+- link:{jira-link}160[FIN-160] Add API documentation viewer
+- link:{jira-link}185[FIN-185] Create standalone deployment option
+- link:{jira-link}168[FIN-168] Add support for long living tokens
+
+=== Changed
+
+- link:{jira-link}137[FIN-137] Rewrite the core layer to Micronaut framework for better performance
+- link:{jira-link}138[FIN-138] Add the REST-api layer for security
+- link:{jira-link}139[FIN-139] Setup angular project into new gradle setup
+- link:{jira-link}140[FIN-140] Setup new gradle structure
+- link:{jira-link}141[FIN-141] Rework the JPA layer for micronaut
+- link:{jira-link}142[FIN-142] Add the rule engine module
+- link:{jira-link}143[FIN-143] Add the domain module
+- link:{jira-link}144[FIN-144] Add the bpmn module
+- link:{jira-link}145[FIN-145] Move UI to separate repository for improved build speeds
+- link:{jira-link}146[FIN-146] Create automated build script for Angular application
+- link:{jira-link}148[FIN-148] Create a repository to bundle the Java Application and the Angular application
+- link:{jira-link}149[FIN-149] Add the account REST end-points
+- link:{jira-link}150[FIN-150] Add the CSV Import REST end-points
+- link:{jira-link}151[FIN-151] Add the budget REST end-points
+- link:{jira-link}152[FIN-152] Add the contract REST end-points
+- link:{jira-link}153[FIN-153] Add the attachment REST end-poitns
+- link:{jira-link}154[FIN-154] Add the BPMN process end-points
+- link:{jira-link}155[FIN-155] Add the application setting end-points
+- link:{jira-link}156[FIN-156] Add the global transaction end-points
+- link:{jira-link}157[FIN-157] Add the category REST end-points
+- link:{jira-link}158[FIN-158] Add the transaction rule REST end-points
+- link:{jira-link}159[FIN-159] Create the account transaction REST end-points
+- link:{jira-link}164[FIN-164] Add profile export to JSON
+- link:{jira-link}165[FIN-165] Add transaction export to CSV
+- link:{jira-link}166[FIN-166] Hook in artifact release to osshr
+- link:{jira-link}171[FIN-171] Rework JPA repositories to new ReactiveEntityManager
+- link:{jira-link}184[FIN-184] Improve performance of the BPMN tests
+
+=== Bug fixes
+
+- link:{jira-link}147[FIN-147] Font files not loading correctly in angular
+- link:{jira-link}161[FIN-161] Creation of new user fails on missing userService.create operation
+- link:{jira-link}162[FIN-162] Account creation fails on introspect exception
+- link:{jira-link}172[FIN-172] Graph end points are not working correctly
+- link:{jira-link}173[FIN-173] Front-End does not redirect to login after session expires
+- link:{jira-link}174[FIN-174] Top creditor / debtor end point not working
+- link:{jira-link}175[FIN-175] Flowable with empty stream returns only ]
+- link:{jira-link}176[FIN-176] Graphs do not render properly on front-end
+- link:{jira-link}177[FIN-177] Global transaction overview crashes without transactions
+- link:{jira-link}178[FIN-178] Local-date is returned as array should be a string
+- link:{jira-link}179[FIN-179] Role based authorization is not working correctly
+- link:{jira-link}180[FIN-180] Unable to bulk modify transactions
+- link:{jira-link}181[FIN-181] Account extraction result not correctly served
+- link:{jira-link}182[FIN-182] Reconcile account not successfully created after registration
+- link:{jira-link}183[FIN-183] Reconcile a year with deviating start balance incorrect reconcile
+- link:{jira-link}186[FIN-186] Page sizes front-end do not match backend when changed in settings

@@ -1,0 +1,15 @@
+== 2.1.0
+
+*Release date: 2020-12-07*
+
+=== Added
+
+- link:{jira-link}187[FIN-187] Add an overview of the active tokens on profile page
+- link:{jira-link}188[FIN-188] Add support for long-lived refresh tokens for API B2B
+- link:{jira-link}189[FIN-189] Add support for account icons
+- link:{jira-link}197[FIN-197] Add archive option for failed importer jobs
+
+=== Bug fixes
+
+- link:{jira-link}198[FIN-198] Last transaction on own-overview shows undefined
+- link:{jira-link}223[FIN-223] Contract creation results in exception

@@ -1,7 +1,10 @@
-:page-title: Domain design
-:page-layout: architecture
-:page-parent: /architecture/design/
-:page-sort-order: 2
+:page-nav-title: Domain design
+:page-parent: architecture::design
+:page-title: The bussiness domain of Pledger.io
+:page-section: architecture
+:page-layout: section
+:page-order: 1
+:page-status: published
 
 ifndef::document-root[:document-root: ../../]
 include::../../_document-setup.adoc[]

@@ -1,0 +1,34 @@
+---
+---
+
+@import "landing-page/constants";
+
+body {
+  margin: 0 0 2em 0;
+  font-family: "Roboto", sans-serif;
+
+  .container {
+    max-width: $max-width;
+    margin: 0 auto;
+
+    padding: 0 1em;
+  }
+
+  header {
+    @import "landing-page/header";
+  }
+
+  main {
+    .lead {
+      @import "landing-page/lead-intro";
+    }
+
+    .feature-set {
+      @import "landing-page/feature-set";
+    }
+
+    .pitch {
+      @import "landing-page/pitch";
+    }
+  }
+}

@@ -1,0 +1,44 @@
+& {
+  font-size: 1.5em;
+  font-weight: 300;
+  color: rgb(255,255,255, .8);
+
+  display: flex;
+  align-items: center;
+
+  background-color: rgb(29, 77, 116);
+  height: 10em;
+
+  position: relative;
+
+  & > .content {
+    padding-left: 35%;
+
+    .imageblock {
+      position: absolute;
+      left: 15%;
+      top: 0;
+
+      img {
+        width: 10em;
+        height: 10em;
+        border-radius: 50%;
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .title {
+      font-size: 2em;
+      font-weight: 500;
+      margin-bottom: .5em;
+    }
+
+    .slogan {
+      font-size: .7em;
+      font-weight: 300;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@import "constants";
+
+& {
+  margin-bottom: .25em;
+  flex: 1;
+
+  h1 {
+    font-size: 1.2em;
+    margin: 0 0 .5rem 0;
+
+    color: rgb(0, 0, 0, .55);
+  }
+
+  h2 {
+    font-size: 1em;
+    margin: 2rem 0 .5rem 0;
+    color: rgb(0, 0, 0, .7);
+  }
+
+  h3 {
+    font-size: .8em;
+    margin: 1.5rem 0 .5rem 0;
+
+    font-weight: bold;
+    color: $text-color;
+  }
+
+  .imageblock {
+    .title {
+      font-size: .8em;
+      margin: 0 2.5rem 0 0;
+      color: rgba(131, 3, 3, 0.7);
+
+      text-align: right;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  p {
+    margin: 1em 0;
+
+    color: $text-color;
+    font-size: .8em;
+    line-height: 1.2em;
+  }
+
+  a {
+    text-decoration: none;
+    color: lighten(#1f527b, 30%);
+  }
+
+  code {
+    color: #B5460A
+  }
+
+  @import "lists";
+  @import "content-footer";
+
+  table.tableblock {
+    @import "table";
+  }
+
+  .listingblock {
+    @import "code-bocks";
+  }
+
+  .release-table {
+    @import "release-table";
+  }
+
+  .admonitionblock {
+    @import "admotion";
+  }
+}

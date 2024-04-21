@@ -1,0 +1,23 @@
+& {
+  &.stretch {
+    width: 100%;
+  }
+
+  font-size: .8em;
+
+  th {
+    background-color: #f5f8fa;
+    border-bottom: 2px solid #e6ecf1;
+    padding: .5rem;
+    text-align: left;
+  }
+
+  td {
+    border-bottom: 1px solid #e6ecf1;
+    padding: .5rem;
+
+    p.tableblock {
+      margin: 0;
+    }
+  }
+}

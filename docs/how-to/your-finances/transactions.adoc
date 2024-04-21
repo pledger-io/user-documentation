@@ -1,0 +1,9 @@
+:page-id: how-to::finances::transactions
+:page-parent: how-to::finances
+:page-nav-title: How to organize transactions
+:page-module: chapter
+:page-title: How to organize transactions
+:page-section: how-to-guides
+:page-layout: section
+:page-order: 2
+:page-status: draft

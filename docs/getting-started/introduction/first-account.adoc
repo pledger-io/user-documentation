@@ -1,0 +1,7 @@
+:page-nav-title: Create accounts and transactions
+:page-parent: getting-started::introduction
+:page-title: Creating your first account and transactions
+:page-section: getting-started
+:page-layout: section
+:page-order: 2
+:page-status: draft

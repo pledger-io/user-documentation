@@ -1,0 +1,17 @@
+
+== 1.3.1
+
+*Release date: 2020-06-05*
+
+=== Added
+
+- link:{jira-link}84[FIN-84], link:{jira-link}80[FIN-80], link:{jira-link}83[FIN-83] - Add tagging support in backend
+
+=== Changed
+
+- link:{jira-link}108[FIN-108] Setup language selection to survive the users session
+
+=== Bug fixes
+
+- link:{jira-link}105[FIN-105] The total income per month is not visible on budget report
+- link:{jira-link}110[FIN-110] Paging not stored in history on account expense list

@@ -1,0 +1,43 @@
+@import "constants";
+
+& {
+  background-color: rgb(248 249 250);
+
+  & > .content {
+    margin: 0 auto;
+    max-width: $max-width;
+
+    display: flex;
+    flex-direction: row;
+    gap: $feature-spacing;
+
+    .feature {
+      text-align: center;
+      color: rgb(0, 0, 0, .7);
+
+      p {
+        margin: 0;
+      }
+
+      .icon {
+        margin-top: $feature-spacing;
+        display: block;
+        color: #3F730A;
+      }
+
+      .title {
+        font-size: 1.5em;
+        font-weight: 500;
+
+        margin: .25em 0 .25em 0;
+      }
+
+      .feature-description {
+        font-size: 1em;
+        font-weight: 300;
+
+        margin: 0 0 $feature-spacing 0;
+      }
+    }
+  }
+}

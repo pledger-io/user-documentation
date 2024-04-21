@@ -1,0 +1,18 @@
+== 2.2.0
+
+*Release date: 2021-02-25*
+
+=== Added
+
+- link:{jira-link}218[FIN-218] Update upload locations to include new drag and drop system
+
+=== Changes
+
+- link:{jira-link}215[FIN-215] Move to front-end created graphs
+- link:{jira-link}224[FIN-224] Phase out Moment.js in front-end
+
+=== Bug fixes
+
+- link:{jira-link}226[FIN-226] Cannot change company of a contract even though interface allows it
+- link:{jira-link}228[FIN-228] Images for the upload account logo are not displaying correctly
+- link:{jira-link}219[FIN-219] Update dashboard for correct budget display in graph

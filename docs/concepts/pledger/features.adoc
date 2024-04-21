@@ -1,0 +1,35 @@
+:page-id: concepts::pledger::features
+:page-parent: concepts::pledger
+:page-nav-title: Introduction and features
+:page-module: chapter
+:page-title: Pledger.io introduction
+:page-section: concepts
+:page-layout: section
+:page-order: 1
+:page-status: published
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+{application} is a web application that helps you to manage your money better and easier.
+It can keep track of your income and expenses, and help you to categorize them.
+{application} is a fully self-hosted application, which means that you can install it on your own server and have full control over your data.
+
+Personal finance management is a very important part of our lives.
+It helps us to understand where our money is going, and to make better decisions.
+{application} is designed to be simple and easy to use, so that you can focus on managing your money, and not on managing the application.
+
+== Who is {application} for?
+
+{application} is for anyone who wants to manage their money better.
+It is designed to be simple and easy to use, so that you can focus on managing your money, and not on managing the application.
+
+== What does {application} offer?
+
+* Tracking of multiple accounts, each with separate transactions and statistics
+* Multiple users supported, all with their own accounts and transactions
+* Importing of bank statements using:
+** CSV import, with advanced mapping features
+* Budgets to keep track of your finances
+* Manage any running contracts with service providers
+* Easy installation using xref:{document-root}/how-to/installation/index.adoc[Docker]

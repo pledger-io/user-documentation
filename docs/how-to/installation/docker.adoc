@@ -1,0 +1,82 @@
+:page-id: how-to::installation::docker
+:page-parent: how-to::installation
+:page-nav-title: Using Docker
+:page-module: chapter
+:page-title: Installing using Docker
+:page-section: how-to-guides
+:page-layout: section
+:page-order: 1
+:page-status: published
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+Running {application} using docker is an easy way to get started.
+Just execute a few lines, and you are up and running.
+
+There are several ways to get started with {application} using Docker, each one detailed below.
+If you are new to Docker or are not sure as to how to use it then ask for advice.
+
+== Supported tags
+
+Personal Ledger uses the docker tagging system to release multiple versions.
+There are various builds for various different target platforms.
+
+Personal Ledger is currently built for:
+
+- AMD64, under image `{docker-image}`
+- ARMv8, under image `ghcr.io/pledger-io/arm64-core`
+
+The instructions here will assume usage of the tag `stable`.
+Other tags that are used are:
+
+- `ghcr.io/pledger-io/<architecture>-core:stable`, this tag will always point to the latest release that was run
+-  `ghcr.io/pledger-io/<architecture>-core:x.x.x`, these are version specific tags.
+
+Currently, only AMD-64 and ARM64 builds are available in the official docker hub.
+
+== Single container
+
+These instructions will help you set up a standalone container in docker running only
+{application}.
+Please note that dependent images, like MySQL, are not included in this sample.
+Running the single container can be useful when debugging or testing the application.
+
+WARNING: It is advised to set up a separate container with link:https://hub.docker.com/_/mariadb[MariaDB].
+
+=== Creating the volumes
+
+{application} uses various storage locations in the container to store user data.
+It is advised to create one volume for each of the type of storage that the application uses.
+
+[source,shell,linenums]
+....
+docker volume create pledger_logs
+docker volume create pledger_upload
+....
+
+=== Starting the container
+
+You can use the command below to start the container with {application}.
+Make sure to edit any environment variables to match your setup.
+
+[source,shell,linenums]
+....
+ docker run -d \
+         -v pledger_logs:/opt/storage/logs \
+         -v pledger_uploads:/opt/storage/upload \
+         -p 8080:8080 \
+         --name pledger \
+         -e DB_TYPE=mysql
+         -e DATABASE_HOST=mariadb
+         -e DATABASE_SCHEMA=pledger
+         -e DATABASE_USER=pledger
+         -e DATABASE_PASSWORD=pledger
+         ghcr.io/pledger-io/amd64-core:stable
+....
+
+Once this command is run a docker container with {application} will start, this may take some time when run the first time.
+The application will automatically attempt to update the database to the version running.
+After {application} is started you can access the interface using:
+
+> http://localhost:8080

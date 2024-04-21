@@ -1,0 +1,14 @@
+
+== 3.2.0
+
+*Release date: 2024-03-01*
+
+=== Added
+
+- link:{jira-link}275[FIN-275] Update the import transactions view
+- link:{jira-link}348[FIN-348] Update the testing framework for BPMN flows
+
+=== Bug fixes
+
+- link:{jira-link}349[FIN-349] Importing of budgets in a profile fails
+- link:{jira-link}350[FIN-350] When exporting and importing liability accounts the initial transaction should be included

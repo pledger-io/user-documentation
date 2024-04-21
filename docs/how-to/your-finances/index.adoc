@@ -1,0 +1,9 @@
+:page-id: how-to::finances
+:page-parent: how-to
+:page-nav-title: Your finances
+:page-module: chapter
+:page-title: Guide to setting up your finances
+:page-section: how-to-guides
+:page-layout: section
+:page-order: 2
+:page-status: draft

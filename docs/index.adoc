@@ -1,20 +1,82 @@
+:page-title: Your free and open-source personal finance manager
+:page-layout: landing
+
 ifndef::document-root[:document-root: .]
 include::_document-setup.adoc[]
+[.lead]
+====
 
-= {application} User Guide
+image::logo.png[]
 
-Using {application} you can keep track of your income vs spending as well as your credit card
-expenses.
+[.title]
+{application}
 
-Currently, {application} has the following features:
+[.slogan]
+A free and open-source personal finance manager
+====
 
-* Categories to group expenses
-* Budgets to track income vs. expenses
-* Contract notifications
-* Importing transactions from bank exports
+[.feature-set]
+====
 
-== Some screenshots of {application}
+[.feature]
+=====
+icon:window-green[]
+[.title]
+Track income and expenses
+[.feature-description]
+Keep track of your income and expenses to see where your money is going.
+=====
 
-image:overview-dashboard.png[Overview,50%]image:overview-income-report.png[Income report,50%]
+[.feature]
+=====
+icon:import-green[]
+[.title]
+Import data into {application}
+[.feature-description]
+Easily import transactions from your bank to keep your data up-to-date.
+=====
 
-image:overview-budget-report.png[Overview,50%]image:overview-category-report.png[Category report,50%]
+[.feature]
+=====
+icon:report-green[]
+[.title]
+Reports and graphs
+[.feature-description]
+Get insights into your spending habits with reports and graphs.
+=====
+
+====
+
+[.pitch.left]
+====
+
+=====
+[.title]
+Quick overview of your finances
+
+[.description]
+{application} gives you a quick overview of your finances with a dashboard.
+Quickly see your spending habits and income sources compared to the previous month.
+Have an overview of your spending by category and see where you can save money.
+=====
+
+image::overview-dashboard.png[]
+
+====
+
+[.pitch.right]
+====
+
+image::transaction-overview.png[]
+
+=====
+[.title]
+Fast overview of your transactions
+
+[.description]
+With the transaction overview, you can quickly see all your transactions.
+Filter by date, category, or account to find the transactions you are looking for.
+
+=====
+
+====

@@ -1,0 +1,9 @@
+:page-id: concepts::pledger
+:page-parent: concepts
+:page-nav-title: Pledger.io
+:page-module: chapter
+:page-title: Pledger.io - A Pledge Manager for Open Source Projects
+:page-section: concepts
+:page-layout: section
+:page-order: 2
+:page-status: published

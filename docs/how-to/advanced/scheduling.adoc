@@ -1,0 +1,9 @@
+:page-id: how-to::advanced::bills
+:page-parent: how-to::advanced
+:page-nav-title: How to schedule bills
+:page-module: chapter
+:page-title: How to automatically schedule bills
+:page-section: how-to-guides
+:page-layout: section
+:page-order: 2
+:page-status: draft

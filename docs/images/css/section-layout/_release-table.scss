@@ -1,0 +1,18 @@
+& {
+  border-spacing: 0;
+
+  tbody {
+    tr {
+      td {
+        &:first-child {
+          min-width: 5rem;
+          font-weight: 700;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

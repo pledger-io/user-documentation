@@ -1,0 +1,22 @@
+
+== 1.4.3
+
+*Release date: 2020-08-19*
+
+=== Added
+
+- link:{jira-link}94[FIN-94] Add debt recording into the backend
+- link:{jira-link}130[FIN-130] Add correlation to logging to relate log lines to requests
+
+=== Changed
+
+- link:{jira-link}125[FIN-125] Allow for creating new rule groups in UI
+- link:{jira-link}129[FIN-129] Extract the transaction rule matcher / applier to separate system
+
+=== Bug fixes
+
+- link:{jira-link}126[FIN-126] Paging on contract detail page not working
+- link:{jira-link}127[FIN-127] The top account listing on the expense report is sorted incorrectly
+- link:{jira-link}128[FIN-128] Profile export budgets wrong serialized date
+- link:{jira-link}134[FIN-134] Issue with first transaction day counted double in the balance per account graph
+- link:{jira-link}135[FIN-135] Missing liability percentage on overview screen

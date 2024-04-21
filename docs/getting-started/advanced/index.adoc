@@ -1,0 +1,8 @@
+:page-id: getting-started::advanced
+:page-parent: getting-started
+:page-nav-title: Advanced setup
+:page-module: chapter
+:page-section: getting-started
+:page-layout: section
+:page-order: 2
+:page-status: draft

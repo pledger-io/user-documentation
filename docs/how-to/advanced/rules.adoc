@@ -1,0 +1,9 @@
+:page-id: how-to::advanced::rules
+:page-parent: how-to::advanced
+:page-nav-title: How to use rules
+:page-module: chapter
+:page-title: How to use rules to automatically catagorize transactions
+:page-section: how-to-guides
+:page-layout: section
+:page-order: 1
+:page-status: draft

@@ -1,0 +1,9 @@
+:page-id: concepts::financial
+:page-parent: concepts
+:page-nav-title: Financial concepts
+:page-module: chapter
+:page-title: Architectural design of the project
+:page-section: concepts
+:page-layout: section
+:page-order: 1
+:page-status: published

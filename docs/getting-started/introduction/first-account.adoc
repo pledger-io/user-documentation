@@ -4,4 +4,83 @@
 :page-section: getting-started
 :page-layout: section
 :page-order: 2
-:page-status: draft
+:page-status: published
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+Once you have xref:{document-root}/getting-started/introduction/create-user.adoc[your account set up], you can start creating accounts and transactions.
+This section will guide you through the process of creating your first account and transaction.
+
+== Setting up your first accounts
+
+To get started, you need to create accounts to track your finances.
+You can create accounts for your bank, credit card, and cash transactions.
+
+Navigate to the account overview page by clicking on the `Accounts` followed by the `Asset accounts` in the sidebar.
+
+.The account menu
+[.scalable-image]
+image::getting-started/first-accounts/account-menu-part.png[]
+
+TIP: The `Asset accounts` are those accounts that you own, such as your bank accounts, cash, and credit cards.
+The `Liability accounts` are those accounts that you owe money on, such as loans and credit cards.
+The `Expense accounts` are those accounts that you pay money to, while the `Revenue accounts` are those accounts that pay you money.
+
+After this you will see the list of accounts that you have already created, see the image below.
+
+.The account overview page
+[.scalable-image]
+image::getting-started/first-accounts/account-overview.png[Account overview]
+
+To create a new account, click on the `Add account` button.
+This will open a form where you can enter the details of the account you want to create.
+Fill in the form with the details of the account you want to create and click on the `Save` button to create the account.
+On this form the following fields are mandatory:
+
+- `Name`, enter a descriptive name for the account
+- `Currency`, select one of the available currencies
+- `Type`, the type of account you wish to create
+
+.The add account form
+[.scalable-image]
+image::getting-started/first-accounts/add-own-account.png[Add account form]
+
+== Recording your first transactions
+
+Once you have created your accounts, you can start recording transactions.
+Transactions are the financial activities that occur in your accounts, such as deposits, withdrawals, and transfers.
+
+To record a transaction, navigate to the transaction overview page by clicking on the name of one of your accounts.
+This will take you to the transaction overview page for that account.
+On this page there are three buttons to create a new transaction, see the image below.
+
+.The transaction buttons
+[.scalable-image]
+image::getting-started/first-accounts/transactions-buttons.png[]
+
+WARNING: If you are on the Expense or Revenue account overview page, you will see only one button to create an expense or a income.
+
+By clicking on the `Add expense` button the transaction form will open.
+In this form the source account will be a dropdown list with all your own accounts you have created.
+The to account is a autocomplete field where you can start typing the name of the account you want to transfer the money to.
+
+.The add expense form
+[.scalable-image]
+image::getting-started/first-accounts/add-expense-form.png[Add expense form]
+
+NOTE: The `Add income` form is similar to the `Add expense` form, but the source account is the account where the money is coming from and will be the autocomplete field.
+The to account is the account where the money is going to and will be the dropdown list with your own accounts.
+
+== Quick overview of your transactions
+
+After you have created your accounts and transactions, you can view a quick overview of your transactions.
+Navigate to the account overview page by clicking on the `Transaction` followed by the `Income / Expense` in the sidebar.
+This will open the transaction overview page where you can see all your transactions of all accounts.
+
+.The transaction overview page
+[.scalable-image]
+image::getting-started/first-accounts/transaction-overview.png[]
+
+This overview is a quick way to see all your transactions and to get an overview of your financial activities for the selected month.
+You can filter the transactions using the filter form on the page and pressing the `Filter` button.

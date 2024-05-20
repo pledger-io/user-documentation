@@ -2,6 +2,7 @@
 ---
 
 $max-width: 61rem;
+$mobile-max-width: 100%;
 $base-color: rgb(29 77 116);
 
 :root {
@@ -62,5 +63,13 @@ body {
         @import "section-layout/page-navigation";
       }
     }
+  }
+}
+
+@media (max-width: 1024px) {
+  body .container {
+    width: $mobile-max-width;
+    padding-left: .5rem;
+    padding-right: .5rem;
   }
 }

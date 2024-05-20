@@ -18,18 +18,18 @@ At this point in time, the following repositories are available:
 
 *Code repositories*
 
-* link:https://bitbucket.org/jongsoftdev/fintrack-application/src[fintrack-application],
+* link:https://github.com/pledger-io/rest-application[rest-application],
     the main application repository containing the Java REST-api.
-* link:https://bitbucket.org/jongsoftdev/user-interface/src[user-interface],
+* link:https://github.com/pledger-io/user-interface[user-interface],
     the React based user interface.
-* link:https://bitbucket.org/jongsoftdev/fintrack-deployment/src[fintrack-deployment],
-    the deployment repository bundling the user-interface and fintrack-application artifacts.
+* link:https://github.com/pledger-io/build-tooling[build-tooling],
+    the deployment repository bundling the user-interface and rest-application artifacts.
 
 *Documentation repositories*
 
-* link:https://bitbucket.org/jongsoftdev/user-documentation/src[user-documentation],
+* link:https://github.com/pledger-io/user-documentation[user-documentation],
     the repository that generates this website.
-* link:https://bitbucket.org/jongsoftdev/fintrack-importer-configuration/src[fintrack-importer-configuration],
+* link:https://github.com/pledger-io/importer-configurations[importer-configuration],
     the repository containing default configuration for the CSV based transaction importer.
 
 == REST-api

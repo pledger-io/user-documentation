@@ -1,0 +1,13 @@
+
+== 3.4.1
+
+*Release date: 2024-05-23*
+
+=== Added
+
+- 2-factor authentication added to the user login process
+
+=== Changed
+
+- Increased performance for the CSV import process
+- Added support for SMTP configuration for email notifications

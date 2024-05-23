@@ -42,6 +42,22 @@ After the installer has finished a new application named '{application}' should 
 
 == History
 
+=== 3.4.1
+
+[.release-table]
+[cols="1,7"]
+|===
+|Release date
+|2024-05-23
+
+|Release note
+|Add 2-factor authentication
+
+|Download
+|link:{win-binary-location}/Pledger.io%20Setup%203.4.1.exe[Pledger.io Setup 3.4.1.exe]
+|===
+
+
 === 3.3.0
 
 [.release-table]

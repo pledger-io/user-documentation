@@ -7,4 +7,6 @@
 :page-order: 3
 :page-status: published
 
+ifndef::document-root[:document-root: ../../]
 include::../../_document-setup.adoc[]
+

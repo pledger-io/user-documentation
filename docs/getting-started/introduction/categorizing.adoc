@@ -1,0 +1,117 @@
+:page-nav-title: Categorizing transactions
+:page-parent: getting-started::introduction
+:page-title: Creating and categorizing transactions
+:page-section: getting-started
+:page-layout: section
+:page-order: 3
+:page-status: published
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+Recording transactions into {application} is the first step in managing your finances.
+They are the records of money coming in and going out of your accounts.
+Transactions can be categorized to help you understand where your money is going and where it is coming from.
+
+This guide will show you how to create and categorize transactions in {application}.
+The guide will not go into how to budget, but will show you how to categorize transactions using categories and tags.
+Budgeting is covered in xref:{document-root}how-to/your-finances/budgeting.adoc[another guide].
+
+NOTE: This guide assumes you have already xref:{document-root}/getting-started/introduction/first-account.adoc[set up your accounts] in {application}.
+
+== Understanding how categories work
+
+In {application}, transactions can be categorized in multiple ways:
+
+* By using budgets, read xref:{document-root}/concepts/financial/budgets.adoc[here] to get insight into what budgets are.
+* By using categories
+* By using custom tags
+
+Each of these methods can be used to categorize transactions in different ways.
+A transaction can have exactly one budget, one category, and as many tags as you would like.
+
+A budget could be considered the highest level of categorization, as it is used to group transactions into a specific expense groups you want to monitor.
+The category is used to further categorize transactions within a budget.
+Tags are used to add additional information to a transaction.
+
+== Creating your categories
+
+To get started with categorizing transactions, you need to create categories.
+Navigate to the category overview page by clicking on the `Categories` in the sidebar.
+
+.The category menu
+[.scalable-image]
+image::getting-started/catagorizing/catagories-menu-location.png[]
+
+On the category overview page, you can see all the categories you have already created.
+
+.The category overview page
+[.scalable-image]
+image::getting-started/catagorizing/empty-category-overview.png[]
+
+To create a new category, click on the `Add new category` button.
+This will open a new category form where you can enter the details of the new category.
+On this form the following fields are required:
+
+* `Name`: The name of the category.
+
+TIP: Even though the description is optional it is very useful to set it.
+The description is also visible in the autocomplete dropdown when you are categorizing transactions.
+
+.The category form
+[.scalable-image]
+image::getting-started/catagorizing/add-category-form.png[]
+
+After you have filled in the details, click on the `Save` button to save the category.
+
+== Categorizing transactions
+
+To categorize a transaction, navigate to the transaction overview page by clicking on the `Transactions` followed by `Income & Expense` in the sidebar.
+This will open the transaction overview where all recorded transactions for a given month are visible.
+In this guide we will create a new transaction to illustrate how to categorize it.
+
+You will now be creating a new expense by clicking on the `Add transaction` button.
+This will open a dropdown where you can click the `Add expense` button.
+
+.The add transaction dropdown
+[.scalable-image]
+image::getting-started/catagorizing/create-transaction-buttons.png[]
+
+You will have to select the account you want to use as the source, this is one of your own accounts in {application}.
+After selecting the account click `Next`, you can now fill in the details of the transaction.
+
+.The account selection
+[.scalable-image]
+image::getting-started/catagorizing/select-source-account-dialog.png[]
+
+In the transaction form fill the following fields with some example data:
+
+* `Date`: The date of the transaction.
+* `Amount`: The amount of the transaction.
+* `Description`: A description of the transaction.
+* `Destination`: The account where the money is going to, this is an autocomplete field.
+
+.The transaction create form
+[.scalable-image]
+image::getting-started/catagorizing/categorize-transactions.png[]
+
+As you can see, the `Category` field is an autocomplete field, and it will automatically populate if 3 or more characters are typed.
+The matching categories will be displayed in a list, containing both the name and the description of the category.
+You can use either the up and down arrow keys to navigate through the list or use the mouse to select a category.
+
+When you are done editing the transaction click the `Save` button to save the transaction.
+
+== Categorization in the overview
+
+After saving the transaction, you will see the transaction in the transaction overview.
+In the figure below you can see the transaction you just created, with the category you selected.
+
+It is important to understand the different pieces of information in this transaction view.
+
+* The `Category` is visible in the green box in the transaction overview.
+* The `Budget` is visible in the red box in the transaction overview.
+* The `Tags` are visible in the purple box in the transaction overview, and look like pills.
+
+.The transaction overview
+[.scalable-image]
+image::getting-started/catagorizing/categorized-transaction-in-overview.png[]

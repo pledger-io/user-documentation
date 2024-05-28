@@ -18,7 +18,7 @@ Do you want to know the basic usage of {application}?
 Then check out the getting started guide and find out information about:
 
 * xref:{document-root}/getting-started/introduction/first-account.adoc[Creating accounts and transactions]
-* xref:{document-root}/getting-started/introduction/catagorizing.adoc[Categorizing transactions]
+* xref:{document-root}/getting-started/introduction/categorizing.adoc[Categorizing transactions]
 
 More getting started guides are available in the xref:{document-root}/getting-started/index.adoc[getting started] section.
 

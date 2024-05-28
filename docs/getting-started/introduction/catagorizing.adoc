@@ -1,7 +1,0 @@
-:page-nav-title: Catagorizing transactions
-:page-parent: getting-started::introduction
-:page-title: Creating and catagorizing transactions
-:page-section: getting-started
-:page-layout: section
-:page-order: 3
-:page-status: draft

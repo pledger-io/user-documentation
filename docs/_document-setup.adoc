@@ -20,5 +20,8 @@ ifndef::setup-done[]
 
 :docker-image: ghcr.io/pledger-io/amd64-core
 
+ifeval::["{page-status}" == "draft"]
+include::_under-construction.adoc[]
+endif::[]
 
 endif::[]

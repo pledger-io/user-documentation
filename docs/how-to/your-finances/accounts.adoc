@@ -7,3 +7,6 @@
 :page-layout: section
 :page-order: 0
 :page-status: draft
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]

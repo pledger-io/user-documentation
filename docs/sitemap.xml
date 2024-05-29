@@ -10,6 +10,6 @@ layout: null
     {% for page in pages %}
     <url>
         <loc>https://www.pledger.io{{ page.url | remove: 'index.html' }}</loc>
-        <lastmod>{{ page.last_modified_at | date: '%Y-%m-%dT%H:%M:%S' }}</lastmod>
+        <lastmod>{{ page.last_modified_at | date: '%Y-%m-%d' }}</lastmod>
     </url>{% endfor %}
 </urlset>

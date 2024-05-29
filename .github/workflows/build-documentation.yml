@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Setup Ruby
         uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
@@ -19,7 +21,6 @@ jobs:
           bundle install
       - name: Build documentation
         run: |
-          ./preserve_lastmod.sh
           bundle exec jekyll build --destination public
       - name: Upload build artifact
         uses: actions/upload-artifact@v4

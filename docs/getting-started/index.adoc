@@ -5,6 +5,7 @@
 :page-section: getting-started
 :page-layout: section
 :page-order: 1
+:page-status: published
 
 ifndef::document-root[:document-root: ../]
 include::../_document-setup.adoc[]

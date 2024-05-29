@@ -44,12 +44,12 @@
 
         {%- if page.url contains path.url -%}
         <a href="{{ path.url }}" class="active">
-            {%- else -%}
-            <a href="{{ path.url }}">
-                {%- endif -%}
-                {{ path.nav-title }}
-            </a>
-            {%- endfor -%}
+        {%- else -%}
+        <a href="{{ path.url }}">
+        {%- endif -%}
+            {{ path.nav-title }}
+        </a>
+        {%- endfor -%}
     </div>
 </nav>
 

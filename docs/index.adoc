@@ -1,5 +1,6 @@
 :page-title: Your free and open-source personal finance manager
 :page-layout: landing
+:page-status: published
 
 ifndef::document-root[:document-root: .]
 include::_document-setup.adoc[]

@@ -5,6 +5,7 @@
 :page-title: Pledger.io documentation
 :page-layout: section
 :page-order: 0
+:page-status: published
 
 ifndef::document-root[:document-root: ../]
 include::../_document-setup.adoc[]

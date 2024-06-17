@@ -1,0 +1,13 @@
+
+== 3.4.1
+
+*Release date: 2024-06-17*
+
+=== Changes
+
+- Adjust some styling and lay outing issues in the front-end by
+
+=== Bug fixes
+
+- Adding funds fails silently
+- Bump various libraries used by the application

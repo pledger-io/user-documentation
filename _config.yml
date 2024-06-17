@@ -1,8 +1,8 @@
 title: Pledger.io
 
 release:
-  version: 3.4.1
-  date: 2024-05-23
+  version: 3.5.0
+  date: 2024-06-17
 
 github:
   repository: pledger-io/user-documentation
@@ -26,6 +26,6 @@ last-modified-at:
 
 aux_links:
   "Bug Tracker":
-    "https://jongsoftdev.atlassian.net/projects/FIN/issues"
+    "https://github.com/pledger-io/user-interface/issues"
   "Source code":
     "https://github.com/pledger-io"

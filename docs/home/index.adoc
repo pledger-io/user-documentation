@@ -6,6 +6,7 @@
 :page-layout: section
 :page-order: 0
 :page-status: published
+:page-toc: false
 
 ifndef::document-root[:document-root: ../]
 include::../_document-setup.adoc[]

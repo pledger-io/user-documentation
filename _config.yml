@@ -13,6 +13,13 @@ disable_disk_cache: true
 plugins:
   - jekyll-asciidoc
   - jekyll-last-modified-at
+  - jekyll-toc
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      toc: true
 
 keep_files:
   - images/generated

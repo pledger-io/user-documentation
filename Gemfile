@@ -13,6 +13,7 @@ group :jekyll_plugins do
   gem 'asciidoctor-diagram'
   gem 'jekyll-asciidoc'
   gem 'jekyll-last-modified-at'
+  gem 'jekyll-toc'
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem

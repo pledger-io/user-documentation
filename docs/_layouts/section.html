@@ -114,7 +114,7 @@
         <div class="content">
             <h1>{{ page.title }}</h1>
 
-            {{ content }}
+            {{ content | inject_anchors }}
 
             <footer>
                 <div class="last-modified">
@@ -132,7 +132,13 @@
                 </a>
             </footer>
         </div>
-        <div class="page-nav"></div>
+        <div class="page-nav">
+            {% assign toc = content | toc_only %}
+            {% if toc contains 'li' %}
+            <h3>Table of contents</h3>
+            {{ toc }}
+            {% endif %}
+        </div>
     </div>
 </main>
 

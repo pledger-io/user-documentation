@@ -1,6 +1,45 @@
-$nav-width: 5rem;
+@import "constants";
+
+$nav-width: 12rem;
 
 & {
   width: $nav-width;
   min-width: $nav-width;
+}
+
+h3 {
+  margin: 0;
+
+  color: rgb(0, 0, 0, .55);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: .5rem 0 0 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  & > li {
+    flex: 1;
+
+    font-size: .7rem;
+
+    a {
+      color: $text-color;
+      text-decoration: none;
+
+      &:hover {
+        color: $link-color;
+      }
+    }
+
+    & > ul {
+      padding-left: .5rem;
+    }
+  }
 }

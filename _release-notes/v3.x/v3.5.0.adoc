@@ -1,4 +1,21 @@
 
+== 3.5.2
+
+*Release date: 2024-08-09*
+
+=== Changes
+
+- Restructure types in the UX
+- Style fixes in the UX
+- Update router configuration in the UX
+- Various dependency upgrades in UX and REST layer
+
+=== Bug fixes
+
+- Fix the to field issue in the liability payment form.
+- Fix the route and loading of the schedule transaction edit form.
+- Fix issue in the category label not visible in transaction rules.
+
 == 3.5.1
 
 *Release date: 2024-06-20*

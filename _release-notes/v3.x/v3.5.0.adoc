@@ -1,4 +1,12 @@
 
+== 3.5.3
+
+*Release date: 2024-08-14*
+
+=== Bug fixes
+
+- Fix an issue with the transaction form not redirecting to the previous page after saving.
+
 == 3.5.2
 
 *Release date: 2024-08-09*

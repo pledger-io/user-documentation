@@ -58,8 +58,6 @@
         <nav>
             {% assign mainChapter = site.pages | where: 'module', 'section' | find: 'section', page.section %}
 
-            <h2>{{ mainChapter.nav-title }}</h2>
-
             {% assign chapters = site.pages | where: 'parent', mainChapter.id | where: 'status', 'published' | sort: 'order' %}
             {%- if chapters.size >= 1 -%}
             {%- if page.url == mainChapter.url -%}

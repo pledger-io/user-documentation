@@ -1,4 +1,4 @@
-$nav-gap: .25rem;
+$nav-gap: .15rem;
 $nav-width: 10rem;
 $nav-color: rgba(67, 67, 67);
 $active-nav-color: rgb(1, 102, 250);
@@ -6,12 +6,15 @@ $active-nav-color: rgb(1, 102, 250);
 & {
   width: $nav-width;
   min-width: $nav-width;
+  padding-top: 1rem;
+  margin-bottom: 1.2rem;
 
   display: flex;
   flex-direction: column;
   gap: $nav-gap;
 
   font-size: .75em;
+  border-right: 1px solid rgba(230, 230, 230, 0.8);
 
   h2 {
     color: $nav-color;
@@ -35,7 +38,7 @@ $active-nav-color: rgb(1, 102, 250);
     }
 
     .children {
-      margin-left: .75rem;
+      margin-left: .5rem;
       display: flex;
       flex-direction: column;
       gap: $nav-gap;

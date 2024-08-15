@@ -66,10 +66,37 @@ body {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1350px) {
   body .container {
     width: $mobile-max-width;
     padding-left: .5rem;
     padding-right: .5rem;
+  }
+
+  body main .container {
+    & > .content {
+      padding-right: 1rem;
+    }
+    & > .page-nav {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  body main {
+    padding-top: .25rem;
+
+    .container {
+      flex-direction: column;
+
+      & > nav {
+        border-right: none;
+        border-bottom: 1px solid rgba(230, 230, 230, 0.8);
+
+        padding-bottom: 1rem;
+        width: 93vw;
+      }
+    }
   }
 }

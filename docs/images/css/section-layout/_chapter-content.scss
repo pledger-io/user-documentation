@@ -88,6 +88,47 @@
   @import "lists";
   @import "content-footer";
 
+  .next-documentation-page {
+    display: flex;
+    justify-content: flex-end;
+
+    p {
+      margin: .5em 0;
+
+      a {
+        padding: .5em 1em;
+
+        color: #fff;
+        background-color: lighten(#1f527c, 10%);
+        border-bottom-left-radius: .25em;
+        border-top-left-radius: .25em;
+
+        position: relative;
+
+        &:hover {
+          background-color: lighten(#1f527c, 25%);
+
+          &::after {
+            border-left-color: lighten(#1f527c, 25%);
+          }
+        }
+
+        // create a triangle on the right side of the button
+        &::after {
+          content: "";
+          position: absolute;
+          right: -.99em;
+          top: 0;
+          width: 0;
+          height: 0;
+          border-top: 1.15em solid transparent;
+          border-bottom: 1.1em solid transparent;
+          border-left: 1em solid lighten(#1f527c, 10%);
+        }
+      }
+    }
+  }
+
   table.tableblock {
     @import "table";
   }

@@ -29,3 +29,6 @@ image::getting-started/create-user/02_registration_screen.png[Registration dialo
 
 If an e-mail system was xref:{document-root}how-to/installation/configuration.adoc[configured], you will receive an e-mail on your e-mail address to welcome you.
 You can now log in with the user you just created.
+
+[.next-documentation-page]
+xref:{document-root}/getting-started/introduction/first-account.adoc[Next up: Create accounts and transactions]

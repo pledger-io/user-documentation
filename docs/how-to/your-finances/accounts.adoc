@@ -1,6 +1,6 @@
 :page-id: how-to::finances::accounts
 :page-parent: how-to::finances
-:page-nav-title: How to manage accounts
+:page-nav-title: Managing your accounts
 :page-module: chapter
 :page-title: How to manage your accounts
 :page-section: how-to-guides
@@ -33,7 +33,7 @@ This will open the account overview page with all the accounts that you have.
 [.scalable-image]
 image::getting-started/first-accounts/account-overview.png[Account overview]
 
-== Creating an account
+== Adding new accounts
 
 Creating or editing accounts can be done by either clicking the `Add account` button in the top of the overview page or by clicking the icon:square-edit[] icon in the context menu.
 You will be presented a form which allows you to enter all the account information.
@@ -80,3 +80,6 @@ By creating a new transaction with the difference, or start an account reconcili
 Once the previous year is reconciled {application} will automatically resume the incomplete account reconciliation as well.
 
 If you have chosen to enter a manual correction then you can click the icon:redo[] icon to retry the account reconciliation.
+
+[.next-documentation-page]
+xref:{document-root}/how-to/your-finances/budgeting.adoc[Next up: Working with budgets]

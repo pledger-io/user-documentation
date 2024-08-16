@@ -84,3 +84,6 @@ image::getting-started/first-accounts/transaction-overview.png[]
 
 This overview is a quick way to see all your transactions and to get an overview of your financial activities for the selected month.
 You can filter the transactions using the filter form on the page and pressing the `Filter` button.
+
+[.next-documentation-page]
+xref:{document-root}/getting-started/introduction/categorizing.adoc[Next up: Categorizing transactions]

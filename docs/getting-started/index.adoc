@@ -25,4 +25,4 @@ The menu on the left side of the page are the getting started guides that are av
 - Do you have a suggestion for a new getting started guide?
 
 If you think something is missing in the getting started guides, then please create an issue on the GitHub repository for this documentation.
-You can find the repository at link: link:https://github.com/pledger-io/user-documentation[user-documentation].
+You can find the repository at link:https://github.com/pledger-io/user-documentation[user-documentation].

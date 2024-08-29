@@ -5,7 +5,7 @@
 :page-section: architecture
 :page-layout: section
 :page-order: 5
-:page-status: draft
+:page-status: published
 
 ifndef::document-root[:document-root: ../../]
 include::../../_document-setup.adoc[]
@@ -16,3 +16,23 @@ To achieve this the starting and ending balance for a given year are compared an
 == Required variables
 
 The following variables are required to be set in the process:
+
+- `accountId`, the identifier of the account to be reconciled.
+- `startDate`, the start date of the reconciliation period.
+- `endDate`, the end date of the reconciliation period.
+- `openBalance`, the opening balance of the account at the startDate.
+- `endBalance`, the closing balance of the account at the endDate.
+
+== The business process
+
+Below is a business process model for the account reconciliation process.
+
+.Process diagram
+[.scalable-image]
+image::architecture/process/account_reconcile.png[Account reconciliation process]
+
+=== User task: task_reconcile_before
+
+This task will be triggered when the `openBalance` does not equal the computed balance at the `startDate`.
+It indicates that the previous year must be reconciled before the current year can be continued.
+Closing this task will re-calculate the balance at the `startDate`.

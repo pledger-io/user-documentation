@@ -1,0 +1,61 @@
+---
+---
+
+
+:root {
+  font-size: 1.375em;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+}
+
+$max-width: 61rem;
+$mobile-max-width: 100%;
+$base-color: rgb(29 77 116);
+
+body {
+  margin: 0;
+
+  .container {
+    width: $max-width;
+    margin: 0 auto;
+  }
+
+  header {
+    @import "section-layout/header";
+  }
+
+  & > nav {
+    background-color: lighten($base-color, 2%);
+    padding: .3rem 0 .5rem 0;
+    font-size: .75em;
+
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(255, 255, 255, .7);
+
+      &.active {
+        color: rgb(255, 255, 255);
+      }
+    }
+  }
+
+  main {
+    .container {
+      display: flex;
+      flex-direction: row;
+
+      & > nav {
+        @import "section-layout/chapter-navigation";
+      }
+
+      rapi-doc {
+        height: calc(100vh - 4.7em);
+      }
+    }
+  }
+}

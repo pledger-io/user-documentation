@@ -1,0 +1,12 @@
+:page-id: architecture::api-docs
+:page-parent: architecture
+:page-nav-title: API Documentation
+:page-module: chapter
+:page-title: Rest API documentation
+:page-section: architecture
+:page-layout: api-doc
+:page-order: 4
+:page-status: published
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]

@@ -122,3 +122,20 @@
                   heading-text="Pledger API"></rapi-doc>
     </div>
 </main>
+
+<script type="application/javascript">
+    function toggleNavigation(id) {
+        const section = document.getElementById(id);
+        const children = section.querySelector('.children');
+
+        if (children.classList.contains('expanded')) {
+            children.classList.remove('expanded');
+            section.querySelector('img').src = '/images/icons/nav-chevron-right.png';
+        } else {
+            children.classList.add('expanded');
+            section.querySelector('img').src = '/images/icons/nav-chevron-down.png';
+        }
+    }
+</script>
+</body>
+</html>

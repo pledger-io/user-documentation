@@ -42,6 +42,22 @@ After the installer has finished a new application named '{application}' should 
 
 == History
 
+=== 3.6.0
+
+[.release-table]
+[cols="1,7"]
+|===
+|Release date
+|2024-09-13
+
+|Release note
+|Add light theme to the application.
+
+|Download
+|link:{win-binary-location}/Pledger.io%20Setup%203.6.0.exe[Pledger.io Setup 3.6.0.exe]
+|===
+
+
 === 3.5.2
 
 [.release-table]

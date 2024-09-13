@@ -1,0 +1,9 @@
+
+== 3.6.0
+
+*Release date: 2024-09-13*
+
+=== Changes fixes
+
+* Include api generation for website
+* Add a light theme to the website

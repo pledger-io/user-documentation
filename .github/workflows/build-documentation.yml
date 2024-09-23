@@ -11,7 +11,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup Ruby
-        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
+        uses: ruby/setup-ruby@v1.193.0
         with:
           ruby-version: 2.7
       - name: Install dependencies

@@ -42,7 +42,7 @@ After the installer has finished a new application named '{application}' should 
 
 == History
 
-=== 3.7.0
+=== 3.7.1
 
 [.release-table]
 [cols="1,7"]
@@ -54,7 +54,7 @@ After the installer has finished a new application named '{application}' should 
 |Add auto-suggestion for budget, contract and category when creating transactions.
 
 |Download
-|link:{win-binary-location}/Pledger.io%20Setup%203.7.0.exe[Pledger.io Setup 3.7.0.exe]
+|link:{win-binary-location}/Pledger.io%20Setup%203.7.1.exe[Pledger.io Setup 3.7.1.exe]
 |===
 
 === 3.6.0

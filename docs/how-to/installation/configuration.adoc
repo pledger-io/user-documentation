@@ -52,3 +52,23 @@ When using the mail feature of {application} the following environment variables
 | `SMTP_PASSWORD` | The SMTP password for authentication | -
 
 |===
+
+[[configure_llm]]
+== Large Language Model options
+
+When either using the docker image `ghcr.io/pledger-io/amd64-embedded-llm` you can configure the following options.
+Alternatively you can use the normal image but use link:https://platform.openai.com[OpenAI], at the cost of some privacy.
+
+[%header,cols="1,2,1"]
+|===
+| Variable | Description | Default
+
+| `AI_ENGINE` | The engine to use. Supported are `ollama` and `open-ai` | ollama
+| `AI_MODEL` | The Ollama model to use, only used with AI_ENGINE 'ollama' | qwen2.5-coder:1.5b
+| `AI_AUGMENTER_ENABLED` | Should the context for the LLM be expanded with budget, category and tag information | true
+| `OPENAI_TOKEN` | The application token for OpenAI, must be set when AI_ENGINE is 'open-ai' | -
+
+|===
+
+NOTE: Please leave `AI_AUGMENTER_ENABLED` enabled with the default model.
+This can be disabled when using larger models as they have a better understanding of the transaction information and tools.

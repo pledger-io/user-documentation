@@ -1,0 +1,14 @@
+
+== 4.0.0
+
+*Release date: 2025-02-20*
+
+=== Added
+
+- Feature/initial AI integration
+
+=== Changed
+
+- Feature/move to vite for the UX build engine
+- Refactor form input handling and enhance transaction suggestions
+- Move the eventbus to only the command system

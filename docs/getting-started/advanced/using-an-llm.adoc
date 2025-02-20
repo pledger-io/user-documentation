@@ -1,0 +1,65 @@
+:page-nav-title: Using the AI features
+:page-parent: getting-started::advanced
+:page-title: Using the AI features in Pledger.io
+:page-section: getting-started
+:page-layout: section
+:page-order: 1
+:page-status: published
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+WARNING: This functionality is still under active development and should be considered a `preview` feature.
+Some of the configuration or usage may be a bit more difficult.
+
+Since version `4.0.0` of {application} support for Large Language Models (LLM) has been added.
+A Large Language Model (LLM) is an advanced machine learning model trained on vast amounts of text data to understand, generate, and process human-like natural language.
+
+{application} supports the following types of LLM engines:
+
+1. link:https://platform.openai.com[Open AI], a cloud based LLM
+2. link:https://ollama.com[Ollama], a local hosted LLM
+
+== How will the AI help you
+
+{application} currently only has very limited features build using the LLM.
+The following is added at this time:
+
+* Making suggestions for budget, category and tags based upon the description, bank accounts and amount in the transaction form.
+
+== Privacy focussed option
+
+For those users that want their financial data to remain private you can use the Ollama version.
+A special version of the Docker Image is released that contains the Ollama software alongside {application}.
+
+NOTE: Use this docker image `ghcr.io/pledger-io/amd64-embedded-llm`.
+
+When starting the docker image it will automatically download the model configured in the environment.
+Please see the page `xref:{document-root}/how-to/installation/configuration.adoc#configure_llm[Large Language Model options]` for how to configure {application} correctly.
+
+For most users it is advised to not change the model used by Ollama, the picked model has the best accuracy vs performance.
+If you have an Nvidia or AMD GPU you may be able to utilize that to power Ollama.
+This would allow you to pick a larger model like `llama3.3` or `mistral`.
+
+To utilize the GPU you would have to adopt the docker command to something like this:
+
+[source,shell,linenums]
+....
+ docker run -d \
+         -v pledger_logs:/opt/storage/logs \
+         -v pledger_uploads:/opt/storage/upload \
+         -p 8080:8080 \
+         --gpus=all \
+         --name pledger \
+         -e DB_TYPE=mysql
+         -e DATABASE_HOST=mariadb
+         -e DATABASE_SCHEMA=pledger
+         -e DATABASE_USER=pledger
+         -e DATABASE_PASSWORD=pledger
+         -e AI_MODEL=llama3.3
+         ghcr.io/pledger-io/amd64-embedded-llm:stable
+....
+
+== OpenAI based AI
+
+TIP: Still to be documented....

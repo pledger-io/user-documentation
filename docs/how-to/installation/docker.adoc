@@ -25,6 +25,7 @@ There are various builds for various different target platforms.
 Personal Ledger is currently built for:
 
 - AMD64, under image `{docker-image}`
+- AMD64 with Ollama embedded, under image `ghcr.io/pledger-io/amd64-embedded-llm`
 - ARMv8, under image `ghcr.io/pledger-io/arm64-core`
 
 The instructions here will assume usage of the tag `stable`.

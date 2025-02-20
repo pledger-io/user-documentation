@@ -42,6 +42,21 @@ After the installer has finished a new application named '{application}' should 
 
 == History
 
+=== 3.8.0
+
+[.release-table]
+[cols="1,7"]
+|===
+|Release date
+|2025-01-03
+
+|Release note
+| Various UI optimizations.
+
+|Download
+|link:{win-binary-location}/Pledger.io%20Setup%203.8.0.exe[Pledger.io Setup 3.8.0.exe]
+|===
+
 === 3.7.1
 
 [.release-table]

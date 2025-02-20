@@ -1,0 +1,11 @@
+
+== 3.8.0
+
+*Release date: 2025-01-03*
+
+=== Bug-fixes
+
+* Change the logging to include the date of an event, making troubleshooting easier.
+* Styling updates in the UX with regards to the transaction overviews
+* Reduced button sizes in the card headers
+* Made the create transactions buttons more accessible in the global transaction overview

@@ -37,10 +37,17 @@ NOTE: Use this docker image `ghcr.io/pledger-io/amd64-embedded-llm`.
 When starting the docker image it will automatically download the model configured in the environment.
 Please see the page `xref:{document-root}/how-to/installation/configuration.adoc#configure_llm[Large Language Model options]` for how to configure {application} correctly.
 
+=== Choosing different AI models
+
 For most users it is advised to not change the model used by Ollama, the picked model has the best accuracy vs performance.
 If you have an Nvidia or AMD GPU you may be able to utilize that to power Ollama.
 This would allow you to pick a larger model like `llama3.3` or `mistral`.
 
+You can view the full list of available models on the link:https://ollama.com/search[Ollama website].
+
+=== Enhance performance by using your GPU
+
+Ollama supports using the link:https://github.com/ollama/ollama/blob/main/docs/gpu.md[GPU] to speed up the responses of the LLM.
 To utilize the GPU you would have to adopt the docker command to something like this:
 
 [source,shell,linenums]
@@ -62,4 +69,29 @@ To utilize the GPU you would have to adopt the docker command to something like 
 
 == OpenAI based AI
 
-TIP: Still to be documented....
+As an alternative to hosting the AI agent yourself you could choose to user Open AI.
+The results from Open AI will be more accurate than the Ollama based once as the model used is far more advanced.
+
+WARNING: Be aware that information will be sent from {application} to Open AI.
+{application} will allow access to the list of budgets, categories and tags, as well as the information of any transaction that you are editing.
+
+[[open_ai_generate_token]]
+=== Generating an API key
+
+1. Visit the link:https://platform.openai.com[OpenAI website].
+2. Click on "Sign Up" if you don't have an account, or "Log In" if you already have one.
+3. Complete the required verification steps.
+4. Visit the link:https://platform.openai.com/api-keys[API key page].
+5. Hit the "Create new key" option.
+6. Set a name, a project and choose "All" permissions.
+7. Hit "Create" and copy the key somewhere safe for usage in {application}.
+
+=== Configuring {application} to use Open AI
+
+For Open AI to be used you will have to set the following environment variables:
+
+- `AI_ENGINE` should be set to `open-ai`.
+- `OPENAI_TOKEN` should contain the key that xref:#open_ai_generate_token[was created before].
+
+NOTE: If you are not using the docker image with embedded LLM you *must* also set the `MICRAUT_PROFILES` variable to `ai`.
+This will enable the AI features inside {application}.

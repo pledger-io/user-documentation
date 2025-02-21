@@ -40,8 +40,7 @@ services:
         - "pledger_uploads:/opt/storage/upload"
     pledger_db:
       container_name: pledger_db
-      image: mysql
-      args: ["--default-authentication-plugin=mysql_native_password"]
+      image: mariadb:11.2
       volumes:
         - "pledger_db:/var/lib/mysql"
       environment:

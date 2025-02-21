@@ -1,4 +1,12 @@
 
+== 4.0.1
+
+*Release date: 2025-02-21*
+
+=== Bug fixes
+
+- Resolve an issue during initial startup on a clean MySQL or MariaDB system.
+
 == 4.0.0
 
 *Release date: 2025-02-20*

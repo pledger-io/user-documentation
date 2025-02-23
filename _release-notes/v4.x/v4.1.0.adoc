@@ -1,0 +1,26 @@
+
+== 4.1.0
+
+*Release date: 2025-02-23*
+
+=== Changes
+
+- Update the layout to work better on smaller devices like phones.
+- Add the code coverage measurements for the UI.
+
+=== Bug fixes
+
+- Hotfix transfer listing not working.
+- Fix an issue in the query for the daily balance.
+
+=== Dependency updates
+
+==== Front-end
+
+- Update dependency eslint to v9.21.0
+- Update dependency tailwindcss to v4.0.8
+
+==== Back-end
+
+- Update dependency org.junit.jupiter:junit-jupiter-api to v5.12.0
+

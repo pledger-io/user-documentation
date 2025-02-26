@@ -1,0 +1,41 @@
+:page-id: concepts::support
+:page-parent: concepts
+:page-nav-title: Support
+:page-module: chapter
+:page-title: Getting support
+:page-section: concepts
+:page-layout: section
+:page-order: 3
+:page-status: published
+
+ifndef::document-root[:document-root: ../]
+include::../_document-setup.adoc[]
+
+== Issues
+
+If you found a bug, have a feature request or another idea for improvements, please open an issue on link:https://github.com/pledger-io/.github/issues[GitHub].
+Include as much detail as possible to make it easier to identify and solve the bug.
+
+NOTE: Keep in mind this is a project that is only developed by on voluntary basis.
+It may take some time for issues to be resolved.
+
+== Contributing code
+
+{application} is developed as Open Source project in peoples spare time.
+If you have a good idea or suggestion and have some coding experience feel free to contribute to the project.
+When contributing please keep the following in mind:
+
+. If you want to fix a bug you found, please first report it using the link:https://github.com/pledger-io/.github/issues[GitHub].
+Link the issue to the PR so all developers know the context of what you are attempting to fix.
+
+. When contributing new functionality please describe it in the PR, also include the rationale behind it and if you looked at alternative solutions for the same rationale.
+This will help determine if and how your PR benefits all users of {application}.
+
+. Make sure that all changes have tests to verify the functionality.
+PRs with untested code will not get accepted.
+
+. Keep each PR as small as possible.
+Do not combine multiple functionalities or bugs in a single PR.
+
+All contributed code to {application} will be licensed under the link:https://github.com/pledger-io/rest-application/blob/master/LICENSE[MIT license].
+

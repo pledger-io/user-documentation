@@ -36,3 +36,15 @@ body {
     @import "landing-page/footer";
   }
 }
+
+@media(max-width: 800px) {
+  body main .lead {
+    .content {
+      padding: 0;
+      margin: auto;
+    }
+    .imageblock {
+      display: none;
+    }
+  }
+}

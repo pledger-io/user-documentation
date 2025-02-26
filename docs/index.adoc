@@ -81,3 +81,21 @@ Filter by date, category, or account to find the transactions you are looking fo
 =====
 
 ====
+
+
+[.pitch.left]
+====
+
+=====
+[.title]
+Extensive reports
+
+[.description]
+{application} includes a rich set of reports to quickly give you insights into where your money is going every month.
+From income vs expenses, splitting on monthly basis by budget or your spending per category per year.
+
+=====
+
+image::report-income.png[]
+
+====

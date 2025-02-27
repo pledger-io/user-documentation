@@ -39,3 +39,11 @@ Do not combine multiple functionalities or bugs in a single PR.
 
 All contributed code to {application} will be licensed under the link:https://github.com/pledger-io/rest-application/blob/master/LICENSE[MIT license].
 
+== Contributing translations
+
+If you notice a spelling error or missing translation in your language you can contribute updates using link:https://crowdin.com/project/pledger-io[our CrowdIn] project.
+This allows you to submit translations and fixes for {application}.
+During the builds in GitHub the translations will be downloaded and integrated automatically.
+
+If your language is missing then please open an link:https://github.com/pledger-io/.github/issues[issue on GitHub] requesting it.
+It will then be added to the project on CrowdIn.

@@ -1,4 +1,23 @@
 
+== 4.1.2
+
+*Release date: 2025-03-16*
+
+=== Bug fixes
+
+- Fix an issue with displaying archived accounts.
+- Add missing translations.
+
+=== Dependency updates
+
+- Update dependency gradle to v8.13
+- Update plugin org.openapi.generator to v7.12.0
+- Update dependency org.mockito:mockito-core to v5.16.0
+- Update plugin io.micronaut.library to v4.5.0
+- Update plugin io.micronaut.application to v4.5.0
+- Update plugin io.freefair.lombok to v8.13
+- Update dorny/test-reporter action to v2
+
 == 4.1.1
 
 *Release date: 2025-02-23*

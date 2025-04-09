@@ -1,0 +1,29 @@
+
+== 4.2.0
+
+*Release date: 2025-04-09*
+
+=== Changes
+
+- Update to UI library to PrimeReact.
+- Extract the router needed components into dedicated files.
+- Update localization messages
+
+=== Dependency updates
+
+==== Front-end
+
+- Update dependency typescript-eslint to v8.26.0
+- Update dependency vite to v6.2.5
+- Update dependency axios to v1.8.2
+- Update dependency typescript to v5.8.2
+- Update dependency react-router to v7.5.0
+- Update dependency spacetime to v7.8.0
+- Update dependency sass to v1.86.0
+- Update react monorepo to v19.1.0
+- Update tailwindcss monorepo to v4.1.3
+
+==== Back-end
+
+- Update dependency org.camunda.bpm:camunda-engine to v7.23.0
+

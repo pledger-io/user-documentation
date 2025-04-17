@@ -1,0 +1,33 @@
+:page-nav-title: Deployment
+:page-parent: architecture::deployment
+:page-title: Deployment strategy for Pledger.io
+:page-section: architecture
+:page-layout: section
+:page-order: 4
+:page-status: published
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+The deployment repository is used to bundle the user-interface and REST-api into a single deployable artifact.
+This repository is built using the following tooling:
+
+- link:https://gradle.org/[Gradle],
+used as the build tool.
+- link:https://www.docker.com/[Docker],
+used to create the docker images.
+- link:https://www.electron.build/[Electron],
+used to create the desktop application.
+
+== Build process
+
+.Build process
+image::architecture/application-build-process.png[]
+
+1. Pulling the latest version of the `user-interface` and `REST-api`.
+2. Building an output archive for the combined REST-api and user-interface.
+3. Building a `docker` image for the combined REST-api and user-interface.
+4. Building an `electron application` for the combined REST-api and user-interface.
+5. Pushing the docker image to the docker registry.
+6. Pushing the desktop application to the release repository.
+

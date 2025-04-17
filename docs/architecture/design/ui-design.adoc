@@ -1,0 +1,22 @@
+:page-nav-title: UI design
+:page-parent: architecture::ui
+:page-title: The UI design for Pledger.io
+:page-section: architecture
+:page-layout: section
+:page-order: 3
+:page-status: published
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+The user interface is a React-based application.
+It is built up using the following frameworks and tools:
+
+- link:https://reactjs.org/[React],
+used as the UI framework.
+- link:https://www.typescriptlang.org/[Typescript],
+used as the programming language.
+- link:https://www.chartjs.org/[Chart.js],
+used for the rendering of the various charts inside the application.
+- link:https://axios-http.com/docs/intro[axios],
+used for the communication with the REST-api.

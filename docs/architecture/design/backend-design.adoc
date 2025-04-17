@@ -1,0 +1,69 @@
+:page-nav-title: Backend design
+:page-parent: architecture::backend
+:page-title: The backend design for Pledger.io
+:page-section: architecture
+:page-layout: section
+:page-order: 2
+:page-status: published
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+The REST-api is the main component of the application.
+This part of {application} is build using the following tooling:
+
+- link:https://gradle.org/[Gradle],
+used as the build tool.
+- link:https://micronaut.io/[Micronaut framework],
+used as the DI and API framework.
+- link:https://camunda.com/[Camunda BPM],
+used to automate workflows inside {application}.
+- link:https://docs.langchain4j.dev/[LangChain4j],
+used as the engine to interact with Vector stores and LLM implementations.
+
+== Internal design
+
+The REST-api is designed to be a stateless application.
+Inside this part of the application, several layers are recognized:
+
+- The `REST-api layer`, which is the entry point for all requests.
+- The `Application domain` layer, which contains the business logic.
+- The `Business Process layer`, which contains the workflow logic and is based on Camunda BPM.
+- The `JPA database layer`, which contains the database access logic.
+
+.System design
+image::architecture/java.backend.design.png[]
+
+In this design the `Application domain` layer does not directly communicate with any of the other layers.
+If an action occurs on any of the entities in this layer, an event is published on the internal event bus.
+This event bus is provided by Micronaut and is only accessible inside the application.
+
+=== Rest application layer
+
+Serves as the primary interface to the application, providing well-designed REST API endpoints for client applications.
+It handles all aspects of HTTP requests and responses, including serialization, content negotiation, and error handling.
+The module implements robust API security mechanisms and thorough validation to ensure that all incoming data meets the application's requirements.
+
+=== Domain module
+
+Represents the heart of the business functionality, defining the comprehensive domain model and encapsulating all business logic.
+This module contains detailed entity definitions that model real-world concepts and implement the business rules that govern system behavior.
+It provides well-defined service interfaces for all business operations, creating a clear API for other modules to interact with the domain.
+
+=== Business process models
+
+Implements comprehensive business process management functionality using industry standards.
+It leverages Camunda, a powerful BPM platform, for reliable process execution.
+This module allows the application to define and execute complex business processes with proper state management, task assignment, and process monitoring.
+
+=== Language models
+
+Implements advanced machine learning capabilities that enhance the application's intelligence.
+It provides transaction classification and suggestion features that help users organize and understand their financial data.
+The module includes both rule-based learning for deterministic patterns and LLM-based (Large Language Model) learning capabilities for more complex, natural language processing tasks.
+
+=== JPA database layer
+
+Handles all aspects of data persistence using the Java Persistence API (JPA).
+It provides concrete repository implementations for all domain entities, abstracting the details of data storage and retrieval.
+This module efficiently handles database operations and transaction management, ensuring data integrity and consistency throughout the application.

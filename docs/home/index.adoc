@@ -39,7 +39,7 @@ More how-to guides are available in the xref:{document-root}/how-to/index.adoc[h
 Do you want to know more about the architecture of {application}?
 Then check out the reference guide and find out information about:
 
-* xref:{document-root}/architecture/design/application.adoc[Application design]
+* xref:{document-root}/architecture/design/domain.adoc[Application design]
 * xref:{document-root}/architecture/process/index.adoc[Business processes used in {application}]
 
 More reference guides are available in the xref:{document-root}/architecture/index.adoc[reference guide] section.

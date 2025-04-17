@@ -1,4 +1,4 @@
-:page-nav-title: Domain design
+:page-nav-title: Functional domain
 :page-parent: architecture::design
 :page-title: The bussiness domain of Pledger.io
 :page-section: architecture

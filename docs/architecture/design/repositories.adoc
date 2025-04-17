@@ -1,0 +1,31 @@
+:page-nav-title: Repository setup
+:page-parent: architecture::repositories
+:page-title: Repositories involved for Pledger.io
+:page-section: architecture
+:page-layout: section
+:page-order: 0
+:page-status: published
+
+ifndef::document-root[:document-root: ../../]
+include::../../_document-setup.adoc[]
+
+{application} is a web application that consists out of several repositories.
+Each of the repositories has a dedicated goal and is designed to be bundled into a single application.
+
+At this point in time, the following repositories are available:
+
+*Code repositories*
+
+* link:https://github.com/pledger-io/rest-application[rest-application],
+the main application repository containing the Java REST-api.
+* link:https://github.com/pledger-io/user-interface[user-interface],
+the React based user interface.
+* link:https://github.com/pledger-io/build-tooling[build-tooling],
+the deployment repository bundling the user-interface and rest-application artifacts.
+
+*Documentation repositories*
+
+* link:https://github.com/pledger-io/user-documentation[user-documentation],
+the repository that generates this website.
+* link:https://github.com/pledger-io/importer-configurations[importer-configuration],
+the repository containing the default configuration for the CSV-based transaction importer.

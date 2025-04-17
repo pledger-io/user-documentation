@@ -7,6 +7,7 @@
 :page-order: 3
 :page-status: published
 
+ifndef::document-root[:document-root: ../]
 include::../_document-setup.adoc[]
 
 This part of the documentation contains the architectural design for {application}.
@@ -14,3 +15,9 @@ This part of the documentation contains the architectural design for {applicatio
 Architectural design is a concept that focuses on the components or structure of a system, the relationships between the components, and the principles guiding its design and evolution.
 
 This design ensures that {application} achieves its goals of allowing managing and maintaining a bookkeeping system while ensuring robustness, reliability, maintainability, and easy scalability.
+
+In this section, you can find the following information:
+
+1. xref:{document-root}/architecture/design/domain.adoc[Application Design], containing the application setup and domain design.
+2. xref:{document-root}/architecture/process/profile-import.adoc[Business Processes], containing the various business processes inside the {application}.
+3. xref:{document-root}/architecture/api-docs/index.adoc[API documentation], the full REST API documentation for {application} in OpenAPI format.

@@ -1,5 +1,5 @@
 :page-nav-title: UI design
-:page-parent: architecture::ui
+:page-parent: architecture::design
 :page-title: The UI design for Pledger.io
 :page-section: architecture
 :page-layout: section

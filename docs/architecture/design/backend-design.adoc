@@ -1,5 +1,5 @@
 :page-nav-title: Backend design
-:page-parent: architecture::backend
+:page-parent: architecture::design
 :page-title: The backend design for Pledger.io
 :page-section: architecture
 :page-layout: section

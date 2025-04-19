@@ -1,5 +1,5 @@
 :page-nav-title: Repository setup
-:page-parent: architecture::repositories
+:page-parent: architecture::design
 :page-title: Repositories involved for Pledger.io
 :page-section: architecture
 :page-layout: section

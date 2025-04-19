@@ -1,5 +1,5 @@
 :page-nav-title: Deployment
-:page-parent: architecture::deployment
+:page-parent: architecture::design
 :page-title: Deployment strategy for Pledger.io
 :page-section: architecture
 :page-layout: section

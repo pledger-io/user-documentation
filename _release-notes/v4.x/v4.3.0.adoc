@@ -1,0 +1,31 @@
+
+== 4.3.1
+
+*Release date: 2025-04-20*
+
+=== Bug-fixes
+
+- Changed the base container to allow the LLM to work in the non LLM container, using OpenAI for example.
+
+== 4.3.0
+
+*Release date: 2025-04-19*
+
+=== Changes
+
+- Update budget page
+- Add feature to extract transaction information from text on all transaction overview.
+- Update transaction detail component to make it a bit more condense.
+
+=== Dependency updates
+
+==== Front-end
+
+- Update dependency @testing-library/react to v16.3.0
+- Update dependency jsdom to v26.1.0
+- Update dependency vite to v6.3.2
+- Update dependency @vitejs/plugin-react-swc to v3.9.0
+- Update dependency @eslint-react/eslint-plugin to v1.48.3
+- Update dependency eslint to v9.25.0
+- Update dependency spacetime to v7.10.0
+

@@ -28,6 +28,9 @@ Below is a business process model for contract termination.
 
 .Process diagram
 [.scalable-image]
-image::architecture/process/contract.warn.termination.png[Contract termination process]
+[bpmn, generated/architecture/process/contract-termination, svg]
+....
+include::{document-root}/images/diagrams/bpmn-contract-termination.bpmn[Contract terminiation process]
+....
 
 NOTE: If a contracts end date is already in the past the process will terminate without any warning.

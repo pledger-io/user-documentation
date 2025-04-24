@@ -17,6 +17,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update && sudo apt install -y graphviz
+          npm -g install bpmn-js-cmd
           gem install bundler:2.2.13
           bundle install
       - name: Build documentation

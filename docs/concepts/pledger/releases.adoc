@@ -16,4 +16,4 @@ include::../../_document-setup.adoc[]
 This page lists the release history of {application}.
 It is intended to provide a high-level overview of the changes made to the software over time.
 
-include::{document-root}../_release-notes/index.adoc[]
+include::{document-root}_partials/release-notes/index.adoc[]

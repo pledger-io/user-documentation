@@ -36,8 +36,14 @@ This process re-uses the generic process scheduler BPMN flow to trigger the star
 
 .Generic scheduling diagram
 [.scalable-image]
-image::architecture/process/process_scheduler.png[Process scheduler]
+[bpmn, generated/architecture/process/process-scheduler, svg]
+....
+include::{document-root}/images/diagrams/bpmn-process-scheduler.bpmn[]
+....
 
 .Transaction creation diagram
 [.scalable-image]
-image::architecture/process/scheduled.transaction.png[Transaction creation]
+[bpmn, generated/architecture/process/scheduled-transaction, svg]
+....
+include::{document-root}/images/diagrams/bpmn-scheduled-transaction.bpmn[]
+....

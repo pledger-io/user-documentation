@@ -1,6 +1,8 @@
-openapi: 3.0.1
+openapi: 4.2.0
 info:
   title: Pledger
+  description: Pledger.io is a self-hosted personal finance application that helps
+    you track your income and expenses.
   contact:
     name: Jong Soft Development
     url: https://github.com/pledger-io/rest-application
@@ -9,22 +11,15 @@ info:
     url: https://opensource.org/licenses/MIT
   version: 2.0.0
 security:
-- bearer: []
+  - bearer: []
+tags:
+  - name: Account Transactions
+    description: Operations on transactions based on a given account.
 paths:
-  /:
-    get:
-      operationId: index
-      responses:
-        "200":
-          description: index 200 response
-          content:
-            application/json:
-              schema:
-                type: object
   /.well-known/public-key:
     get:
       tags:
-      - Authentication
+        - Authentication
       summary: Get the signing key
       description: Use this operation to obtain the public signing key used to sign
         the JWT.
@@ -39,11 +34,29 @@ paths:
   /api/account-types:
     get:
       tags:
-      - Account information
+        - Account information
       summary: List types
       description: Get a listing of all available account types in the system.
       operationId: listTypes
       responses:
+        "404":
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "401":
+          description: "The user is not authenticated, login first."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
         "200":
           description: listTypes 200 response
           content:
@@ -55,7 +68,7 @@ paths:
   /api/accounts:
     put:
       tags:
-      - Account information
+        - Account information
       summary: Create account
       description: This operation will allow for adding new accounts to the system
       operationId: createAccount
@@ -66,6 +79,24 @@ paths:
               $ref: "#/components/schemas/AccountEditRequest"
         required: true
       responses:
+        "404":
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "401":
+          description: "The user is not authenticated, login first."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
         "200":
           description: createAccount 200 response
           content:
@@ -74,7 +105,7 @@ paths:
                 $ref: "#/components/schemas/AccountResponse"
     post:
       tags:
-      - Account information
+        - Account information
       summary: Search accounts
       description: Search through all accounts using the provided filter set
       operationId: listAccounts
@@ -85,6 +116,24 @@ paths:
               $ref: "#/components/schemas/AccountSearchRequest"
         required: true
       responses:
+        "404":
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "401":
+          description: "The user is not authenticated, login first."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
         "200":
           description: listAccounts 200 response
           content:
@@ -94,11 +143,29 @@ paths:
   /api/accounts/all:
     get:
       tags:
-      - Account information
+        - Account information
       summary: List all accounts
       description: Fetch all accounts registered to the authenticated user
       operationId: listAllAccounts
       responses:
+        "404":
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "401":
+          description: "The user is not authenticated, login first."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
         "200":
           description: listAllAccounts 200 response
           content:
@@ -110,27 +177,45 @@ paths:
   /api/accounts/auto-complete:
     get:
       tags:
-      - Account information
+        - Account information
       summary: Autocomplete accounts
       description: Performs a search operation based on the partial name (token) of
         the given account type
       operationId: autocomplete
       parameters:
-      - name: token
-        in: query
-        description: A partial search text.
-        required: true
-        schema:
-          type: string
-      - name: type
-        in: query
-        description: "An account type to limit the search to, see <a href='#get-/api/account-type'>types</a>\
+        - name: token
+          in: query
+          description: A partial search text.
+          required: true
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: "An account type to limit the search to, see <a href='#get-/api/account-type'>types</a>\
           \ for available types."
-        required: true
-        schema:
-          type: string
-        example: credit
+          required: true
+          schema:
+            type: string
+          example: credit
       responses:
+        "404":
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "401":
+          description: "The user is not authenticated, login first."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
         "200":
           description: autocomplete 200 response
           content:
@@ -142,12 +227,30 @@ paths:
   /api/accounts/my-own:
     get:
       tags:
-      - Account information
+        - Account information
       summary: List own accounts
       description: List all accounts that are creatable in the front-end using one
         of the selectable account types
       operationId: ownAccounts
       responses:
+        "404":
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "401":
+          description: "The user is not authenticated, login first."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
         "200":
           description: ownAccounts 200 response
           content:
@@ -159,25 +262,43 @@ paths:
   /api/accounts/top/creditor/{start}/{end}:
     get:
       tags:
-      - Account information
+        - Account information
       summary: Top creditor accounts
       description: Calculates and returns the accounts that credited the most money
         for the given date range
       operationId: listTopCreditors
       parameters:
-      - name: start
-        in: path
-        required: true
-        schema:
-          type: string
-          format: date
-      - name: end
-        in: path
-        required: true
-        schema:
-          type: string
-          format: date
+        - name: start
+          in: path
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end
+          in: path
+          required: true
+          schema:
+            type: string
+            format: date
       responses:
+        "404":
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "401":
+          description: "The user is not authenticated, login first."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
         "200":
           description: listTopCreditors 200 response
           content:
@@ -189,25 +310,43 @@ paths:
   /api/accounts/top/debit/{start}/{end}:
     get:
       tags:
-      - Account information
+        - Account information
       summary: Top debit accounts
       description: Calculates and returns the accounts where you spent the most for
         the given date range
       operationId: listTopDebtors
       parameters:
-      - name: start
-        in: path
-        required: true
-        schema:
-          type: string
-          format: date
-      - name: end
-        in: path
-        required: true
-        schema:
-          type: string
-          format: date
+        - name: start
+          in: path
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end
+          in: path
+          required: true
+          schema:
+            type: string
+            format: date
       responses:
+        "404":
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "401":
+          description: "The user is not authenticated, login first."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
         "200":
           description: listTopDebtors 200 response
           content:
@@ -219,19 +358,19 @@ paths:
   /api/accounts/{accountId}:
     get:
       tags:
-      - Account information
+        - Account information
       summary: Get Account
       description: Attempts to get the account with matching account id. If no account
         is found or you are notauthorized an exception will be returned.
       operationId: get
       parameters:
-      - name: accountId
-        in: path
-        description: The unique account id
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: accountId
+          in: path
+          description: The unique account id
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "200":
           description: The resulting account
@@ -243,22 +382,28 @@ paths:
           description: The account cannot be accessed
         "404":
           description: No account can be located
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
     post:
       tags:
-      - Account information
+        - Account information
       summary: Update Account
       description: "Update an existing account with the new details provided in the\
         \ body. The updated account will be returned, or if no account is found an\
         \ exception."
       operationId: update
       parameters:
-      - name: accountId
-        in: path
-        description: The unique account id
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: accountId
+          in: path
+          description: The unique account id
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         content:
           application/json:
@@ -276,42 +421,60 @@ paths:
           description: The account cannot be accessed
         "404":
           description: No account can be located
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
     delete:
       tags:
-      - Account information
+        - Account information
       summary: Delete Account
       operationId: delete
       parameters:
-      - name: accountId
-        in: path
-        description: The unique account id
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: accountId
+          in: path
+          description: The unique account id
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "204":
           description: Account successfully deleted
         "404":
           description: No account can be located
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "401":
+          description: "The user is not authenticated, login first."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
         "200":
           description: delete 200 response
   /api/accounts/{accountId}/image:
     post:
       tags:
-      - Account information
+        - Account information
       summary: Attach icon
       description: Attach an icon to the account. If any icon was previously registered
         it will be removed from the system.
       operationId: persistImage
       parameters:
-      - name: accountId
-        in: path
-        description: The unique account id
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: accountId
+          in: path
+          description: The unique account id
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         content:
           application/json:
@@ -319,6 +482,24 @@ paths:
               $ref: "#/components/schemas/AccountImageRequest"
         required: true
       responses:
+        "404":
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
+        "401":
+          description: "The user is not authenticated, login first."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonError"
         "200":
           description: persistImage 200 response
           content:
@@ -328,18 +509,18 @@ paths:
   /api/accounts/{accountId}/savings:
     post:
       tags:
-      - Account information
+        - Account information
       summary: Create saving goal
       description: "Creates a saving goal into the account, only valid for accounts\
         \ of types SAVINGS and JOINED_SAVINGS"
       operationId: addSavingGoal
       parameters:
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         content:
           application/json:
@@ -374,23 +555,23 @@ paths:
   /api/accounts/{accountId}/savings/{savingId}:
     post:
       tags:
-      - Account information
+        - Account information
       summary: Adjust Saving Goal
       description: Adjust a saving goal already attached to the savings account.
       operationId: updateSavingGoal
       parameters:
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: savingId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: savingId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         content:
           application/json:
@@ -424,23 +605,23 @@ paths:
                 $ref: "#/components/schemas/AccountResponse"
     delete:
       tags:
-      - Account information
+        - Account information
       summary: Delete saving goal
       description: Removes a saving goal from the account.
       operationId: deleteSavingGoal
       parameters:
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: savingId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: savingId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "404":
           description: Resource not found
@@ -465,31 +646,31 @@ paths:
   /api/accounts/{accountId}/savings/{savingId}/reserve:
     put:
       tags:
-      - Account information
+        - Account information
       summary: Reserve Saving Goal
       description: Reserve money from the account towards the saving goal.
       operationId: reserveForSavingGoal
       parameters:
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: savingId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: amount
-        in: query
-        required: true
-        schema:
-          minimum: 0
-          exclusiveMinimum: true
-          type: number
-          format: double
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: savingId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: amount
+          in: query
+          required: true
+          schema:
+            minimum: 0
+            exclusiveMinimum: true
+            type: number
+            format: double
       responses:
         "404":
           description: Resource not found
@@ -518,17 +699,17 @@ paths:
   /api/accounts/{accountId}/transactions:
     put:
       tags:
-      - Transactions
+        - Account Transactions
       summary: Create transaction
       description: Create a new transaction in the provided accounts
       operationId: create
       parameters:
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         content:
           application/json:
@@ -544,18 +725,18 @@ paths:
                 $ref: "#/components/schemas/TransactionResponse"
     post:
       tags:
-      - Transactions
+        - Account Transactions
       summary: Search transactions
       description: Search through all transaction in the account using the provided
         filter
       operationId: search
       parameters:
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         content:
           application/json:
@@ -576,22 +757,22 @@ paths:
   /api/accounts/{accountId}/transactions/first:
     get:
       tags:
-      - Transactions
+        - Account Transactions
       summary: Get the first transaction
       description: Returns the first transaction found for the given account
       operationId: first
       parameters:
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: description
-        in: query
-        schema:
-          type: string
-          nullable: true
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: description
+          in: query
+          schema:
+            type: string
+            nullable: true
       responses:
         "200":
           description: The transaction
@@ -604,23 +785,23 @@ paths:
   /api/accounts/{accountId}/transactions/{transactionId}:
     get:
       tags:
-      - Transactions
+        - Account Transactions
       summary: Get a transaction
       description: Returns one single transaction identified by the provided id
       operationId: get_1
       parameters:
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: transactionId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: transactionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "200":
           description: The transaction
@@ -634,23 +815,23 @@ paths:
           description: No account can be located
     post:
       tags:
-      - Transactions
+        - Account Transactions
       summary: Update a transaction
       description: Updates a single transaction and returns the updated version
       operationId: update_1
       parameters:
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: transactionId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: transactionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         content:
           application/json:
@@ -670,44 +851,44 @@ paths:
           description: Transaction not found
     delete:
       tags:
-      - Transactions
+        - Account Transactions
       summary: Delete transaction
       description: Delete a transaction from the account
       operationId: delete_1
       parameters:
-      - name: transactionId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: transactionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: delete_1 204 response
     patch:
       tags:
-      - Transactions
+        - Account Transactions
       summary: Split transactions
       description: "Split the transaction into smaller pieces, all belonging to the\
         \ same actual transaction."
       operationId: split
       parameters:
-      - name: transactionId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: transactionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -724,7 +905,7 @@ paths:
   /api/attachment:
     post:
       tags:
-      - Attachments
+        - Attachments
       summary: Upload attachment
       description: Upload a file so that it can be attached to one of the entities
         in FinTrack
@@ -746,17 +927,17 @@ paths:
   /api/attachment/{fileCode}:
     get:
       tags:
-      - Attachments
+        - Attachments
       summary: Download attachment
       description: "Download an existing attachment, if file encryption is enabled\
         \ this will throw an exception if the current user did not upload the file."
       operationId: download
       parameters:
-      - name: fileCode
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: fileCode
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: download 200 response
@@ -769,24 +950,24 @@ paths:
                   format: byte
     delete:
       tags:
-      - Attachments
+        - Attachments
       summary: Delete attachment
       description: "Delete an existing attachment, if file encryption is enabled this\
         \ will throw an exception if the current user did not upload the file."
       operationId: delete_2
       parameters:
-      - name: fileCode
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: fileCode
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: delete_2 204 response
   /api/budgets:
     get:
       tags:
-      - Budget
+        - Budget
       summary: First budget start
       description: Computes the date of the start of the first budget registered in
         FinTrack
@@ -801,7 +982,7 @@ paths:
                 format: date
     put:
       tags:
-      - Budget
+        - Budget
       summary: Create initial budget
       description: Create a new budget in the system.
       operationId: create_1
@@ -820,7 +1001,7 @@ paths:
                 $ref: "#/components/schemas/JsonError"
     patch:
       tags:
-      - Budget
+        - Budget
       summary: Patch budget.
       description: Update an existing budget that is not yet closed in the system.
       operationId: patchBudget
@@ -840,15 +1021,15 @@ paths:
   /api/budgets/auto-complete:
     get:
       tags:
-      - Budget
+        - Budget
       summary: Lookup expense
       description: Search for expenses that match the provided token
       operationId: autocomplete_1
       parameters:
-      - name: token
-        in: query
-        schema:
-          type: string
+        - name: token
+          in: query
+          schema:
+            type: string
       responses:
         "200":
           description: autocomplete_1 200 response
@@ -861,7 +1042,7 @@ paths:
   /api/budgets/current:
     get:
       tags:
-      - Budget
+        - Budget
       summary: Current month
       description: Get the budget for the current month.
       operationId: currentMonth
@@ -893,7 +1074,7 @@ paths:
   /api/budgets/expenses:
     patch:
       tags:
-      - Budget
+        - Budget
       summary: Patch Expenses
       description: Create or update an expense in the currents month budget.
       operationId: patchExpenses
@@ -913,35 +1094,35 @@ paths:
   /api/budgets/expenses/{expenseId}/{year}/{month}/transactions:
     get:
       tags:
-      - Budget
+        - Budget
       summary: Transaction overview
       description: Paged listing of all transactions for the provided expense and
         month.
       operationId: transactions
       parameters:
-      - name: expenseId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: year
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int32
-      - name: month
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int32
-      - name: page
-        in: query
-        schema:
-          type: integer
-          format: int32
+        - name: expenseId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: year
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: month
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: page
+          in: query
+          schema:
+            type: integer
+            format: int32
       responses:
         "200":
           description: transactions 200 response
@@ -952,29 +1133,29 @@ paths:
   /api/budgets/expenses/{id}/{year}/{month}:
     get:
       tags:
-      - Budget
+        - Budget
       summary: Compute expense
       description: Computes the expense for the provided year and month
       operationId: computeExpense
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: year
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int32
-      - name: month
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int32
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: year
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: month
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
       responses:
         "200":
           description: computeExpense 200 response
@@ -987,23 +1168,23 @@ paths:
   /api/budgets/{year}/{month}:
     get:
       tags:
-      - Budget
+        - Budget
       summary: Get any month
       description: Get the budget for the given year and month combination.
       operationId: givenMonth
       parameters:
-      - name: year
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int32
-      - name: month
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int32
+        - name: year
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: month
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
       responses:
         "404":
           description: Resource not found
@@ -1032,7 +1213,7 @@ paths:
   /api/categories:
     get:
       tags:
-      - Category
+        - Category
       summary: List categories
       description: List all available categories
       operationId: getAll
@@ -1047,7 +1228,7 @@ paths:
                   $ref: "#/components/schemas/CategoryResponse"
     put:
       tags:
-      - Category
+        - Category
       summary: Create category
       description: Adds a new category to the system
       operationId: createCategory
@@ -1066,7 +1247,7 @@ paths:
                 $ref: "#/components/schemas/CategoryResponse"
     post:
       tags:
-      - Category
+        - Category
       summary: Search categories
       description: Search through the categories with the provided filter set
       operationId: searchCategories
@@ -1086,16 +1267,16 @@ paths:
   /api/categories/auto-complete:
     get:
       tags:
-      - Category
+        - Category
       summary: Autocomplete
       description: List all categories matching the provided token
       operationId: getCategoriesByToken
       parameters:
-      - name: token
-        in: query
-        schema:
-          type: string
-          nullable: true
+        - name: token
+          in: query
+          schema:
+            type: string
+            nullable: true
       responses:
         "200":
           description: getCategoriesByToken 200 response
@@ -1108,17 +1289,17 @@ paths:
   /api/categories/{id}:
     get:
       tags:
-      - Category
+        - Category
       summary: Get category
       description: Get a single category by its Id
       operationId: getCategory
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "200":
           description: getCategory 200 response
@@ -1128,17 +1309,17 @@ paths:
                 $ref: "#/components/schemas/CategoryResponse"
     post:
       tags:
-      - Category
+        - Category
       summary: Update category
       description: Update a single category by its Id
       operationId: updateCategory
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         content:
           application/json:
@@ -1154,24 +1335,24 @@ paths:
                 $ref: "#/components/schemas/CategoryResponse"
     delete:
       tags:
-      - Category
+        - Category
       summary: Delete category
       description: Delete a single category by its Id
       operationId: deleteCategory
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "204":
           description: deleteCategory 204 response
   /api/contracts:
     get:
       tags:
-      - Contract
+        - Contract
       summary: List contracts
       description: List all contracts split in both active and inactive ones
       operationId: getAll_1
@@ -1184,7 +1365,7 @@ paths:
                 $ref: "#/components/schemas/ContractOverviewResponse"
     put:
       tags:
-      - Contract
+        - Contract
       summary: Create contract
       description: Adds a new contract to FinTrack for the authenticated user
       operationId: createContract
@@ -1204,16 +1385,16 @@ paths:
   /api/contracts/auto-complete:
     get:
       tags:
-      - Contract
+        - Contract
       summary: Autocomplete contracts
       description: Performs a search operation based on the partial name (token)
       operationId: getByToken
       parameters:
-      - name: token
-        in: query
-        required: true
-        schema:
-          type: string
+        - name: token
+          in: query
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: getByToken 200 response
@@ -1226,17 +1407,17 @@ paths:
   /api/contracts/{contractId}:
     get:
       tags:
-      - Contract
+        - Contract
       summary: Get contract
       description: Get a single contract from FinTrack
       operationId: get_2
       parameters:
-      - name: contractId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: contractId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "200":
           description: get_2 200 response
@@ -1246,17 +1427,17 @@ paths:
                 $ref: "#/components/schemas/ContractResponse"
     post:
       tags:
-      - Contract
+        - Contract
       summary: Update contract
       description: Updates an existing contract for the authenticated user
       operationId: update_2
       parameters:
-      - name: contractId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: contractId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         content:
           application/json:
@@ -1272,34 +1453,34 @@ paths:
                 $ref: "#/components/schemas/ContractResponse"
     delete:
       tags:
-      - Contract
+        - Contract
       summary: Delete contract
       description: Archives an existing contract
       operationId: delete_3
       parameters:
-      - name: contractId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: contractId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "200":
           description: delete_3 200 response
   /api/contracts/{contractId}/attachment:
     post:
       tags:
-      - Contract
+        - Contract
       summary: Attach file
       description: This call will register an attachment to the contract
       operationId: registerAttachment
       parameters:
-      - name: contractId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: contractId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         content:
           application/json:
@@ -1316,17 +1497,17 @@ paths:
   /api/contracts/{contractId}/expire-warning:
     get:
       tags:
-      - Contract
+        - Contract
       summary: Enable warning
       description: This call will enable the warning 1 month before contract expires
       operationId: warnBeforeExpireDate
       parameters:
-      - name: contractId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: contractId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "200":
           description: warnBeforeExpireDate 200 response
@@ -1337,17 +1518,17 @@ paths:
   /api/contracts/{contractId}/schedule:
     put:
       tags:
-      - Contract
+        - Contract
       summary: Schedule transaction
       description: Create a new schedule for creating transaction under this contract.
       operationId: schedule
       parameters:
-      - name: contractId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: contractId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         content:
           application/json:
@@ -1360,23 +1541,23 @@ paths:
   /api/contracts/{contractId}/transactions:
     get:
       tags:
-      - Contract
+        - Contract
       summary: Transaction overview
       description: Paged listing of all transactions that belong to a contract
       operationId: transactions_1
       parameters:
-      - name: contractId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: page
-        in: query
-        schema:
-          type: integer
-          format: int32
-          nullable: true
+        - name: contractId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: page
+          in: query
+          schema:
+            type: integer
+            format: int32
+            nullable: true
       responses:
         "200":
           description: transactions_1 200 response
@@ -1387,7 +1568,7 @@ paths:
   /api/import:
     put:
       tags:
-      - Importer
+        - Importer
       summary: Create importer
       description: "Creates a new importer job in FinTrack, which can be used to import\
         \ a CSV of transactions"
@@ -1407,7 +1588,7 @@ paths:
                 $ref: "#/components/schemas/ImporterResponse"
     post:
       tags:
-      - Importer
+        - Importer
       summary: List jobs
       description: This operation will list all the run importer jobs for the current
         user
@@ -1428,7 +1609,7 @@ paths:
   /api/import/config:
     get:
       tags:
-      - Importer
+        - Importer
       summary: List configurations
       description: List all available importer configurations in FinTrack
       operationId: config
@@ -1443,7 +1624,7 @@ paths:
                   $ref: "#/components/schemas/CSVImporterConfigResponse"
     put:
       tags:
-      - Importer
+        - Importer
       summary: Create configuration
       description: "Creates a new importer configuration in FinTrack, using the provided\
         \ file token"
@@ -1464,15 +1645,15 @@ paths:
   /api/import/{batchSlug}:
     get:
       tags:
-      - Importer
+        - Importer
       summary: Get Importer Job
       description: Fetch a single importer job from FinTrack
       operationId: get_3
       parameters:
-      - name: batchSlug
-        in: path
-        description: The unique identifier
-        required: true
+        - name: batchSlug
+          in: path
+          description: The unique identifier
+          required: true
       responses:
         "200":
           description: get_3 200 response
@@ -1482,16 +1663,16 @@ paths:
                 $ref: "#/components/schemas/ImporterResponse"
     delete:
       tags:
-      - Importer
+        - Importer
       summary: Delete importer job
       description: Removes an unfinished job from the system. Note that already completed
         jobs cannot be removed.
       operationId: delete_4
       parameters:
-      - name: batchSlug
-        in: path
-        description: The unique identifier
-        required: true
+        - name: batchSlug
+          in: path
+          description: The unique identifier
+          required: true
       responses:
         "204":
           description: delete_4 204 response
@@ -1502,16 +1683,16 @@ paths:
   /api/import/{batchSlug}/transactions:
     post:
       tags:
-      - Importer
+        - Importer
       summary: Transaction overview
       description: Search for transactions created by the importer job
       operationId: getTransactions
       parameters:
-      - name: batchSlug
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: batchSlug
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1525,40 +1706,56 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ResultPageResponse_TransactionResponse_"
+  /api/import/{batchSlug}/transactions/run-rule-automation:
+    post:
+      tags:
+        - Importer
+      summary: Run rule automation
+      description: Run rule automation on transactions created by the importer job
+      operationId: runRuleAutomation
+      parameters:
+        - name: batchSlug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: runRuleAutomation 204 response
   /api/import/{batchSlug}/transactions/{transactionId}:
     delete:
       tags:
-      - Importer
+        - Importer
       summary: Delete transaction
       description: Search for transactions created by the importer job
       operationId: deleteTransaction
       parameters:
-      - name: batchSlug
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: transactionId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: batchSlug
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: transactionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "204":
           description: deleteTransaction 204 response
   /api/localization/lang/{language}:
     get:
       tags:
-      - Localization
+        - Localization
       summary: Get a localization file
       operationId: getTranslations
       parameters:
-      - name: language
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: language
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: getTranslations 200 response
@@ -1571,20 +1768,20 @@ paths:
   /api/localization/lang/{language}/{textKey}:
     get:
       tags:
-      - Localization
+        - Localization
       summary: Get single translation
       operationId: getTranslation
       parameters:
-      - name: language
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: textKey
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: language
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: textKey
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: getTranslation 200 response
@@ -1595,7 +1792,7 @@ paths:
   /api/profile:
     get:
       tags:
-      - User profile
+        - User profile
       summary: Get profile of authenticated user
       operationId: getProfile
       responses:
@@ -1607,7 +1804,7 @@ paths:
                 $ref: "#/components/schemas/UserProfileResponse"
     patch:
       tags:
-      - User profile
+        - User profile
       summary: Update part of the user profile
       description: This change will be applied to the authenticated user
       operationId: patchProfile
@@ -1627,7 +1824,7 @@ paths:
   /api/profile/export:
     get:
       tags:
-      - User profile
+        - User profile
       summary: Export to JSON
       description: Exports the profile of the authenticated user to JSON
       operationId: exportProfile
@@ -1641,7 +1838,7 @@ paths:
   /api/profile/multi-factor/disable:
     post:
       tags:
-      - User profile
+        - User profile
       summary: Disable 2-factor authentication
       description: "This operation will disable 2-factor authentication, but will\
         \ only work if it was enabled on the authorized account"
@@ -1652,7 +1849,7 @@ paths:
   /api/profile/multi-factor/enable:
     post:
       tags:
-      - User profile
+        - User profile
       summary: Enable 2-factor authentication
       description: This will activate 2-factor authentication when the security code
         matches the one recorded
@@ -1669,7 +1866,7 @@ paths:
   /api/profile/multi-factor/qr-code:
     get:
       tags:
-      - User profile
+        - User profile
       summary: QR Code
       description: Use this API to obtain a QR code that can be used to scan in a
         2-factor application
@@ -1687,7 +1884,7 @@ paths:
   /api/profile/sessions:
     get:
       tags:
-      - User profile
+        - User profile
       summary: Active Sessions
       description: Get a list of active session for the current user.
       operationId: getActiveSessions
@@ -1702,7 +1899,7 @@ paths:
                   $ref: "#/components/schemas/SessionResponse"
     put:
       tags:
-      - User profile
+        - User profile
       summary: Create session token
       description: Create a new session token that has a longer validity then default
         authentication tokens.
@@ -1725,22 +1922,22 @@ paths:
   /api/profile/sessions/{id}:
     delete:
       tags:
-      - User profile
+        - User profile
       operationId: deleteSession
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "204":
           description: deleteSession 204 response
   /api/runtime-process/clean-up:
     get:
       tags:
-      - Process Engine
+        - Process Engine
       summary: Force History Clean
       description: Trigger a history clean-up job to run
       operationId: triggerHistoryCleaning
@@ -1750,17 +1947,17 @@ paths:
   /api/runtime-process/{processDefinitionKey}:
     get:
       tags:
-      - Process Engine
+        - Process Engine
       summary: Process History
       description: Lists the historic executions for the provided process definition
         key
       operationId: getProcessHistory
       parameters:
-      - name: processDefinitionKey
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: processDefinitionKey
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: getProcessHistory 200 response
@@ -1773,17 +1970,17 @@ paths:
   /api/runtime-process/{processDefinitionKey}/start:
     put:
       tags:
-      - Process Engine
+        - Process Engine
       summary: Create Process
       description: "Creates and executes a new process for the selected definition,\
         \ with the provided map as parameters"
       operationId: startProcess
       parameters:
-      - name: processDefinitionKey
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: processDefinitionKey
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1801,22 +1998,22 @@ paths:
   /api/runtime-process/{processDefinitionKey}/{businessKey}:
     get:
       tags:
-      - Process Engine
+        - Process Engine
       summary: Process History for key
       description: "List the history executions for the provided definition key, but\
         \ only once with matching business key"
       operationId: getProcessHistoryByBusinessKey
       parameters:
-      - name: processDefinitionKey
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: businessKey
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: processDefinitionKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: businessKey
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: getProcessHistoryByBusinessKey 200 response
@@ -1829,52 +2026,52 @@ paths:
   /api/runtime-process/{processDefinitionKey}/{businessKey}/{instanceId}:
     delete:
       tags:
-      - Process Engine
+        - Process Engine
       summary: Delete Process
       description: Removes a active process from the execution list
       operationId: deleteProcess
       parameters:
-      - name: processDefinitionKey
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: businessKey
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: instanceId
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: processDefinitionKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: businessKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: No Content
   /api/runtime-process/{processDefinitionKey}/{businessKey}/{instanceId}/tasks:
     get:
       tags:
-      - Process Engine
+        - Process Engine
       summary: List Tasks
       description: List all available tasks for the provided process
       operationId: getTasks
       parameters:
-      - name: processDefinitionKey
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: instanceId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: businessKey
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: processDefinitionKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: businessKey
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: getTasks 200 response
@@ -1887,62 +2084,62 @@ paths:
   /api/runtime-process/{processDefinitionKey}/{businessKey}/{instanceId}/tasks/{taskId}:
     delete:
       tags:
-      - Process Engine
+        - Process Engine
       summary: Complete Task
       description: Completes the given task without any additional data.
       operationId: deleteTask
       parameters:
-      - name: taskId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: instanceId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: businessKey
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: processDefinitionKey
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: businessKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: processDefinitionKey
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: deleteTask 200 response
   /api/runtime-process/{processDefinitionKey}/{businessKey}/{instanceId}/tasks/{taskId}/complete:
     post:
       tags:
-      - Process Engine
+        - Process Engine
       summary: Complete Task
       description: Completes the given task with the provided data.
       operationId: completeTask
       parameters:
-      - name: taskId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: instanceId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: businessKey
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: processDefinitionKey
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: businessKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: processDefinitionKey
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1955,36 +2152,36 @@ paths:
   /api/runtime-process/{processDefinitionKey}/{businessKey}/{instanceId}/tasks/{taskId}/variables:
     get:
       tags:
-      - Process Engine
+        - Process Engine
       summary: Get Task
       description: Get the details of the given task.
       operationId: getTask
       parameters:
-      - name: taskId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: variable
-        in: query
-        schema:
-          type: string
-          nullable: true
-      - name: instanceId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: businessKey
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: processDefinitionKey
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: variable
+          in: query
+          schema:
+            type: string
+            nullable: true
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: businessKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: processDefinitionKey
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: getTask 200 response
@@ -1995,27 +2192,27 @@ paths:
   /api/runtime-process/{processDefinitionKey}/{businessKey}/{instanceId}/variables:
     get:
       tags:
-      - Process Engine
+        - Process Engine
       summary: Get variables
       description: This operation lists all process variables available for the provided
         process
       operationId: getVariables
       parameters:
-      - name: processDefinitionKey
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: instanceId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: businessKey
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: processDefinitionKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: businessKey
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: getVariables 200 response
@@ -2028,31 +2225,31 @@ paths:
   /api/runtime-process/{processDefinitionKey}/{businessKey}/{instanceId}/variables/{variable}:
     get:
       tags:
-      - Process Engine
+        - Process Engine
       summary: Get variable
       description: This operation lists variables of a given name for a process
       operationId: getVariable
       parameters:
-      - name: processDefinitionKey
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: instanceId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: variable
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: businessKey
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: processDefinitionKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: variable
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: businessKey
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: getVariable 200 response
@@ -2065,7 +2262,7 @@ paths:
   /api/schedule/transaction:
     get:
       tags:
-      - Scheduling agent
+        - Scheduling agent
       summary: List all available transaction schedules
       operationId: listTransactionSchedule
       responses:
@@ -2079,7 +2276,7 @@ paths:
                   $ref: "#/components/schemas/ScheduledTransactionResponse"
     put:
       tags:
-      - Scheduling agent
+        - Scheduling agent
       summary: Create a new transaction schedule
       operationId: createTransactionSchedule
       requestBody:
@@ -2097,7 +2294,7 @@ paths:
                 $ref: "#/components/schemas/ScheduledTransactionResponse"
     post:
       tags:
-      - Scheduling agent
+        - Scheduling agent
       summary: Search schedule
       operationId: searchTransactionSchedule
       requestBody:
@@ -2118,18 +2315,18 @@ paths:
   /api/schedule/transaction/{scheduleId}:
     get:
       tags:
-      - Scheduling agent
+        - Scheduling agent
       summary: Get a single transaction schedule
       description: Lookup a transaction schedule in the system by its technical id
       operationId: fetchTransactionSchedule
       parameters:
-      - name: scheduleId
-        in: path
-        description: The technical id of the transaction schedule
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: scheduleId
+          in: path
+          description: The technical id of the transaction schedule
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "200":
           description: fetchTransactionSchedule 200 response
@@ -2139,33 +2336,33 @@ paths:
                 $ref: "#/components/schemas/ScheduledTransactionResponse"
     delete:
       tags:
-      - Scheduling agent
+        - Scheduling agent
       summary: Remove a transaction schedule
       operationId: removeTransactionSchedule
       parameters:
-      - name: scheduleId
-        in: path
-        description: The technical id of the transaction schedule
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: scheduleId
+          in: path
+          description: The technical id of the transaction schedule
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "204":
           description: removeTransactionSchedule 204 response
     patch:
       tags:
-      - Scheduling agent
+        - Scheduling agent
       summary: Update part of a transaction schedule
       operationId: patchTransactionSchedule
       parameters:
-      - name: scheduleId
-        in: path
-        description: The technical id of the transaction schedule
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: scheduleId
+          in: path
+          description: The technical id of the transaction schedule
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         content:
           application/json:
@@ -2182,7 +2379,7 @@ paths:
   /api/security/2-factor:
     post:
       tags:
-      - Authentication
+        - Authentication
       summary: Verify MFA token
       description: Used to verify the user token against that what is expected. If
         valid the user will get a new JWT with updated authorizations.
@@ -2221,7 +2418,7 @@ paths:
   /api/security/create-account:
     put:
       tags:
-      - Authentication
+        - Authentication
       summary: Create account
       description: Creates a new account
       operationId: createAccount_1
@@ -2259,7 +2456,7 @@ paths:
   /api/settings:
     get:
       tags:
-      - Application Settings
+        - Application Settings
       summary: Get settings
       description: List all available settings in the system
       operationId: getSettings
@@ -2275,7 +2472,7 @@ paths:
   /api/settings/currencies:
     get:
       tags:
-      - Application Settings
+        - Application Settings
       summary: List all
       description: List all available currencies in the system
       operationId: getAllCurrencies
@@ -2290,7 +2487,7 @@ paths:
                   $ref: "#/components/schemas/CurrencyResponse"
     put:
       tags:
-      - Application Settings
+        - Application Settings
       summary: Create currency
       description: Add a new currency to the system
       operationId: createCurrency
@@ -2310,16 +2507,16 @@ paths:
   /api/settings/currencies/{currencyCode}:
     get:
       tags:
-      - Application Settings
+        - Application Settings
       summary: Get currency
       description: "Returns an existing currency in the syste,"
       operationId: getCurrency
       parameters:
-      - name: currencyCode
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: currencyCode
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: The currency entity
@@ -2347,16 +2544,16 @@ paths:
                 $ref: "#/components/schemas/JsonError"
     post:
       tags:
-      - Application Settings
+        - Application Settings
       summary: Update currency
       description: Updates an existing currency in the system
       operationId: updateCurrency
       parameters:
-      - name: currencyCode
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: currencyCode
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2390,16 +2587,16 @@ paths:
                 $ref: "#/components/schemas/JsonError"
     patch:
       tags:
-      - Application Settings
+        - Application Settings
       summary: Patch currency
       description: Partially update an existing currency in the system
       operationId: patchCurrency
       parameters:
-      - name: currencyCode
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: currencyCode
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2434,16 +2631,16 @@ paths:
   /api/settings/{setting}:
     post:
       tags:
-      - Application Settings
+        - Application Settings
       summary: Update setting
       description: Update a single setting in the system
       operationId: updateSettings
       parameters:
-      - name: setting
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: setting
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2456,7 +2653,7 @@ paths:
   /api/statistics/balance:
     post:
       tags:
-      - Reports
+        - Reports
       summary: Calculate balance
       description: This operation will calculate the balance for the current user
         based upon the given filters
@@ -2477,7 +2674,7 @@ paths:
   /api/statistics/balance/daily:
     post:
       tags:
-      - Reports
+        - Reports
       summary: Daily balance
       description: Compute the daily balance based upon the provided request
       operationId: dailyBalance
@@ -2499,7 +2696,7 @@ paths:
   /api/statistics/balance/monthly:
     post:
       tags:
-      - Reports
+        - Reports
       summary: Monthly balance
       description: Compute the monthly balance based upon the provided request
       operationId: monthlyBalance
@@ -2521,18 +2718,18 @@ paths:
   /api/statistics/balance/partitioned/{partitionKey}:
     post:
       tags:
-      - Reports
+        - Reports
       summary: Partitioned balance
       description: Partition all transaction matching the balance request using the
         partitionKey provided.
       operationId: partitionedBalance
       parameters:
-      - name: partitionKey
-        in: path
-        description: "The partition key can be one of: account, budget or category"
-        required: true
-        schema:
-          type: string
+        - name: partitionKey
+          in: path
+          description: "The partition key can be one of: account, budget or category"
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2551,7 +2748,7 @@ paths:
   /api/transaction-rules/groups:
     get:
       tags:
-      - Transaction Rules
+        - Transaction Rules
       summary: List rule groups
       description: List all the transaction rule groups available
       operationId: getRuleGroups
@@ -2566,7 +2763,7 @@ paths:
                   $ref: "#/components/schemas/TransactionRuleGroupResponse"
     put:
       tags:
-      - Transaction Rules
+        - Transaction Rules
       summary: Create rule group
       description: Creates a new rule group in the system
       operationId: createRuleGroup
@@ -2582,16 +2779,16 @@ paths:
   /api/transaction-rules/groups/{group}:
     get:
       tags:
-      - Transaction Rules
+        - Transaction Rules
       summary: List transaction rules
       description: Lists all transaction rules present in the requested group
       operationId: getRules
       parameters:
-      - name: group
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: group
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: getRules 200 response
@@ -2603,16 +2800,16 @@ paths:
                   $ref: "#/components/schemas/TransactionRuleResponse"
     put:
       tags:
-      - Transaction Rules
+        - Transaction Rules
       summary: Create transaction rule
       description: Creates a new transaction rule in the desired group
       operationId: createTransactionRule
       parameters:
-      - name: group
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: group
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2628,32 +2825,32 @@ paths:
                 $ref: "#/components/schemas/TransactionRuleResponse"
     delete:
       tags:
-      - Transaction Rules
+        - Transaction Rules
       summary: Delete rule group
       description: "Deletes the rule group from the system, including all rules within\
         \ it"
       operationId: deleteRuleGroup
       parameters:
-      - name: group
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: group
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: deleteRuleGroup 204 response
     patch:
       tags:
-      - Transaction Rules
+        - Transaction Rules
       summary: Rename rule group
       description: Renames the transaction rule group
       operationId: renameRuleGroup
       parameters:
-      - name: group
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: group
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2666,54 +2863,54 @@ paths:
   /api/transaction-rules/groups/{group}/move-down:
     get:
       tags:
-      - Transaction Rules
+        - Transaction Rules
       summary: Move group down
       description: Move the transaction rule group down one in the ordering
       operationId: moveGroupDown
       parameters:
-      - name: group
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: group
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: Successfully moved down
   /api/transaction-rules/groups/{group}/move-up:
     get:
       tags:
-      - Transaction Rules
+        - Transaction Rules
       summary: Move group up
       description: Move the transaction rule group up one in the ordering
       operationId: moveGroupUp
       parameters:
-      - name: group
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: group
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: Successfully moved up
   /api/transaction-rules/groups/{group}/{id}:
     get:
       tags:
-      - Transaction Rules
+        - Transaction Rules
       summary: Get transaction rule
       description: Returns a single transaction rule by the identified group and rule
       operationId: getTransactionRule
       parameters:
-      - name: group
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: group
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "200":
           description: Ok
@@ -2741,22 +2938,22 @@ paths:
                 $ref: "#/components/schemas/JsonError"
     post:
       tags:
-      - Transaction Rules
+        - Transaction Rules
       summary: Update transaction rule
       description: Updates the transaction rule with the provided settings
       operationId: updateTransactionRule
       parameters:
-      - name: group
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: group
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         content:
           application/json:
@@ -2790,73 +2987,73 @@ paths:
                 $ref: "#/components/schemas/JsonError"
     delete:
       tags:
-      - Transaction Rules
+        - Transaction Rules
       summary: Delete transaction rule
       description: Removes the desired rule from the system
       operationId: deleteTransactionRule
       parameters:
-      - name: group
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: group
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "204":
           description: Successfully deleted
   /api/transaction-rules/groups/{group}/{id}/move-down:
     get:
       tags:
-      - Transaction Rules
+        - Transaction Rules
       summary: Move transaction rule down
       description: Moves the transaction rule down by one in the ordering
       operationId: moveTransactionRuleDown
       parameters:
-      - name: group
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: group
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "204":
           description: Successfully moved down
   /api/transaction-rules/groups/{group}/{id}/move-up:
     get:
       tags:
-      - Transaction Rules
+        - Transaction Rules
       summary: Move transaction rule up
       description: Moves the transaction rule up by one in the ordering
       operationId: moveTransactionRuleUp
       parameters:
-      - name: group
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: group
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "204":
           description: Successfully moved up
   /api/transactions:
     post:
       tags:
-      - Transactions
+        - Transactions
       summary: Search transactions
       description: Search in all transactions using the given search request.
       operationId: searchTransactions
@@ -2875,7 +3072,7 @@ paths:
                 $ref: "#/components/schemas/ResultPageResponse_TransactionResponse_"
     patch:
       tags:
-      - Transactions
+        - Transactions
       summary: Patch given transactions
       description: Update the transactions with the given transaction ids using the
         request.
@@ -2892,7 +3089,7 @@ paths:
   /api/transactions/export:
     get:
       tags:
-      - Transactions
+        - Transactions
       summary: Export transactions
       description: Creates a CSV export of all transactions in the system.
       operationId: exportTransactions
@@ -2903,10 +3100,30 @@ paths:
             text/plain:
               schema:
                 type: string
+  /api/transactions/generate-transaction:
+    post:
+      tags:
+        - Transactions
+      summary: Extract transaction info
+      description: Extract transaction information from the presented text.
+      operationId: extractTransaction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TransactionExtractRequest"
+        required: true
+      responses:
+        "200":
+          description: extractTransaction 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TransactionExtractResponse"
   /api/transactions/locate-first:
     post:
       tags:
-      - Transactions
+        - Transactions
       summary: Get oldest date
       description: Get the oldest transaction in the system based upon the provided
         request.
@@ -2924,10 +3141,31 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/JsonError"
+  /api/transactions/suggestions:
+    post:
+      tags:
+        - Transactions
+      summary: Suggest changes
+      description: Suggest changes to a transaction based upon the rules in the system.
+      operationId: suggestTransaction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TransactionForSuggestionRequest"
+        required: true
+      responses:
+        "200":
+          description: suggestTransaction 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
   /api/transactions/tags:
     get:
       tags:
-      - Transactions
+        - Transactions
       summary: List tags
       description: Get all tags available in the system.
       operationId: getTags
@@ -2942,7 +3180,7 @@ paths:
                   $ref: "#/components/schemas/TagResponse"
     post:
       tags:
-      - Transactions
+        - Transactions
       summary: Create tag
       description: Creates a new tag into the system
       operationId: createTag
@@ -2962,16 +3200,16 @@ paths:
   /api/transactions/tags/auto-complete:
     get:
       tags:
-      - Transactions
+        - Transactions
       summary: Search tag
       description: Look for tags with the partial token in the name
       operationId: lookupTags
       parameters:
-      - name: token
-        in: query
-        schema:
-          type: string
-          nullable: true
+        - name: token
+          in: query
+          schema:
+            type: string
+            nullable: true
       responses:
         "200":
           description: lookupTags 200 response
@@ -2984,17 +3222,17 @@ paths:
   /api/transactions/tags/{tag}:
     delete:
       tags:
-      - Transactions
+        - Transactions
       summary: Delete tag
       description: "Removes a tag from the system, this prevents it being used in\
         \ updates. But will not remove old relations between tags and transactions."
       operationId: deleteTag
       parameters:
-      - name: tag
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: tag
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: deleteTag 200 response
@@ -3014,34 +3252,36 @@ components:
               $ref: "#/components/schemas/Resource"
     AccountEditRequest:
       required:
-      - bic
-      - currency
-      - description
-      - iban
-      - interest
-      - interestPeriodicity
-      - name
-      - number
-      - type
+        - currency
+        - interest
+        - interestPeriodicity
+        - name
+        - type
       type: object
       properties:
         name:
           minLength: 1
           type: string
+          description: Account name
         description:
           type: string
+          description: Account description
         currency:
           minLength: 1
           type: string
+          description: "Account currency, must exist in the system"
         iban:
           pattern: "^([A-Z]{2}[ \\-]?[0-9]{2})(?=(?:[ \\-]?[A-Z0-9]){9,30}$)((?:[\
             \ \\-]?[A-Z0-9]{3,5}){2,7})([ \\-]?[A-Z0-9]{1,3})?$"
           type: string
+          description: IBAN number
         bic:
           pattern: "^([a-zA-Z]{4}[a-zA-Z]{2}[a-zA-Z0-9]{2}([a-zA-Z0-9]{3})?)$"
           type: string
+          description: The banks BIC number
         number:
           type: string
+          description: "The account number, in case IBAN is not applicable"
         interest:
           maximum: 2
           minimum: -2
@@ -3052,24 +3292,23 @@ components:
         type:
           type: string
     AccountImageRequest:
-      required:
-      - fileCode
       type: object
       properties:
         fileCode:
           type: string
+          description: The file code that was returned after the upload
     AccountJson:
       required:
-      - bic
-      - currency
-      - description
-      - iban
-      - icon
-      - interest
-      - name
-      - number
-      - periodicity
-      - type
+        - bic
+        - currency
+        - description
+        - iban
+        - icon
+        - interest
+        - name
+        - number
+        - periodicity
+        - type
       type: object
       properties:
         name:
@@ -3095,22 +3334,22 @@ components:
           type: string
     AccountResponse:
       required:
-      - account
-      - id
-      - name
-      - type
+        - account
+        - id
+        - name
+        - type
       type: object
       properties:
         id:
           required:
-          - "true"
+            - "true"
           type: integer
           description: The identifier of the account
           format: int64
           example: 3212
         name:
           required:
-          - "true"
+            - "true"
           type: string
           description: "The account name, is unique for the user"
           example: Fast food & co
@@ -3119,7 +3358,7 @@ components:
           description: The description for the account
         type:
           required:
-          - "true"
+            - "true"
           type: string
           description: "The type of account, as defined by the account type API"
           example: creditor
@@ -3129,16 +3368,16 @@ components:
         account:
           description: Bank identification numbers for the account
           allOf:
-          - $ref: "#/components/schemas/AccountResponse.NumberInformation"
+            - $ref: "#/components/schemas/AccountResponse.NumberInformation"
         interest:
           description: "The interest information for the account, only used for loans,\
             \ debts and mortgage"
           allOf:
-          - $ref: "#/components/schemas/AccountResponse.InterestInformation"
+            - $ref: "#/components/schemas/AccountResponse.InterestInformation"
         history:
           description: Transaction history information for the account
           allOf:
-          - $ref: "#/components/schemas/AccountResponse.History"
+            - $ref: "#/components/schemas/AccountResponse.History"
         savingGoals:
           type: array
           description: "The saving goals for the account, only valid for type savings\
@@ -3165,7 +3404,7 @@ components:
           description: The interval the interest is calculated on
           example: MONTHS
           allOf:
-          - $ref: "#/components/schemas/Periodicity"
+            - $ref: "#/components/schemas/Periodicity"
         interest:
           type: number
           description: The amount of interest that is owed
@@ -3187,15 +3426,15 @@ components:
       description: Bank identification numbers for the account
     AccountResponse.SavingGoalResponse:
       required:
-      - goal
-      - id
-      - reserved
-      - targetDate
+        - goal
+        - id
+        - reserved
+        - targetDate
       type: object
       properties:
         id:
           required:
-          - "true"
+            - "true"
           type: integer
           description: The identifier of the saving goal
           format: int64
@@ -3210,16 +3449,16 @@ components:
         schedule:
           description: The schedule that allocations are created automatically
           allOf:
-          - $ref: "#/components/schemas/ScheduleResponse"
+            - $ref: "#/components/schemas/ScheduleResponse"
         goal:
           required:
-          - "true"
+            - "true"
           type: number
           description: The goal one wishes to achieve by the end date
           example: 1500.4
         reserved:
           required:
-          - "true"
+            - "true"
           type: number
           description: The amount of money reserved for this saving goal
           example: 200
@@ -3230,7 +3469,7 @@ components:
           example: 25.5
         targetDate:
           required:
-          - "true"
+            - "true"
           type: string
           description: The date before which the goal must be met
           format: date
@@ -3242,9 +3481,9 @@ components:
           example: 23
     AccountSavingGoalCreateRequest:
       required:
-      - goal
-      - name
-      - targetDate
+        - goal
+        - name
+        - targetDate
       type: object
       properties:
         name:
@@ -3272,18 +3511,18 @@ components:
           format: double
     AccountTransactionCreateRequest:
       required:
-      - amount
-      - bookDate
-      - budget
-      - category
-      - contract
-      - currency
-      - date
-      - description
-      - destination
-      - interestDate
-      - source
-      - tags
+        - amount
+        - bookDate
+        - budget
+        - category
+        - contract
+        - currency
+        - date
+        - description
+        - destination
+        - interestDate
+        - source
+        - tags
       type: object
       properties:
         date:
@@ -3321,8 +3560,8 @@ components:
             type: string
     AccountTransactionCreateRequest.EntityRef:
       required:
-      - id
-      - name
+        - id
+        - name
       type: object
       properties:
         id:
@@ -3332,23 +3571,23 @@ components:
           type: string
     AccountTransactionSearchRequest:
       required:
-      - dateRange
-      - page
-      - text
+        - dateRange
+        - page
+        - text
       type: object
       properties:
         text:
           type: string
-        dateRange:
-          $ref: "#/components/schemas/AccountTransactionSearchRequest.Range"
         page:
           minimum: 0
           type: integer
           format: int32
+        dateRange:
+          $ref: "#/components/schemas/AccountTransactionSearchRequest.Range"
     AccountTransactionSearchRequest.Range:
       required:
-      - end
-      - start
+        - end
+        - start
       type: object
       properties:
         start:
@@ -3359,7 +3598,7 @@ components:
           format: date
     AccountTransactionSplitRequest:
       required:
-      - splits
+        - splits
       type: object
       properties:
         splits:
@@ -3369,8 +3608,8 @@ components:
             $ref: "#/components/schemas/AccountTransactionSplitRequest.SplitRecord"
     AccountTransactionSplitRequest.SplitRecord:
       required:
-      - amount
-      - description
+        - amount
+        - description
       type: object
       properties:
         description:
@@ -3380,27 +3619,27 @@ components:
           format: double
     AuthenticationRequest:
       required:
-      - password
-      - username
+        - password
+        - username
       type: object
       properties:
         username:
           required:
-          - "true"
+            - "true"
           type: string
           description: "The username, must be a valid e-mail address."
           format: email
           example: me@example.com
         password:
           required:
-          - "true"
+            - "true"
           type: string
           description: The password
           example: password123
     BalancePartitionResponse:
       required:
-      - balance
-      - partition
+        - balance
+        - partition
       type: object
       properties:
         partition:
@@ -3410,11 +3649,11 @@ components:
           format: double
     BalanceRequest:
       required:
-      - accounts
-      - categories
-      - contracts
-      - dateRange
-      - expenses
+        - accounts
+        - categories
+        - contracts
+        - dateRange
+        - expenses
       type: object
       properties:
         accounts:
@@ -3448,18 +3687,18 @@ components:
           format: yyyy-mm-dd
     BalanceRequest.EntityRef:
       required:
-      - id
+        - id
       type: object
       properties:
         id:
           required:
-          - "true"
+            - "true"
           type: integer
           description: The unique identifier of the entity
           format: int64
     BalanceResponse:
       required:
-      - balance
+        - balance
       type: object
       properties:
         balance:
@@ -3472,35 +3711,30 @@ components:
           type: boolean
     BudgetCreateRequest:
       required:
-      - income
-      - month
-      - year
+        - income
+        - month
+        - year
       type: object
       properties:
-        start:
-          type: string
-          format: date
         year:
           minimum: 1900
           type: integer
           format: int32
-          deprecated: true
         month:
           maximum: 12
           minimum: 1
           type: integer
           format: int32
-          deprecated: true
         income:
           minimum: 0
           type: number
           format: double
     BudgetJson:
       required:
-      - end
-      - expectedIncome
-      - expenses
-      - start
+        - end
+        - expectedIncome
+        - expenses
+        - start
       type: object
       properties:
         start:
@@ -3518,9 +3752,9 @@ components:
             $ref: "#/components/schemas/BudgetJson.ExpenseJson"
     BudgetJson.ExpenseJson:
       required:
-      - lowerBound
-      - name
-      - upperBound
+        - lowerBound
+        - name
+        - upperBound
       type: object
       properties:
         name:
@@ -3552,9 +3786,9 @@ components:
           format: date
     CSVImporterConfigCreateRequest:
       required:
-      - fileCode
-      - name
-      - type
+        - fileCode
+        - name
+        - type
       type: object
       properties:
         type:
@@ -3588,8 +3822,8 @@ components:
       description: Get the configuration used during the import
     CategoryCreateRequest:
       required:
-      - description
-      - name
+        - description
+        - name
       type: object
       properties:
         name:
@@ -3601,8 +3835,8 @@ components:
           type: string
     CategoryJson:
       required:
-      - description
-      - label
+        - description
+        - label
       type: object
       properties:
         label:
@@ -3624,20 +3858,15 @@ components:
           format: date
     CategorySearchRequest:
       required:
-      - page
+        - page
       type: object
       properties:
         page:
           type: integer
           format: int32
-    Charset:
-      type: object
-      properties:
-        registered:
-          type: boolean
     ComputedExpenseResponse:
       required:
-      - spent
+        - spent
       type: object
       properties:
         spent:
@@ -3661,10 +3890,10 @@ components:
           example: "1234567890"
     ContractCreateRequest:
       required:
-      - company
-      - end
-      - name
-      - start
+        - company
+        - end
+        - name
+        - start
       type: object
       properties:
         name:
@@ -3679,7 +3908,7 @@ components:
         company:
           description: The company the contract is with.
           allOf:
-          - $ref: "#/components/schemas/ContractCreateRequest.EntityRef"
+            - $ref: "#/components/schemas/ContractCreateRequest.EntityRef"
         start:
           type: string
           description: The start date of the contract.
@@ -3690,7 +3919,7 @@ components:
           format: date
     ContractCreateRequest.EntityRef:
       required:
-      - id
+        - id
       type: object
       properties:
         id:
@@ -3702,15 +3931,16 @@ components:
           type: string
           description: The name of the company.
           example: Company 1
+      description: The company the contract is with.
     ContractJson:
       required:
-      - company
-      - contract
-      - description
-      - end
-      - name
-      - start
-      - terminated
+        - company
+        - contract
+        - description
+        - end
+        - name
+        - start
+        - terminated
       type: object
       properties:
         name:
@@ -3731,8 +3961,8 @@ components:
           format: date
     ContractOverviewResponse:
       required:
-      - active
-      - terminated
+        - active
+        - terminated
       type: object
       properties:
         active:
@@ -3745,21 +3975,21 @@ components:
             $ref: "#/components/schemas/ContractResponse"
     ContractResponse:
       required:
-      - company
-      - contractAvailable
-      - id
-      - name
+        - company
+        - contractAvailable
+        - id
+        - name
       type: object
       properties:
         id:
           required:
-          - "true"
+            - "true"
           type: integer
           description: The identifier of the contract
           format: int64
         name:
           required:
-          - "true"
+            - "true"
           type: string
           description: The name of the contract
           example: Cable company
@@ -3768,7 +3998,7 @@ components:
           description: The description for the contract
         contractAvailable:
           required:
-          - "true"
+            - "true"
           type: boolean
           description: Indicator for an digital copy of the contract being present
         fileToken:
@@ -3793,12 +4023,12 @@ components:
         company:
           description: The company / account the contract is with
           allOf:
-          - $ref: "#/components/schemas/AccountResponse"
+            - $ref: "#/components/schemas/AccountResponse"
     CreateRuleRequest:
       required:
-      - changes
-      - conditions
-      - name
+        - changes
+        - conditions
+        - name
       type: object
       properties:
         name:
@@ -3830,8 +4060,8 @@ components:
             $ref: "#/components/schemas/CreateRuleRequest.Change"
     CreateRuleRequest.Change:
       required:
-      - column
-      - value
+        - column
+        - value
       type: object
       properties:
         id:
@@ -3842,7 +4072,7 @@ components:
           description: The column on which the change is effected
           example: CATEGORY
           allOf:
-          - $ref: "#/components/schemas/RuleColumn"
+            - $ref: "#/components/schemas/RuleColumn"
         value:
           minLength: 1
           type: string
@@ -3850,9 +4080,9 @@ components:
           example: "1"
     CreateRuleRequest.Condition:
       required:
-      - column
-      - operation
-      - value
+        - column
+        - operation
+        - value
       type: object
       properties:
         id:
@@ -3862,11 +4092,11 @@ components:
         column:
           description: The column on which to look for the pre-condition
           allOf:
-          - $ref: "#/components/schemas/RuleColumn"
+            - $ref: "#/components/schemas/RuleColumn"
         operation:
           description: The type of comparison operation to perform
           allOf:
-          - $ref: "#/components/schemas/RuleOperation"
+            - $ref: "#/components/schemas/RuleOperation"
         value:
           minLength: 1
           type: string
@@ -3874,16 +4104,18 @@ components:
           example: My personal account
     CreateScheduleRequest:
       required:
-      - schedule
-      - source
+        - schedule
+        - source
       type: object
       properties:
         schedule:
-          $ref: "#/components/schemas/ScheduleValue"
+          description: The schedule to create transactions on.
+          allOf:
+            - $ref: "#/components/schemas/CreateScheduleRequest.ScheduleValueJson"
         source:
           description: The account to charge for every scheduled transaction.
           allOf:
-          - $ref: "#/components/schemas/CreateScheduleRequest.EntityRef"
+            - $ref: "#/components/schemas/CreateScheduleRequest.EntityRef"
         amount:
           type: number
           description: The amount to charge for every scheduled transaction.
@@ -3891,8 +4123,8 @@ components:
           example: 100
     CreateScheduleRequest.EntityRef:
       required:
-      - id
-      - name
+        - id
+        - name
       type: object
       properties:
         id:
@@ -3902,10 +4134,28 @@ components:
           example: 1
         name:
           type: string
+      description: The account to charge for every scheduled transaction.
+    CreateScheduleRequest.ScheduleValueJson:
+      required:
+        - periodicity
+      type: object
+      properties:
+        periodicity:
+          description: The periodicity of the schedule.
+          example: MONTHS
+          allOf:
+            - $ref: "#/components/schemas/Periodicity"
+        interval:
+          minimum: 1
+          type: integer
+          description: The interval a transaction should be created on.
+          format: int32
+          example: 2
+      description: The schedule to create transactions on.
     CurrencyPatchRequest:
       required:
-      - decimalPlaces
-      - enabled
+        - decimalPlaces
+        - enabled
       type: object
       properties:
         decimalPlaces:
@@ -3915,9 +4165,9 @@ components:
           type: boolean
     CurrencyRequest:
       required:
-      - code
-      - name
-      - symbol
+        - code
+        - name
+        - symbol
       type: object
       properties:
         name:
@@ -3968,28 +4218,28 @@ components:
           format: double
     DateRangeResponse:
       required:
-      - end
-      - start
+        - end
+        - start
       type: object
       properties:
         start:
           required:
-          - "true"
+            - "true"
           type: string
           description: The start of the date range
           format: date
           example: 2020-01-01
         end:
           required:
-          - "true"
+            - "true"
           type: string
           description: The end of the date range
           format: date
           example: 2020-01-31
     EntityRef:
       required:
-      - id
-      - name
+        - id
+        - name
       type: object
       properties:
         id:
@@ -4000,8 +4250,8 @@ components:
           type: string
     EntityRef.NamedEntity:
       required:
-      - id
-      - name
+        - id
+        - name
       type: object
       properties:
         id:
@@ -4011,9 +4261,9 @@ components:
           type: string
     ExpensePatchRequest:
       required:
-      - amount
-      - expenseId
-      - name
+        - amount
+        - expenseId
+        - name
       type: object
       properties:
         expenseId:
@@ -4027,13 +4277,13 @@ components:
           format: double
     ExportJson:
       required:
-      - accounts
-      - budgetPeriods
-      - categories
-      - contracts
-      - rules
-      - tags
-      - transactions
+        - accounts
+        - budgetPeriods
+        - categories
+        - contracts
+        - rules
+        - tags
+        - transactions
       type: object
       properties:
         accounts:
@@ -4067,12 +4317,12 @@ components:
     FailureCode:
       type: string
       enum:
-      - FROM_TO_SAME
-      - AMOUNT_NOT_NULL
-      - POSSIBLE_DUPLICATE
+        - FROM_TO_SAME
+        - AMOUNT_NOT_NULL
+        - POSSIBLE_DUPLICATE
     GroupRenameRequest:
       required:
-      - name
+        - name
       type: object
       properties:
         name:
@@ -4082,7 +4332,7 @@ components:
           example: My renamed group
     ImportSearchRequest:
       required:
-      - page
+        - page
       type: object
       properties:
         page:
@@ -4091,8 +4341,8 @@ components:
           format: int32
     ImporterCreateRequest:
       required:
-      - configuration
-      - uploadToken
+        - configuration
+        - uploadToken
       type: object
       properties:
         configuration:
@@ -4103,19 +4353,19 @@ components:
           type: string
     ImporterResponse:
       required:
-      - created
-      - slug
+        - created
+        - slug
       type: object
       properties:
         slug:
           required:
-          - "true"
+            - "true"
           type: string
           description: The unique identifier of the import job
           example: 83c3a405939f741cee534d48e600528c
         created:
           required:
-          - "true"
+            - "true"
           type: string
           description: The date the job was created
           format: date-time
@@ -4128,11 +4378,11 @@ components:
         config:
           description: Get the configuration used during the import
           allOf:
-          - $ref: "#/components/schemas/CSVImporterConfigResponse"
+            - $ref: "#/components/schemas/CSVImporterConfigResponse"
         balance:
           description: Get the affected balance during the import
           allOf:
-          - $ref: "#/components/schemas/ImporterResponse.Balance"
+            - $ref: "#/components/schemas/ImporterResponse.Balance"
     ImporterResponse.Balance:
       type: object
       properties:
@@ -4147,65 +4397,38 @@ components:
       description: Get the affected balance during the import
     JsonError:
       required:
-      - message
+        - message
       type: object
       allOf:
-      - $ref: "#/components/schemas/AbstractResource_JsonError_"
-      - properties:
-          _links:
-            type: object
-            additionalProperties: true
-          _embedded:
-            type: object
-            additionalProperties:
-              type: array
-              items:
-                $ref: "#/components/schemas/Resource"
-          message:
-            type: string
-          logref:
-            type: string
-            nullable: true
-          path:
-            type: string
-            nullable: true
+        - $ref: "#/components/schemas/AbstractResource_JsonError_"
+        - properties:
+            _links:
+              type: object
+              additionalProperties: true
+            _embedded:
+              type: object
+              additionalProperties:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Resource"
+            message:
+              type: string
+            logref:
+              type: string
+              nullable: true
+            path:
+              type: string
+              nullable: true
     LanguageResponse:
       required:
-      - text
+        - text
       type: object
       properties:
         text:
           type: string
-    MediaType:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-        subtype:
-          type: string
-        extension:
-          type: string
-        parameters:
-          $ref: "#/components/schemas/OptionalValues_String_"
-        quality:
-          type: string
-        qualityAsNumber:
-          type: number
-        version:
-          type: string
-        charset:
-          nullable: true
-          allOf:
-          - $ref: "#/components/schemas/Charset"
-        textBased:
-          type: boolean
     MultiFactorRequest:
       required:
-      - verificationCode
+        - verificationCode
       type: object
       properties:
         verificationCode:
@@ -4214,7 +4437,7 @@ components:
           type: string
     MultiFactorRequest_1:
       required:
-      - verificationCode
+        - verificationCode
       type: object
       properties:
         verificationCode:
@@ -4222,7 +4445,7 @@ components:
           minLength: 4
           pattern: "[\\d]{6}"
           required:
-          - "true"
+            - "true"
           type: string
           description: The 2-factor verification code from a hardware device.
     OptionalMultiValues_Link_:
@@ -4239,16 +4462,11 @@ components:
       properties:
         empty:
           type: boolean
-    OptionalValues_String_:
-      type: object
-      properties:
-        empty:
-          type: boolean
     PatchProfileRequest:
       required:
-      - currency
-      - password
-      - theme
+        - currency
+        - password
+        - theme
       type: object
       properties:
         theme:
@@ -4262,9 +4480,9 @@ components:
       description: The interval the interest is calculated on
       example: MONTHS
       enum:
-      - MONTHS
-      - WEEKS
-      - YEARS
+        - MONTHS
+        - WEEKS
+        - YEARS
     ProcessResponse:
       type: object
       properties:
@@ -4309,28 +4527,28 @@ components:
           $ref: "#/components/schemas/OptionalMultiValues_Resource_"
     ResultPageResponse.Info:
       required:
-      - pageSize
-      - pages
-      - records
+        - pageSize
+        - pages
+        - records
       type: object
       properties:
         records:
           required:
-          - "true"
+            - "true"
           type: integer
           description: The total amount of matches
           format: int64
           example: 20
         pages:
           required:
-          - "true"
+            - "true"
           type: integer
           description: The amount of pages available
           format: int32
           example: 2
         pageSize:
           required:
-          - "true"
+            - "true"
           type: integer
           description: The amount of matches per page
           format: int32
@@ -4338,13 +4556,13 @@ components:
       description: The meta-information for the page
     ResultPageResponse_AccountResponse_:
       required:
-      - content
-      - info
+        - content
+        - info
       type: object
       properties:
         content:
           required:
-          - "true"
+            - "true"
           type: array
           description: The actual contents of the page
           items:
@@ -4352,16 +4570,16 @@ components:
         info:
           description: The meta-information for the page
           allOf:
-          - $ref: "#/components/schemas/ResultPageResponse.Info"
+            - $ref: "#/components/schemas/ResultPageResponse.Info"
     ResultPageResponse_CategoryResponse_:
       required:
-      - content
-      - info
+        - content
+        - info
       type: object
       properties:
         content:
           required:
-          - "true"
+            - "true"
           type: array
           description: The actual contents of the page
           items:
@@ -4369,16 +4587,16 @@ components:
         info:
           description: The meta-information for the page
           allOf:
-          - $ref: "#/components/schemas/ResultPageResponse.Info"
+            - $ref: "#/components/schemas/ResultPageResponse.Info"
     ResultPageResponse_ImporterResponse_:
       required:
-      - content
-      - info
+        - content
+        - info
       type: object
       properties:
         content:
           required:
-          - "true"
+            - "true"
           type: array
           description: The actual contents of the page
           items:
@@ -4386,16 +4604,16 @@ components:
         info:
           description: The meta-information for the page
           allOf:
-          - $ref: "#/components/schemas/ResultPageResponse.Info"
+            - $ref: "#/components/schemas/ResultPageResponse.Info"
     ResultPageResponse_TransactionResponse_:
       required:
-      - content
-      - info
+        - content
+        - info
       type: object
       properties:
         content:
           required:
-          - "true"
+            - "true"
           type: array
           description: The actual contents of the page
           items:
@@ -4403,24 +4621,24 @@ components:
         info:
           description: The meta-information for the page
           allOf:
-          - $ref: "#/components/schemas/ResultPageResponse.Info"
+            - $ref: "#/components/schemas/ResultPageResponse.Info"
     RuleColumn:
       type: string
       enum:
-      - SOURCE_ACCOUNT
-      - TO_ACCOUNT
-      - DESCRIPTION
-      - AMOUNT
-      - CATEGORY
-      - CHANGE_TRANSFER_TO
-      - CHANGE_TRANSFER_FROM
-      - BUDGET
-      - CONTRACT
-      - TAGS
+        - SOURCE_ACCOUNT
+        - TO_ACCOUNT
+        - DESCRIPTION
+        - AMOUNT
+        - CATEGORY
+        - CHANGE_TRANSFER_TO
+        - CHANGE_TRANSFER_FROM
+        - BUDGET
+        - CONTRACT
+        - TAGS
     RuleConfigJson.ChangeJson:
       required:
-      - field
-      - value
+        - field
+        - value
       type: object
       properties:
         field:
@@ -4429,9 +4647,9 @@ components:
           type: string
     RuleConfigJson.ConditionJson:
       required:
-      - field
-      - operation
-      - value
+        - field
+        - operation
+        - value
       type: object
       properties:
         field:
@@ -4442,14 +4660,14 @@ components:
           type: string
     RuleConfigJson.RuleJson:
       required:
-      - active
-      - changes
-      - conditions
-      - description
-      - group
-      - name
-      - restrictive
-      - sort
+        - active
+        - changes
+        - conditions
+        - description
+        - group
+        - name
+        - restrictive
+        - sort
       type: object
       properties:
         name:
@@ -4476,25 +4694,25 @@ components:
     RuleOperation:
       type: string
       enum:
-      - EQUALS
-      - CONTAINS
-      - STARTS_WITH
-      - LESS_THAN
-      - MORE_THAN
+        - EQUALS
+        - CONTAINS
+        - STARTS_WITH
+        - LESS_THAN
+        - MORE_THAN
     ScheduleResponse:
       required:
-      - interval
-      - periodicity
+        - interval
+        - periodicity
       type: object
       properties:
         periodicity:
           description: The type of the interval
           example: MONTHS
           allOf:
-          - $ref: "#/components/schemas/Periodicity"
+            - $ref: "#/components/schemas/Periodicity"
         interval:
           required:
-          - "true"
+            - "true"
           type: integer
           description: The actual interval
           format: int32
@@ -4502,8 +4720,8 @@ components:
       description: The schedule that allocations are created automatically
     ScheduleSearchRequest:
       required:
-      - accounts
-      - contracts
+        - accounts
+        - contracts
       type: object
       properties:
         accounts:
@@ -4516,7 +4734,7 @@ components:
             $ref: "#/components/schemas/ScheduleSearchRequest.EntityRef"
     ScheduleSearchRequest.EntityRef:
       required:
-      - id
+        - id
       type: object
       properties:
         id:
@@ -4524,8 +4742,8 @@ components:
           format: int64
     ScheduleValue:
       required:
-      - interval
-      - periodicity
+        - interval
+        - periodicity
       type: object
       properties:
         periodicity:
@@ -4535,11 +4753,11 @@ components:
           format: int32
     ScheduledTransactionCreateRequest:
       required:
-      - amount
-      - destination
-      - name
-      - schedule
-      - source
+        - amount
+        - destination
+        - name
+        - schedule
+        - source
       type: object
       properties:
         schedule:
@@ -4556,8 +4774,8 @@ components:
           $ref: "#/components/schemas/ScheduledTransactionCreateRequest.EntityRef"
     ScheduledTransactionCreateRequest.EntityRef:
       required:
-      - id
-      - name
+        - id
+        - name
       type: object
       properties:
         id:
@@ -4567,10 +4785,10 @@ components:
           type: string
     ScheduledTransactionPatchRequest:
       required:
-      - description
-      - name
-      - range
-      - schedule
+        - description
+        - name
+        - range
+        - schedule
       type: object
       properties:
         schedule:
@@ -4583,8 +4801,8 @@ components:
           type: string
     ScheduledTransactionPatchRequest.DateRange:
       required:
-      - end
-      - start
+        - end
+        - start
       type: object
       properties:
         start:
@@ -4618,15 +4836,15 @@ components:
           $ref: "#/components/schemas/ContractResponse"
     SessionResponse:
       required:
-      - id
-      - token
-      - validFrom
-      - validUntil
+        - id
+        - token
+        - validFrom
+        - validUntil
       type: object
       properties:
         id:
           required:
-          - "true"
+            - "true"
           type: integer
           description: The identifier of the active session
           format: int64
@@ -4635,26 +4853,26 @@ components:
           description: The description of the session
         token:
           required:
-          - "true"
+            - "true"
           type: string
           description: The long lived token of the session
         validFrom:
           required:
-          - "true"
+            - "true"
           type: string
           description: The start date of the session
           format: date-time
         validUntil:
           required:
-          - "true"
+            - "true"
           type: string
           description: The end date of the session
           format: date-time
     SettingResponse:
       required:
-      - name
-      - type
-      - value
+        - name
+        - type
+        - value
       type: object
       properties:
         name:
@@ -4666,13 +4884,13 @@ components:
     SettingType:
       type: string
       enum:
-      - STRING
-      - NUMBER
-      - FLAG
-      - DATE
+        - STRING
+        - NUMBER
+        - FLAG
+        - DATE
     SettingUpdateRequest:
       required:
-      - value
+        - value
       type: object
       properties:
         value:
@@ -4681,13 +4899,13 @@ components:
       $ref: "#/components/schemas/BaseStream_ExpenseResponse.Stream_Object__"
     TagCreateRequest:
       required:
-      - tag
+        - tag
       type: object
       properties:
         tag:
           minLength: 1
           required:
-          - "true"
+            - "true"
           type: string
           description: The name of the tag to be created
           example: Car expenses
@@ -4699,8 +4917,8 @@ components:
           type: string
     TokenCreateRequest:
       required:
-      - description
-      - expires
+        - description
+        - expires
       type: object
       properties:
         description:
@@ -4710,7 +4928,7 @@ components:
           format: date
     TransactionBulkEditRequest:
       required:
-      - transactions
+        - transactions
       type: object
       properties:
         transactions:
@@ -4724,30 +4942,87 @@ components:
         contract:
           description: The contract to set to all transactions
           allOf:
-          - $ref: "#/components/schemas/EntityRef"
+            - $ref: "#/components/schemas/EntityRef"
         budget:
           description: The budget expense to set to all transactions
           allOf:
-          - $ref: "#/components/schemas/EntityRef"
+            - $ref: "#/components/schemas/EntityRef"
         category:
           description: The category to set to all transactions
           allOf:
-          - $ref: "#/components/schemas/EntityRef"
+            - $ref: "#/components/schemas/EntityRef"
         tags:
           type: array
           description: The list of tags to set to the transactions
           items:
             type: string
+    TransactionExtractRequest:
+      type: object
+      properties:
+        fromText:
+          type: string
+          description: The text to extract the transaction information from.
+    TransactionExtractResponse:
+      required:
+        - amount
+        - date
+        - description
+        - from
+        - to
+        - type
+      type: object
+      properties:
+        type:
+          $ref: "#/components/schemas/TransactionType"
+        date:
+          type: string
+          format: date
+        from:
+          $ref: "#/components/schemas/TransactionExtractResponse.AccountRef"
+        to:
+          $ref: "#/components/schemas/TransactionExtractResponse.AccountRef"
+        description:
+          type: string
+        amount:
+          type: number
+          format: double
+    TransactionExtractResponse.AccountRef:
+      required:
+        - id
+        - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    TransactionForSuggestionRequest:
+      type: object
+      properties:
+        source:
+          type: string
+          description: The source account name.
+        destination:
+          type: string
+          description: The destination account name.
+        amount:
+          type: number
+          description: The amount of the transaction.
+          format: double
+        description:
+          type: string
+          description: The description of the transaction.
     TransactionJson:
       required:
-      - amount
-      - bookDate
-      - currency
-      - date
-      - description
-      - fromAccount
-      - interestDate
-      - toAccount
+        - amount
+        - bookDate
+        - currency
+        - date
+        - description
+        - fromAccount
+        - interestDate
+        - toAccount
       type: object
       properties:
         fromAccount:
@@ -4794,23 +5069,23 @@ components:
         metadata:
           description: The meta-information of the transaction
           allOf:
-          - $ref: "#/components/schemas/TransactionResponse.Metadata"
+            - $ref: "#/components/schemas/TransactionResponse.Metadata"
         type:
           description: The type of transaction
           allOf:
-          - $ref: "#/components/schemas/TransactionResponse.Type"
+            - $ref: "#/components/schemas/TransactionResponse.Type"
         dates:
           description: All dates relevant for this transaction
           allOf:
-          - $ref: "#/components/schemas/TransactionResponse.Dates"
+            - $ref: "#/components/schemas/TransactionResponse.Dates"
         destination:
           description: The account where the money went to
           allOf:
-          - $ref: "#/components/schemas/AccountResponse"
+            - $ref: "#/components/schemas/AccountResponse"
         source:
           description: The account where the money came from
           allOf:
-          - $ref: "#/components/schemas/AccountResponse"
+            - $ref: "#/components/schemas/AccountResponse"
         split:
           type: array
           description: "The multi-line split of the transaction, eg: purchased items"
@@ -4875,9 +5150,9 @@ components:
           type: string
           description: The type of transaction
           enum:
-          - CREDIT
-          - DEBIT
-          - TRANSFER
+            - CREDIT
+            - DEBIT
+            - TRANSFER
         class:
           type: string
           description: The font-awesome class for this transaction type
@@ -4947,7 +5222,7 @@ components:
           type: string
     TransactionSearchRequest:
       required:
-      - page
+        - page
       type: object
       properties:
         page:
@@ -4974,7 +5249,7 @@ components:
           format: int64
     TransactionSearchRequest_1:
       required:
-      - dateRange
+        - dateRange
       type: object
       properties:
         description:
@@ -4998,18 +5273,18 @@ components:
         category:
           description: The category that the transaction must have
           allOf:
-          - $ref: "#/components/schemas/TransactionSearchRequest.EntityRef"
+            - $ref: "#/components/schemas/TransactionSearchRequest.EntityRef"
         budget:
           description: The budget expense that the transaction must have
           allOf:
-          - $ref: "#/components/schemas/TransactionSearchRequest.EntityRef"
+            - $ref: "#/components/schemas/TransactionSearchRequest.EntityRef"
         transfers:
           type: boolean
           description: Only include transactions between one own accounts
         dateRange:
           description: The range wherein the transaction date must be
           allOf:
-          - $ref: "#/components/schemas/TransactionSearchRequest.DateRange"
+            - $ref: "#/components/schemas/TransactionSearchRequest.DateRange"
         page:
           minimum: 0
           type: integer
@@ -5017,7 +5292,7 @@ components:
           format: int32
     TransactionSearchRequest_2:
       required:
-      - dateRange
+        - dateRange
       type: object
       properties:
         description:
@@ -5041,26 +5316,32 @@ components:
         category:
           description: The category that the transaction must have
           allOf:
-          - $ref: "#/components/schemas/TransactionSearchRequest.EntityRef"
+            - $ref: "#/components/schemas/TransactionSearchRequest.EntityRef"
         budget:
           description: The budget expense that the transaction must have
           allOf:
-          - $ref: "#/components/schemas/TransactionSearchRequest.EntityRef"
+            - $ref: "#/components/schemas/TransactionSearchRequest.EntityRef"
         transfers:
           type: boolean
           description: Only include transactions between one own accounts
         dateRange:
           description: The range wherein the transaction date must be
           allOf:
-          - $ref: "#/components/schemas/TransactionSearchRequest.DateRange"
+            - $ref: "#/components/schemas/TransactionSearchRequest.DateRange"
         page:
           minimum: 0
           type: integer
           description: Set the page number in the resulting pages
           format: int32
+    TransactionType:
+      type: string
+      enum:
+        - CREDIT
+        - DEBIT
+        - TRANSFER
     UploadResponse:
       required:
-      - fileCode
+        - fileCode
       type: object
       properties:
         fileCode:
@@ -5080,12 +5361,10 @@ components:
       type: object
       properties:
         variables:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/ProcessVariable"
           description: The actual map of all the variables set for the task.
-          allOf:
-          - type: object
-            additionalProperties:
-              $ref: "#/components/schemas/ProcessVariable"
-          - {}
       description: A map of variables used in tasks.
   securitySchemes:
     bearer:

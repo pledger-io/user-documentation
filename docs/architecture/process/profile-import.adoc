@@ -51,13 +51,19 @@ This is due to the fact that both contracts and transaction rules can reference 
 
 .Main import process
 [.scalable-image]
-image::architecture/process/user.profile.import.png[Profile import process]
+[bpmn, generated/architecture/process/profile-import, svg]
+....
+include::{document-root}/images/diagrams/bpmn-user-profile-import.bpmn[]
+....
 
 === Transaction rule sub-process
 
 .Sub-process for transaction rules
 [.scalable-image]
-image::architecture/process/transaction.rules.import.png[Sub-process transactionrules import]
+[bpmn, generated/architecture/process/transaction-rule-import, svg]
+....
+include::{document-root}/images/diagrams/bpmn-transaction-rules-import.bpmn[]
+....
 
 
 

@@ -29,7 +29,10 @@ Below is a business process model for the account reconciliation process.
 
 .Process diagram
 [.scalable-image]
-image::architecture/process/account_reconcile.png[Account reconciliation process]
+[bpmn, generated/architecture/process/account-reconcile, svg]
+....
+include::{document-root}/images/diagrams/bpmn-account-reconcile.bpmn[Account reconciliation process]
+....
 
 === User task: task_reconcile_before
 

@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://bitbucket.org/jongsoftdev/user-documentation/src/master/"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files docs -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README)!i) }
+  spec.files         = `git ls-files docs -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|_partials|LICENSE|README)!i) }
 
   spec.add_runtime_dependency "jekyll", "~> 4.3.2"
 

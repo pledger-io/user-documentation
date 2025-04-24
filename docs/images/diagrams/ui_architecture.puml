@@ -1,0 +1,23 @@
+@startuml "Pledger.io Application Architecture"
+
+actor User
+
+rectangle "Pledger.io" #Application
+rectangle "Routes" #lightgreen
+rectangle "Pages" #lightgreen
+rectangle "Components" #lightblue
+rectangle "Repository" #lightblue
+
+rectangle "Backend API" #Business
+
+User -down-> "Pledger.io": interacts
+"Pledger.io" -down-> "Routes": consists out of
+"Routes" -right-> "Pages": points to
+"Pages" -down-> "Components": consists out of
+
+Pages -down-> "Repository": uses
+"Components" -right-> "Repository": uses
+
+"Repository" -down-> "Backend API": communicates with
+
+@enduml

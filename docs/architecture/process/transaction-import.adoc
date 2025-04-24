@@ -31,7 +31,10 @@ This will be triggered for each account in the CSV where no mapping was provided
 
 .Process diagram
 [.scalable-image]
-image::architecture/process/import-job.png[Transaction import process]
+[bpmn, generated/architecture/process/transaction import, svg]
+....
+include::{document-root}/images/diagrams/bpmn-transaction-import.bpmn[]
+....
 
 === User task: task_configure
 

@@ -1,4 +1,26 @@
 
+== 4.3.2
+
+*Release date: 2025-04-25*
+
+=== Bug-fixes
+
+- Update data type handling and field mappings in JPA queries
+- Fix for handling the clearing of the budget, category and contract of a transaction.
+
+=== Changes
+
+- Add theme support back into the application.
+- Change autocompletes
+
+=== Dependency upgrades
+
+- Update dependency react-hook-form to v7.56.1
+- Update dependency sass to v1.87.0
+- Update dependency sass-embedded to v1.87.0
+- Update dependency axios to v1.9.0
+- Update dependency react-router to v7.5.2
+
 == 4.3.1
 
 *Release date: 2025-04-20*

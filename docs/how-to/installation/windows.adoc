@@ -42,6 +42,21 @@ After the installer has finished a new application named '{application}' should 
 
 == History
 
+=== 4.3.2
+
+[.release-table]
+[cols="1,7"]
+|===
+|Release date
+|2025-04-25
+
+|Release note
+| Resolve issues with rule groups and removing classifications from transactions.
+
+|Download
+|link:{win-binary-location}/Pledger.io%20Setup%204.3.2.exe[Pledger.io Setup 4.3.2.exe]
+|===
+
 === 4.3.1
 
 [.release-table]

@@ -53,6 +53,21 @@ When using the mail feature of {application} the following environment variables
 
 |===
 
+== OpenID configuration options
+
+When you want ot enable OpenID connect in {application} you will have to configure the following settings.
+
+[%header,cols="1,2,1"]
+|===
+| Variable | Description | Default
+
+| `OPENID_URI` | The URI to the certificate location for the Realm in OpenID | -
+| `OPENID_SECRET` | The secret for the client | -
+| `OPENID_AUTHORITY` | The URI to the realm | -
+| `OPENID_CLIENT` | The client identifier | pledger-io
+
+|===
+
 [[configure_llm]]
 == Large Language Model options
 

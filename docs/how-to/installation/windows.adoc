@@ -42,6 +42,21 @@ After the installer has finished a new application named '{application}' should 
 
 == History
 
+=== 4.4.0
+
+[.release-table]
+[cols="1,7"]
+|===
+|Release date
+|2025-01-03
+
+|Release note
+| Added spending and pattern detection
+
+|Download
+|link:{win-binary-location}/Pledger.io%20Setup%204.4.0.exe[Pledger.io Setup 4.4.0.exe]
+|===
+
 === 4.3.2
 
 [.release-table]
@@ -56,6 +71,7 @@ After the installer has finished a new application named '{application}' should 
 |Download
 |link:{win-binary-location}/Pledger.io%20Setup%204.3.2.exe[Pledger.io Setup 4.3.2.exe]
 |===
+
 
 === 4.3.1
 

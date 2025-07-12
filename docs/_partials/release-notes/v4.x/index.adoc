@@ -1,4 +1,6 @@
 
+include::v4.4.0.adoc[]
+include::v4.3.0.adoc[]
 include::v4.2.0.adoc[]
 include::v4.1.0.adoc[]
 include::v4.0.0.adoc[]

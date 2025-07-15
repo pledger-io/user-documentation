@@ -1,3 +1,18 @@
+== 4.4.2
+
+*Release date: 2025-07-15*
+
+=== Bug-fixes
+
+- Hotfix/resolve analyze job per user, preventing analysis jobs to get stuck on users with missing transaction for a given month.
+
+== 4.4.1
+
+*Release date: 2025-07-13*
+
+=== Bug-fixes
+
+- Rename year_month to year_month_found in all affected files, issue with reserved keyword in MySQL
 
 == 4.4.0
 

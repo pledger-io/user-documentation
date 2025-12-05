@@ -1,3 +1,12 @@
+== 5.0.1
+
+*Release date: 2025-12-03*
+
+=== Bug-fixes
+
+- Repair the functionality to extract transactions from text
+- Repair the functionality for suggestions in the transaction form
+
 == 5.0.0
 
 *Release date: 2025-12-02*

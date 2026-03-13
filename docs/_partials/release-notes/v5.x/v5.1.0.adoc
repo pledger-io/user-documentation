@@ -1,0 +1,40 @@
+
+== 5.1.1
+
+*Release date: 2026-03-06*
+
+=== Bug fixes
+
+- Fix in the volume bindings, expose the vector_stores directory
+
+== 5.1.0
+
+*Release date: 2026-03-06*
+
+=== Changes
+
+- Updated the internals for better performance and build speeds
+- Fix the UI application to match the updated back-end
+- Remove the Camunda dependency
+
+=== Dependency management
+
+==== Backend application
+
+- Update dependency org.awaitility:awaitility to v4
+- Update plugin com.diffplug.spotless to v8.2.1
+- Update Gradle to v9.3.1
+
+==== Frontend application
+
+- Update dependency lint-staged to v16.3.1
+- Update dependency typescript-eslint to v8.56.1
+- Update tailwindcss monorepo to v4.2.0
+- Update dependency @stylistic/eslint-plugin to v5.9.0
+- Update dependency @eslint-react/eslint-plugin to v2.13.0
+- Update dependency jsdom to v28.1.0
+- Update dependency axios to v1.13.5
+- Update dependency vite-tsconfig-paths to v6.1.0
+- Update dependency eslint to v10
+- Update dependency vite-plugin-static-copy to v3.2.0
+- Update dependency react-router to v7.13.0

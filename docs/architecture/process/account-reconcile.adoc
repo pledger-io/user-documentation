@@ -10,18 +10,30 @@
 ifndef::document-root[:document-root: ../../]
 include::../../_document-setup.adoc[]
 
-The account reconciliation process is a business process that is responsible for ensuring that the financial records are accurate and up-to-date.
-To achieve this the starting and ending balance for a given year are compared and any discrepancies are resolved.
+The account reconciliation process is a business process that is responsible for ensuring that the financial records are accurate and up to date.
+To achieve this, the starting and ending balance for a given year is compared and any discrepancies are resolved.
 
-== Required variables
+== Api operations involved
 
-The following variables are required to be set in the process:
+In the frontend application the following API operations are involved:
 
-- `accountId`, the identifier of the account to be reconciled.
-- `startDate`, the start date of the reconciliation period.
-- `endDate`, the end date of the reconciliation period.
-- `openBalance`, the opening balance of the account at the startDate.
-- `endBalance`, the closing balance of the account at the endDate.
+- `GET /v2/api/accounts/{id}/reconcile`, for listing the active reconciling processes for the given account.
+- `POST /v2/api/accounts/{id}/reconcile`, for creating a new reconciliation process for the given account.
+
+When creating a new reconciliation, the following command must be used:
+
+[source,json,linenums]
+....
+{
+    "period": 0,
+    "balance": {
+        "start": 30.5,
+        "end": 35.7
+    }
+}
+....
+
+Where the `period` contains the year and the `start` / `end` contain the balance expected by the user.
 
 == The business process
 
@@ -29,13 +41,25 @@ Below is a business process model for the account reconciliation process.
 
 .Process diagram
 [.scalable-image]
-[bpmn, generated/architecture/process/account-reconcile, svg]
+[plantuml, generated/architecture/process/account-reconcile, svg]
 ....
-include::{document-root}/images/diagrams/bpmn-account-reconcile.bpmn[Account reconciliation process]
+@startuml
+start
+
+:Load active reconciliations for an account; <<#lightgreen>>
+:Compute actual start balance; <<#lightgreen>>
+if (matches expected) then (yes)
+    :Compute difference actual end balance; <<#lightgreen>>
+    :Create reconcile transaction; <<#lightgreen>>
+    while (next year open) <<#lightblue>>
+        :Get next year reconciliation; <<#lightblue>>
+        :Compute difference actual end balance; <<#lightblue>>
+        :Create reconcile transaction; <<#lightblue>>
+    endwhile
+else (no)
+    :Store reconcile on disk; <<#red>>
+endif
+
+stop
+@enduml
 ....
-
-=== User task: task_reconcile_before
-
-This task will be triggered when the `openBalance` does not equal the computed balance at the `startDate`.
-It indicates that the previous year must be reconciled before the current year can be continued.
-Closing this task will re-calculate the balance at the `startDate`.

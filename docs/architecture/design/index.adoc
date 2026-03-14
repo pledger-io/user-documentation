@@ -1,6 +1,6 @@
 :page-id: architecture::design
 :page-parent: architecture
-:page-nav-title: Design
+:page-nav-title: Architecture
 :page-module: chapter
 :page-title: Architectural design of the project
 :page-section: architecture

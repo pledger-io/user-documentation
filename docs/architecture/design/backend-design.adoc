@@ -6,10 +6,15 @@
 :page-order: 2
 :page-status: published
 
-ifndef::document-root[:document-root: ../../]
+ifndef::document-root[:document-root: ../../../]
 include::../../_document-setup.adoc[]
 
-The REST-api is the main component of the application.
+The REST-api is the main part of the application.
+This is a Java base web application that contains all the business logic for {application}.
+The user interface is bundled into the application by the xref:{document-root}/architecture/design/deployment.adoc[Deployment setup].
+
+== Used tooling
+
 This part of {application} is build using the following tooling:
 
 - link:https://gradle.org/[Gradle],
@@ -27,6 +32,13 @@ This means that all APIs are designed in an Open API Specification file and inte
 The code is generated at compile time, and each module implements a small part of the REST interface.
 
 == Internal design
+
+=== Enforcement of design
+
+When contributing {application} keep in mind that there are unit tests that enforce the domain and module structure that is detailed on this page.
+
+This is achieved by some ArchUnit tests that validate modules do not access modules they are not allowed to and ensure that there is no access to layers inside modules that are undesired.
+If a case ever arises where these rules need to be re-evaluated, always contact the core developer team first.
 
 === Modular design
 
@@ -87,7 +99,15 @@ a|
 
 === Architecture of each module
 
-Each of the modules is setup using the following layered architecture:
+Each of the modules has a similar structure.
+This is constructed as follows:
+
+- `adapters`, where the incoming and outgoing APIs are located for that module.
+- `domain`, where the modules internal business logic resides.
+
+Inside the `domain` the database is abstracted away in the `jpa` package, as well as the `commands` and `models` that allow for interaction with the public facing `adapter` of the module.
+
+The `service` package in the module hosts the scheduled jobs or core business logic for the module.
 
 [plantuml, generated/architecture/layer-architecture, svg]
 ....

@@ -1,4 +1,13 @@
 
+== 5.1.2
+
+*Release date: 2026-03-14*
+
+=== Bug fixes
+
+- Incorrect summary count for daily / monthly income, expense transaction overview
+- Budget split not working properly
+
 == 5.1.1
 
 *Release date: 2026-03-06*

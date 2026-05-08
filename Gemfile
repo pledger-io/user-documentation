@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.3.2"
+gem "jekyll", "~> 4.4"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 #gem "minima", "~> 2.5"
@@ -11,6 +11,7 @@ gem "jekyll", "~> 4.3.2"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem 'asciidoctor-diagram'
+  gem 'asciidoctor-diagram-plantuml'
   gem 'jekyll-asciidoc'
   gem 'jekyll-last-modified-at'
   gem 'jekyll-toc'

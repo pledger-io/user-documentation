@@ -31,6 +31,12 @@ This means that all APIs are designed in an Open API Specification file and inte
 
 The code is generated at compile time, and each module implements a small part of the REST interface.
 
+The public HTTP contract is defined in OpenAPI 3.1 under `src/contract/` (split YAML with `$ref` composition).
+At build time, Micronaut OpenAPI generates:
+
+- Controller interfaces under `com.jongsoft.finance.rest`
+- DTO / model types under `com.jongsoft.finance.rest.model`
+
 == Internal design
 
 === Enforcement of design
@@ -99,11 +105,30 @@ a|
 
 === Architecture of each module
 
-Each of the modules has a similar structure.
-This is constructed as follows:
+Code is organized as a modular monolith: one deployable unit, multiple vertical slices (packages by business capability). Each slice typically contains:
 
-- `adapters`, where the incoming and outgoing APIs are located for that module.
-- `domain`, where the modules internal business logic resides.
+[%header,cols="1,2"]
+|===
+
+| *Package segment* | *Role*
+
+| `..adapter.rest..`
+| Micronaut controllers, mappers, HTTP concerns; implements generated `..rest..` APIs
+
+| `..adapter.api..`
+| Inward-facing ports (interfaces) other modules may depend on
+| `..domain.model..`
+| Domain entities and value types
+
+| `..domain.commands..`
+| Command-style domain events / operations
+| `..domain.service..`
+| Domain and application services
+
+| `..domain.jpa..`
+| Persistence adapters (entities, repositories, handlers)
+
+|===
 
 Inside the `domain` the database is abstracted away in the `jpa` package, as well as the `commands` and `models` that allow for interaction with the public facing `adapter` of the module.
 
@@ -152,3 +177,9 @@ api_interface ---> model_layer: uses
 
 @enduml
 ....
+
+== Testing strategy (high level)
+
+- **Unit and integration tests** with JUnit 5, Micronaut Test, REST Assured, AssertJ, Mockito
+- **Architecture tests** (`ArchitectureTest`) — cycle-free slices, PlantUML adherence, explicit module layers
+- **ArchUnit** for structural rules; **Awaitility** for asynchronous assertions where needed

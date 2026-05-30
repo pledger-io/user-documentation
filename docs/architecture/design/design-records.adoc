@@ -1,0 +1,158 @@
+:page-nav-title: Architecture decision records
+:page-parent: architecture::design
+:page-title: Architecture Decision Records
+:page-section: architecture
+:page-layout: section
+:page-order: 5
+:page-status: published
+
+ifndef::document-root[:document-root: ../../../]
+include::../../_document-setup.adoc[]
+
+== ADR-001: Contract-first OpenAPI with Micronaut code generation
+
+[cols="1,5"]
+|===
+
+h|*Status*
+| Accepted
+
+h| *Context*
+| The REST API must stay consistent for the separate web UI and any API clients.
+Handwritten controllers and DTOs tend to drift from documentation unless the **contract is the single source of truth**.
+
+The project already ships an OpenAPI 3.1 description split across `src/contract/` and uses the Micronaut OpenAPI Gradle plugin.
+
+h| *Decision*
+a| Treat the **OpenAPI contract** as authoritative. At build time, generate:
+
+- Java controller **interfaces** in `com.jongsoft.finance.rest`
+- Request/response **models** in `com.jongsoft.finance.rest.model`
+
+Implement those interfaces in feature `adapter.rest` controllers (for example `AccountFetcherApi`).
+Use `importMapping` / `typeMapping` where generated names must align with existing domain or framework types.
+
+h| *Consequences*
+a|
+- **Positive:** Wire format, validation annotations, and controller signatures stay aligned with the published spec; Swagger UI can be served from generated metadata.
+- **Positive:** Breaking API changes show up as compile errors in controllers.
+- **Negative:** Build depends on code generation; contributors must run Gradle (or IDE sync) after contract edits.
+- **Negative:** Advanced OpenAPI patterns sometimes need custom mappings or wrapper types.
+
+|===
+
+== ADR-002: Multi-database strategy with dialect-specific Flyway migrations
+
+[cols="1,5"]
+|===
+
+h|*Status*
+| Accepted
+
+h| *Context*
+| Users self-host Pledger.io on different environments.
+The application supports **PostgreSQL**, **MySQL**, and **H2** (development/tests). SQL dialects differ (types, indexes, functions), so a single generic migration script set is fragile.
+
+h| *Decision*
+a| Use **Flyway** with **separate migration trees** under `src/main/resources/db/migration/` (for example `psql/` and `mysql/`).
+Select the appropriate datasource and Flyway locations via Micronaut configuration profiles. Rely on dialect-appropriate drivers at runtime.
+
+h| *Consequences*
+a|
+- **Positive:** Each database gets idiomatic DDL and fewer portability hacks.
+- **Negative:** Schema changes must often be authored (or at least validated) **twice** — once per supported production dialect.
+- **Negative:** Drift between dialect scripts is a real risk; reviews and tests should cover both trees where applicable.
+
+|===
+
+== ADR-003: Use Jetty as the HTTP server runtime
+
+[cols="1,5"]
+|===
+
+h|*Status*
+| Accepted
+
+h| *Context*
+| Micronaut supports multiple HTTP runtimes (notably Netty and Jetty).
+The choice affects threading model, integration with servlet-style features, dependency footprint, and operational familiarity.
+
+h| *Decision*
+a| Configure the Micronaut application to use **`runtime("jetty")`** and depend on **`micronaut-http-server-jetty`** as the embedded server for this service.
+
+h| *Consequences*
+a|
+- **Positive:** Aligns the stack with Jetty-based deployment expectations where relevant; uses a mature embedded server.
+- **Negative:** Defaults and community examples for Micronaut often assume Netty; some tuning or documentation may need translation.
+- **Note:** If the project ever requires Netty-specific reactive pipelines end-to-end, this decision should be revisited explicitly.
+
+|===
+
+== ADR-004: Enforce modular boundaries with ArchUnit
+
+[cols="1,5"]
+|===
+
+h|*Status*
+| Accepted
+
+h| *Context*
+| The codebase is a **modular monolith**: many bounded contexts in one repository.
+Without enforcement, package dependencies creep across boundaries (“just one import”), cycles appear, and refactors become risky.
+
+h| *Decision*
+a|
+Use **ArchUnit** in `ArchitectureTest` to enforce:
+
+1. **No cycles** between top-level slices matching `com.jongsoft.finance.(*)..`
+2. **Layering** against the PlantUML diagram `src/test/resources/architecture/layer-design.puml` (generated API, REST adapters, domain layers, JPA)
+3. **Explicit module layers** for major domains (`core`, `banking`, `budget`, `classification`, `contract`, `spending`, `exporter`, `suggestion`) with documented allowed dependencies
+
+- `spending` may access `core`, `banking`, and `budget` (reads transactions and budgets via ports and shared domain types; no dependency on `exporter` or `suggestion`).
+- Other modules must not depend on `spending`.
+
+CI and local `./gradlew test` must keep these rules green.
+
+h| *Consequences*
+a|
+- **Positive:** Architectural intent is executable; violations fail the build instead of silently accumulating.
+- **Positive:** The PlantUML diagram stays tied to reality via automated checks.
+- **Negative:** New cross-module dependencies require updating tests (and often an ADR) rather than “quick fixes.”
+- **Negative:** Packages outside the listed modules (for example `configuration`, root `EventBus`) still rely on manual discipline unless rules are extended.
+
+|===
+
+== ADR-005: Legacy Camunda Flyway migrations without Camunda runtime
+
+[cols="1,5"]
+|===
+
+h|*Status*
+| Accepted
+
+h| *Context*
+a| Older versions of Pledger.io used **Camunda BPM** for batch import workflows.
+The database still contains Camunda-style tables created by historical migrations.
+The application no longer embeds Camunda; imports are driven by an in-process **`ImportProcessEngineImpl`** and related domain code under `exporter`.
+
+Flyway configuration for production-style profiles still includes Camunda migration locations, for example:
+
+- `classpath:db/camunda/mysql` and `classpath:db/migration/mysql` (`application-mysql.properties`)
+- `classpath:db/camunda/psql` and `classpath:db/migration/psql` (`application-psql.properties`)
+- `classpath:db/camunda/h2` for demo/H2 (`application-demo.properties`)
+
+h| *Decision*
+a|
+1. **Keep** the `src/main/resources/db/camunda/{h2,mysql,psql}` Flyway scripts so existing databases and fresh installs receive a consistent schema history.
+2. **Do not** reintroduce a Camunda Java dependency; workflow state for imports is handled in application code (`ImportProcess`, `UserTask`, `ProcessVariable`).
+3. Treat Camunda migrations as **legacy schema only**.
+New schema changes belong under `db/migration/{dialect}/` unless a Camunda-table change is unavoidable for compatibility.
+
+h| *Consequences*
+a|
+- **Positive:** Upgrades from older deployments remain possible; Flyway ordering stays stable.
+- **Positive:** Runtime stays simpler (no Camunda engine to operate or secure).
+- **Negative:** Repository carries migration SQL that does not match the current process engine name.
+- **Negative:** Removing Camunda tables later requires a deliberate migration project and ADR superseding this one.
+
+|===

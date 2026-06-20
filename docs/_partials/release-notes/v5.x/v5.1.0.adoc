@@ -1,3 +1,61 @@
+== 5.1.10
+
+*Release date: 2026-05-20*
+
+=== Changes
+
+- Change date range unit from YEARS to MONTHS for the budget overview
+
+=== Dependency management
+
+==== Backend application
+
+- Bump io.micronaut.platform:micronaut-platform from 4.10.13 to 4.10.14
+- Bump gradle-wrapper from 9.5.0 to 9.5.1
+- Update plugin com.diffplug.spotless to v8.5.1
+
+==== Build tooling
+
+- Update dependency electron to v42.1.0
+- Update ollama/ollama Docker tag to v0.24.0
+
+== 5.1.9
+
+*Release date: 2026-05-11*
+
+=== Bug fixes
+
+- Bean resolution issue in the classification controller
+- Issue when OpenId is disabled with the page rendering
+
+== 5.1.8
+
+*Release date: 2026-05-11*
+
+=== Changes
+
+- Feature/allow user to choose engine by @gjong in pledger-io/rest-application#223
+- Update the settings page to include translations for the type of setting
+- Update the Oauth configuration to support token refresh better
+
+=== Dependency management
+
+==== Frontend
+
+- Update dependency vite-plugin-static-copy to v4.1.0
+- Update dependency typescript-eslint to v8.59.0
+- Update dependency react-hook-form to v7.75.0
+- Update dependency @eslint-react/eslint-plugin to v5
+- Update dependency eslint to v10.3.0
+- Update dependency axios to v1.16.0
+- Update dependency react-router to v7.15.0
+- Update dependency lint-staged to v17
+- Update tailwindcss monorepo to v4.3.0
+
+==== Build tooling
+
+- Update ollama/ollama Docker tag to v0.23.1
+- Update dependency electron to v42
 
 == 5.1.7
 

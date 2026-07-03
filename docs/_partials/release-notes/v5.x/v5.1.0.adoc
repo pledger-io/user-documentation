@@ -1,3 +1,33 @@
+== 5.1.11
+
+*Release date: 2026-07-03*
+
+=== Bug fixes
+
+- Prevent failure when exporting a profile if a file token cannot be located on disk
+- Fix CSV importer issues when importing larger files
+- Fix an issue in the registration email template
+
+=== Dependency management
+
+==== Backend application
+
+- Update io.micronaut.platform:micronaut-platform to v5.0.2
+- Update plugin com.diffplug.spotless to v8.7.0
+- Update pl.allegro.tech.build.axion-release to v1.21.2
+- Update actions/checkout to v7
+- Update gradle to v9.6.0
+
+==== Build tooling
+
+- Update electron to v42.5.0
+- Update electron-builder to v26.15.3
+- Update micronaut to v5
+- Update plugin io.micronaut.application to v5.0.2
+- Update ollama/ollama Docker image to v0.31.1
+- Update actions/checkout to v7
+- Update gradle to v9.6.0
+
 == 5.1.10
 
 *Release date: 2026-05-20*

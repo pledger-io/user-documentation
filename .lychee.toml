@@ -1,7 +1,7 @@
 # Link checker for CI. Focuses on internal links and static assets in the built site.
 offline = true
 root_dir = "public"
-include_fragments = "none"
+include_fragments = false
 max_redirects = 5
 retry_wait_time = 1
 max_retries = 2

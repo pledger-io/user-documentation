@@ -1,0 +1,30 @@
+[[main]]
+  name = "Getting Started"
+  pageRef = "/getting-started/"
+  weight = 10
+
+[[main]]
+  name = "How to guides"
+  pageRef = "/how-to/"
+  weight = 20
+
+[[main]]
+  name = "Financial concepts"
+  pageRef = "/concepts/"
+  weight = 30
+
+[[main]]
+  name = "Architecture"
+  pageRef = "/architecture/"
+  weight = 40
+
+[[main]]
+  name = "Releases"
+  pageRef = "/releases/"
+  weight = 50
+
+[[main]]
+  anchor = true
+  pageRef = "https://github.com/pledger-io"
+  logo = "fab fa-github"
+  weight = 90

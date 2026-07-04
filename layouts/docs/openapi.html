@@ -1,0 +1,69 @@
+{{ define "main" -}}
+    {{- $blocks := $.Scratch.Get "blocks" -}}
+    {{- $breakpoint := $.Scratch.Get "breakpoint" -}}
+    {{- $sidebar := partial "page/sidebar" . -}}
+    {{- $specUrl := .Params.openapiSpec | default "/openapi/openapi.bundle.yaml" -}}
+    {{- $hideRedocSidebar := .Params.hideRedocSidebar | default true -}}
+
+    {{ with $sidebar }}
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-sidebar" aria-labelledby="offcanvas-label">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvas-label">{{ strings.FirstUpper $.Section }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="{{ T "close" }}"></button>
+            </div>
+            <div class="offcanvas-body">
+                {{ . | safeHTML }}
+            </div>
+        </div>
+    {{ end }}
+
+    {{ $blocks | safeHTML }}
+
+    <div class="container-fluid flex-fill px-0">
+        <div class="row g-0">
+            <div class="col-auto d-none d-{{ $breakpoint.next }}-block sidebar-overflow sticky-top pt-5 px-3">
+                {{ $sidebar | safeHTML }}
+            </div>
+            <div class="col min-vh-100">
+                <div class="px-3 px-lg-4 pt-4 pb-2">
+                    {{ .Render "header" }}
+                    {{ partial "utilities/ProcessContent" (dict "page" .Page "raw" .RawContent) }}
+                </div>
+                <div id="redoc-container" class="border-top{{ if $hideRedocSidebar }} redoc-no-sidebar{{ end }}"></div>
+                <noscript>
+                    <div class="alert alert-warning m-4">
+                        Enable JavaScript to browse the interactive API reference, or download the
+                        <a href="{{ $specUrl }}">OpenAPI specification</a>.
+                    </div>
+                </noscript>
+            </div>
+        </div>
+    </div>
+
+    {{ if $hideRedocSidebar }}
+    <style>
+      #redoc-container.redoc-no-sidebar .menu-content {
+        display: none !important;
+      }
+      #redoc-container.redoc-no-sidebar .api-content {
+        width: 100% !important;
+      }
+    </style>
+    {{ end }}
+
+    <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+    <script>
+      Redoc.init("{{ $specUrl }}", {
+        scrollYOffset: 60,
+        hideDownloadButton: true,
+        {{- if $hideRedocSidebar }}
+        hideSidebar: true,
+        disableSearch: true,
+        {{- end }}
+        theme: {
+          colors: { primary: { main: "#0A4F7F" } },
+          sidebar: { backgroundColor: "#f8f9fa", width: "0px" }
+        }
+      }, document.getElementById("redoc-container"));
+    </script>
+{{ end -}}

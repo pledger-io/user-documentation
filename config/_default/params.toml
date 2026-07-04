@@ -1,0 +1,40 @@
+[main]
+    separator = "-"
+    description = "Self-hosted personal finance software to track accounts, categorize spending, and plan budgets."
+    endorse = false
+
+[plantuml]
+    baseUrl = "https://www.plantuml.com/plantuml/svg/"
+
+[home]
+    sections = ["docs"]
+    fullCover = true
+
+[style]
+    primary = "#0A4F7F"
+    success = "#33B690"
+    info = "#2E7FBD"
+
+[pages]
+  [pages.docs]
+    metadata = "none"
+
+[navigation]
+    sidebar = true
+    color = "body-tertiary"
+    size = "md"
+    breadcrumb = false
+    logo = "/img/logo_horizontal.svg"
+    logo-height = 35
+    [navigation.search]
+       modal = false
+
+[sharing]
+    enabled = false
+
+[docs]
+    github = "https://github.com/pledger-io/user-documentation"
+    release = "https://github.com/pledger-io/build-tooling/releases/tag/"
+
+[modules.bookshop.hero]
+    default = []

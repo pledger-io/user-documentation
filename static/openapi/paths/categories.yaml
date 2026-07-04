@@ -1,0 +1,39 @@
+get:
+  operationId: findCategoriesBy
+  tags: [ category-fetcher ]
+  summary: Search categories
+  description: >
+    Retrieve a paged list of categories that match the optional name filter.
+    Use offset and number-of-results to paginate through the result set.
+  parameters:
+    - $ref: '../openapi.yml#/components/parameters/name-filter'
+    - $ref: '../openapi.yml#/components/parameters/offset'
+    - $ref: '../openapi.yml#/components/parameters/number-of-results'
+  responses:
+    "200":
+      description: The categories matching the filters
+      content:
+        application/json:
+          schema: { $ref: '../openapi.yml#/components/schemas/category-paged-response' }
+    "401": { $ref: '../openapi.yml#/components/responses/401' }
+    "403": { $ref: '../openapi.yml#/components/responses/403' }
+post:
+  operationId: createCategory
+  tags: [ category-command ]
+  summary: Create category
+  description: >
+    Create a new category using the provided request body. Returns the created
+    category with its generated identifier and details.
+  requestBody:
+    content:
+      application/json:
+        schema: { $ref: '../openapi.yml#/components/schemas/category-request' }
+  responses:
+    "201":
+      description: The created category
+      content:
+        application/json:
+          schema: { $ref: '../openapi.yml#/components/schemas/category-response' }
+    "400": { $ref: '../openapi.yml#/components/responses/400' }
+    "401": { $ref: '../openapi.yml#/components/responses/401' }
+    "403": { $ref: '../openapi.yml#/components/responses/403' }

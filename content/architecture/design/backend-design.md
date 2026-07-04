@@ -1,0 +1,123 @@
+---
+title: The backend design for Pledger.io
+type: docs
+weight: 2
+---
+The REST-api is the main part of the application.
+This is a Java base web application that contains all the business logic for Pledger.io.
+The user interface is bundled into the application by the [Deployment setup](/architecture/design/deployment/).
+
+## Used tooling
+
+This part of Pledger.io is build using the following tooling:
+
+- [Gradle](https://gradle.org/),
+used as the build tool.
+- [Micronaut framework](https://micronaut.io/),
+used as the DI and API framework.
+- [LangChain4j](https://docs.langchain4j.dev/),
+used as the engine to interact with Vector stores and LLM implementations.
+
+## Rest design
+
+The REST interface is designed contract-first.
+This means that all APIs are designed in an Open API Specification file and interfaces are generated using Micronaut.
+
+The code is generated at compile time, and each module implements a small part of the REST interface.
+
+The public HTTP contract is defined in OpenAPI 3.1 under `src/contract/` (split YAML with `$ref` composition).
+At build time, Micronaut OpenAPI generates:
+
+- Controller interfaces under `com.jongsoft.finance.rest`
+- DTO / model types under `com.jongsoft.finance.rest.model`
+
+## Internal design
+
+### Enforcement of design
+
+When contributing Pledger.io keep in mind that there are unit tests that enforce the domain and module structure that is detailed on this page.
+
+This is achieved by some ArchUnit tests that validate modules do not access modules they are not allowed to and ensure that there is no access to layers inside modules that are undesired.
+If a case ever arises where these rules need to be re-evaluated, always contact the core developer team first.
+
+### Modular design
+
+The REST-api is designed to be a stateless application.
+The application is split up in several modules, where each module can depend on other modules.
+This is done to allow the application to be designed around a use case, like personal budgeting or small organizations.
+
+| Module | Dependencies | Description |
+| --- | --- | --- |
+| Core | - | The base module for the entire Pledger.io application. |
+| Banking | - Core | The module contains all logic regarding the transaction management and account management. |
+| Classification | - Core<br>- Banking | Contains a system to categorize things in Pledger.io. |
+| Budget | - Core<br>- Banking | Contains the logic allowing users to budget their spending. |
+| Contract | - Core<br>- Banking | Contains the logic allowing users to manage any contracts they have for spending. |
+| Suggestions | - Core<br>- Banking<br>- Classification<br>- Budget | Contains logic to suggest changes to transactions, either using pre-defined rules or AI. |
+| Exporter | - Core<br>- Banking<br>- Classification<br>- Budget | Contains the logic to import and export all information from a users account. |
+
+### Architecture of each module
+
+Code is organized as a modular monolith: one deployable unit, multiple vertical slices (packages by business capability). Each slice typically contains:
+
+| Package segment | Role |
+| --- | --- |
+| `..adapter.rest..` | Micronaut controllers, mappers, HTTP concerns; implements generated `..rest..` APIs |
+| `..adapter.api..` | Inward-facing ports (interfaces) other modules may depend on |
+| `..domain.model..` | Domain entities and value types |
+| `..domain.commands..` | Command-style domain events / operations |
+| `..domain.service..` | Domain and application services |
+| `..domain.jpa..` | Persistence adapters (entities, repositories, handlers) |
+
+Inside the `domain` the database is abstracted away in the `jpa` package, as well as the `commands` and `models` that allow for interaction with the public facing `adapter` of the module.
+
+The `service` package in the module hosts the scheduled jobs or core business logic for the module.
+
+{{< plantuml >}}
+@startuml
+title Pledger.io Layer Design
+
+package generated {
+[API Interface] <<..finance.rest..>> as api_interface #Orange/PowderBlue
+}
+
+package domain {
+[Database] <<..finance..domain.jpa..>> as jpa_layer #white/PowderBlue
+[Commands] <<..finance..domain.commands..>> as command_layer #white/PowderBlue
+[Model] <<..finance..domain.model..>> as model_layer #white/PowderBlue
+[Service] <<..finance..domain.service..>> as service_layer #white/LightGray
+}
+
+package adapter {
+[Internal API] <<..finance..adapter.api..>> as api_layer #white/Green
+[REST API] <<..finance..adapter.rest..>> as rest_layer #white/Green
+}
+
+jpa_layer --> command_layer : listens to
+jpa_layer -> model_layer : instantiates
+jpa_layer -up-> api_layer : implements
+
+model_layer --> command_layer : initiates
+
+rest_layer --> model_layer : uses
+rest_layer -> api_layer : uses
+rest_layer ----> command_layer : uses
+
+rest_layer -up-> api_interface: implements
+
+api_layer --> model_layer : uses
+
+service_layer -up-> api_layer : implements
+service_layer -up-> model_layer : uses
+service_layer -right-> command_layer : uses
+
+api_interface ---> model_layer: uses
+
+@enduml
+{{< /plantuml >}}
+
+## Testing strategy (high level)
+
+- **Unit and integration tests** with JUnit 5, Micronaut Test, REST Assured, AssertJ, Mockito
+- **Architecture tests** (`ArchitectureTest`) — cycle-free slices, PlantUML adherence, explicit module layers
+- **ArchUnit** for structural rules; **Awaitility** for asynchronous assertions where needed

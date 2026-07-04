@@ -1,0 +1,31 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+  name:
+    type: string
+    description: The name for the transaction schedule
+  description:
+    type: string
+    description: The description for the transaction schedule
+  activeBetween:
+    $ref: "../../openapi.yml#/components/schemas/date-range"
+  schedule:
+    $ref: "../../openapi.yml#/components/schemas/schedule-response"
+  amount:
+    type: number
+    format: double
+  forContract:
+    $ref: "../../openapi.yml#/components/schemas/contract-response"
+  transferBetween:
+    type: object
+    description: The source and destination accounts for the transfer
+    required:
+      - source
+      - destination
+    properties:
+      source:
+        $ref: "../../openapi.yml#/components/schemas/account-link"
+      destination:
+        $ref: "../../openapi.yml#/components/schemas/account-link"

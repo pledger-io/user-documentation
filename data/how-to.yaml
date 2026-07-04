@@ -1,0 +1,11 @@
+- title: Your Finances
+  pages:
+    - title: Accounts
+    # - title: Transactions
+    - title: Budgeting
+    # - title: Contracts
+    - title: Liabilities
+- title: Advanced
+  pages:
+    - title: Rules
+    - title: Scheduling

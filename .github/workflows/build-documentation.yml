@@ -1,0 +1,62 @@
+name: Build documentation
+
+on:
+  workflow_call:
+  pull_request:
+    branches: [main, master]
+
+concurrency:
+  group: docs-build-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache-dependency-path: go.sum
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 0.163.1
+          extended: true
+
+      - name: Generate release notes
+        shell: pwsh
+        run: ./scripts/generate-releases.ps1
+
+      - name: Bundle OpenAPI specification
+        shell: pwsh
+        run: ./scripts/bundle-openapi.ps1
+
+      - name: Build documentation
+        run: hugo --gc --minify
+
+      - name: Prepare link checker config
+        shell: pwsh
+        run: ./scripts/prepare-lychee-config.ps1
+
+      - name: Check internal links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --config .lychee.ci.toml ./public
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentation
+          path: public

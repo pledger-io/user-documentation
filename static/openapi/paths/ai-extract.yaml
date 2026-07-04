@@ -1,0 +1,20 @@
+post:
+  operationId: extractTransaction
+  tags: [ transaction-extractor ]
+  summary: Extract transaction
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            text:
+              type: string
+  responses:
+    "200":
+      description: The extracted transaction
+      content:
+        application/json:
+          schema: { $ref: '../openapi.yml#/components/schemas/extracted-transaction-response' }
+    "401": { $ref: '../openapi.yml#/components/responses/401' }
+    "403": { $ref: '../openapi.yml#/components/responses/403' }

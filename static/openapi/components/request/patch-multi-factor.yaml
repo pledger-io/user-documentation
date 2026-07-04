@@ -1,0 +1,8 @@
+discriminator:
+  propertyName: action
+  mapping:
+    ENABLE: '../../openapi.yml#/components/schemas/enable-mfa-request'
+    DISABLE: '../../openapi.yml#/components/schemas/disable-mfa-request'
+oneOf:
+  - $ref: '../../openapi.yml#/components/schemas/enable-mfa-request'
+  - $ref: '../../openapi.yml#/components/schemas/disable-mfa-request'

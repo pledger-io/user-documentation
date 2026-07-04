@@ -1,0 +1,26 @@
+- title: Design
+  pages:
+    - title: Domain
+    - title: Repositories
+    - title: Backend Design
+    - title: UI Design
+    - title: Deployment
+- title: Process
+  pages:
+    - title: Transaction Import
+    - title: Scheduled Transactions
+    - title: Contract Termination
+    - title: Account Reconcile
+- title: Architecture Decision Records
+  pages:
+    - title: ADR-001 Contract-first
+      link: adr-001-contract-first-openapi
+    - title: ADR-002 Multi-database
+      link: adr-002-multi-database-flyway
+    - title: ADR-003 Jetty Runtime
+      link: adr-003-jetty-runtime
+    - title: ADR-004 ArchUnit Boundaries
+      link: adr-004-archunit-modular-boundaries
+    - title: ADR-005 Legacy Camunda
+      link: adr-005-legacy-camunda-migrations
+- title: API Docs

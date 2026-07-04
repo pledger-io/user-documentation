@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="auto" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Accounts concept thumbnail</title>
+  <desc id="desc">Illustration for financial accounts and double-entry bookkeeping.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0A4F7F" />
+      <stop offset="1" stop-color="#2E7FBD" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="90" y="80" width="1020" height="470" rx="28" fill="#ffffff" opacity="0.1" />
+  <rect x="180" y="170" width="300" height="260" rx="18" fill="#ffffff" opacity="0.95" />
+  <rect x="520" y="170" width="300" height="260" rx="18" fill="#ffffff" opacity="0.95" />
+  <rect x="860" y="170" width="160" height="260" rx="18" fill="#ffffff" opacity="0.95" />
+  <rect x="215" y="215" width="230" height="24" rx="12" fill="#0A4F7F" />
+  <rect x="215" y="255" width="180" height="14" rx="7" fill="#94a3b8" />
+  <rect x="215" y="280" width="200" height="14" rx="7" fill="#94a3b8" />
+  <rect x="555" y="215" width="230" height="24" rx="12" fill="#33B690" />
+  <rect x="555" y="255" width="180" height="14" rx="7" fill="#94a3b8" />
+  <rect x="555" y="280" width="200" height="14" rx="7" fill="#94a3b8" />
+  <rect x="895" y="215" width="90" height="24" rx="12" fill="#2E7FBD" />
+  <rect x="895" y="255" width="90" height="14" rx="7" fill="#94a3b8" />
+  <path d="M480 300h40M820 300h40" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.85" />
+  <text x="160" y="575" fill="#ffffff" font-size="44" font-family="Arial, sans-serif" font-weight="700">Accounts in finance</text>
+</svg>

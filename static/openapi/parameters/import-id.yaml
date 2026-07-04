@@ -1,0 +1,6 @@
+name: importSlug
+required: false
+in: query
+schema:
+  type: integer
+  format: int64

@@ -1,0 +1,28 @@
+{{ $baseUrl := site.Params.plantuml.baseUrl }}
+{{ $id := printf "plantuml-%d" .Ordinal }}
+
+{{ $opts := dict
+  "method" "GET"
+  "headers" (dict "Content-Type" "text/plain; charset=utf-8")
+}}
+
+<div id="{{ $id }}" class="plantuml-diagram">Rendering diagram...</div>
+<script type="module">
+  import { encode } from "https://cdn.jsdelivr.net/npm/plantuml-encoder@1.4.0/+esm";
+  const target = document.getElementById("{{ $id }}");
+  const baseUrl = "{{ $baseUrl }}";
+  try {
+    const encoded = encode("{{ .Inner }}");
+    const img = document.createElement("img");
+    img.src = `${baseUrl.replace(/\/$/, "")}/${encoded}`;
+    img.alt = "PlantUML diagram";
+    img.loading = "lazy";
+    target.replaceChildren(img);
+  } catch (e) {
+    target.textContent = "Failed to render PlantUML diagram.";
+    console.error("PlantUML encode error:", e);
+  }
+</script>
+<noscript>
+  <div class="alert alert-warning">Enable JavaScript to render this PlantUML diagram.</div>
+</noscript>

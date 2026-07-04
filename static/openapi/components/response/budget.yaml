@@ -1,0 +1,14 @@
+type: object
+required:
+  - income
+  - period
+  - expenses
+properties:
+  income:
+    type: number
+  period:
+    $ref: '../../openapi.yml#/components/schemas/date-range'
+  expenses:
+    type: array
+    items:
+      $ref: '../../openapi.yml#/components/schemas/expense-response'

@@ -1,0 +1,4 @@
+description: Bad Request
+content:
+  application/json:
+    schema: { $ref: '../openapi.yml#/components/schemas/json-error-response' }

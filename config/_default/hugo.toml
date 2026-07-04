@@ -1,0 +1,17 @@
+baseURL = "https://www.pledger.io/"
+locale = "en-us"
+title = "Pledger.io"
+copyright = "Copyright © 2026 Pledger.io"
+enableRobotsTXT = true
+#enableGitInfo = true
+
+[security]
+  enableInlineShortcodes = true
+
+[[module.imports]]
+    path = "github.com/gethinode/hinode"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

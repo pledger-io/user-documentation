@@ -1,0 +1,18 @@
+- title: Installation
+  pages:
+    - title: Docker
+    - title: Docker Compose
+      link: compose
+    - title: Kubernetes
+    - title: Windows
+    - title: Configuration
+- title: First steps
+  pages:
+    - title: Create User
+    - title: First Account
+    - title: Categorizing
+
+- title: Advanced
+  pages:
+    # - title: Schedule Bills
+    - title: Using an LLM

@@ -1,0 +1,22 @@
+parameters:
+  - name: setting
+    description: The setting name
+    in: path
+    required: true
+    schema:
+      type: string
+patch:
+  operationId: patchSetting
+  tags: [ settings ]
+  summary: Update setting
+  requestBody:
+    content:
+      application/json:
+        schema: { $ref: '../openapi.yml#/components/schemas/setting-request' }
+  responses:
+    "204":
+      description: Confirmation the setting was updated
+    "400": { $ref: '../openapi.yml#/components/responses/400' }
+    "401": { $ref: '../openapi.yml#/components/responses/401' }
+    "403": { $ref: '../openapi.yml#/components/responses/403' }
+    "404": { $ref: '../openapi.yml#/components/responses/404' }

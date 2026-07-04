@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="auto" height="35" viewBox="0 0 1120 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pledger.io Accounting">
+  <title>Pledger.io Accounting</title>
+  <g transform="translate(20 20)">
+    <rect x="0" y="0" width="220" height="220" rx="34" fill="#0A4F7F"/>
+    <rect x="28" y="22" width="164" height="54" rx="12" fill="#F5F7FA"/>
+    <path d="M155 55l14 14 30-30" fill="none" stroke="#33B690" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="28" y="95" width="38" height="32" rx="8" fill="#F5F7FA"/>
+    <rect x="78" y="95" width="38" height="32" rx="8" fill="#F5F7FA"/>
+    <rect x="128" y="95" width="38" height="32" rx="8" fill="#F5F7FA"/>
+
+    <rect x="28" y="137" width="38" height="32" rx="8" fill="#F5F7FA"/>
+    <rect x="78" y="137" width="38" height="32" rx="8" fill="#F5F7FA"/>
+    <rect x="128" y="137" width="38" height="32" rx="8" fill="#F5F7FA"/>
+
+    <rect x="28" y="179" width="38" height="32" rx="8" fill="#F5F7FA"/>
+    <rect x="78" y="179" width="38" height="32" rx="8" fill="#F5F7FA"/>
+    <rect x="128" y="179" width="38" height="32" rx="8" fill="#F5F7FA"/>
+
+    <rect x="176" y="95" width="24" height="116" rx="8" fill="#2E7FBD"/>
+  </g>
+
+  <text x="280" y="138" fill="#0A4F7F" font-size="108" font-family="Arial, Helvetica, sans-serif" font-weight="700">Pledger.io</text>
+  <text x="286" y="208" fill="#0A4F7F" font-size="62" font-family="Arial, Helvetica, sans-serif" font-weight="600" letter-spacing="8">ACCOUNTING</text>
+</svg>

@@ -1,0 +1,20 @@
+{{/*
+  Outputs a non-empty string when the URL maps to content marked draft: true.
+  Used to skip nav/cards in production builds without treating the link as broken.
+*/}}
+{{- $url := .url | default "" -}}
+{{- $url = strings.TrimPrefix "/" $url -}}
+{{- $url = strings.TrimSuffix "/" $url -}}
+{{- $draft := false -}}
+{{- $candidates := slice
+    (printf "content/%s.md" $url)
+    (printf "content/%s/_index.md" $url)
+-}}
+{{- range $candidates -}}
+    {{- if fileExists . -}}
+        {{- if findRE `(?m)^draft:\s*true\s*$` (readFile .) -}}
+            {{- $draft = true -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- if $draft -}}1{{- end -}}

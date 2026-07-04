@@ -1,0 +1,11 @@
+- title: Financial
+  pages:
+    - title: Accounts
+    - title: Transactions
+    - title: Recurring Transactions
+    - title: Budgets
+    - title: Contracts
+- title: Application
+  pages:
+    - title: Features
+    - title: Support

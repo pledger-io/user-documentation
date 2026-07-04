@@ -1,8 +1,8 @@
 # Rebuild data/releases-source.md from generated per-major release pages.
 $ErrorActionPreference = "Stop"
 $root = Split-Path $PSScriptRoot -Parent
-$releasesDir = Join-Path $root "content\releases"
-$target = Join-Path $root "scripts\releases-source.md"
+$releasesDir = Join-Path $root "content/releases"
+$target = Join-Path $root "scripts/releases-source.md"
 
 function Convert-AccordionToMarkdown([string]$accordion) {
     $items = [regex]::Matches($accordion, '(?s)\{\{< accordion-item title="([^"]+)"[^>]*>\}\}(.*?)\{\{< /accordion-item >\}\}')

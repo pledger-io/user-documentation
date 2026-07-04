@@ -1,83 +1,131 @@
 ---
 title: Transaction import
 type: docs
-draft: true
 weight: 2
 ---
-## Required variables
 
-- `importJobSlug`,
-the unique slug that was on the import job.
-This can be obtained using the API.
+## Api operations involved
+
+In the frondend application the following API operations are involved:
+
+- `POST /v2/api/batch-importer-config`, for creating a new import configuration.
+- `POST /v2/api/batch-importer`, for creating a new import job.
+- `GET /v2/api/batch-importer/{slug}/tasks`, for fetching the active pending task requiring user interaction.
+- `POST /v2/api/batch-importer/{slug}/tasks`, for providing the user input required for the task.
+
+### Creating configuration
+
+When calling the `POST /v2/api/batch-importer-config` API operation, the user must provide the following information:
+
+```json
+{
+  "name": "A logical name",
+  "type": "csv",
+  "fileCode": "unique-code-returned-by-upload-api-operation"
+}
+```
+
+Make sure to store the returned `id` of the configuration, as it will be required when creating the import job.
+
+More details on this can be found in the [Create batch import configuration](architecture/api-docs/#tag/batch-importer/operation/createConfiguration).
+
+### Creating the import job
+
+When calling the `POST /v2/api/batch-importer` API operation, the user must provide the following information:
+
+```json
+{
+  "configuration": "the-id-of-the-configuration",
+  "fileTokens": "unique-code-returned-by-upload-api-operation"
+}
+```
+
+More details on this can be found in the [Create batch import job](architecture/api-docs/#tag/batch-importer/operation/createJob).
+
+### Available user task
+
+When calling the `GET /v2/api/batch-importer/{slug}/tasks` API operation, the user will be presented with the following information.
+
+>[!WARNING]
+> This will return a BAD REQUEST if the import job is not in a state that requires user interaction.
+
+```json
+{
+  "id": "logical-id",
+  "name": "name of the task",
+  "variables": {}
+}
+```
+
+There are essentially two types of tasks:
+
+#### Import configuration
+
+This allows the user to change the default configuration for this specific import job.
+```json
+{
+  "importerConfiguration" : {},
+  "accountId": 1,
+  "applyRules": true,
+  "generateAccounts": true
+}
+```
+
+#### Account mapping
+
+This allows the user to map account names to existing accounts in the system.
+```json
+{
+  "name": "The account name"
+}
+```
 
 ## The business process
 
-The transaction import process is interactive and has multiple points in time where the user is expected to provide information.
-The following user tasks are in the process:
+Below is a business process diagram of the transaction import process.
+This diagram only contains those phases that do not require user interaction.
 
-- `task_configure`,
-this task will get activated after the import configuration is read to confirm it with the user.
-- `confirm_mappings`,
-this task will ask the user to confirm and adjust the mappings between account names in the CSV and the ones known in Pledger.io.
-- `user_create_account`,
-this task can occur multiple times in during the import.
-This will be triggered for each account in the CSV where no mapping was provided in the `confirm_mappings` task, but only if the feature that allows the process to create accounts is disabled.
+{{< plantuml >}}
+@startuml
+title Run an import job
+start
 
-.Process diagram
-[bpmn, generated/architecture/process/transaction import, svg]
-....
-<!-- include not found: {document-root}/images/diagrams/bpmn-transaction-import.bpmn -->
-....
+:Load pending import jobs;
+if (open tasks) then (no)
+  :Start process step;
+  switch (internal state)
+    case (ACCOUNT_MAPPING)
+       :Read account names;
+       repeat :until all accounts are mapped;
+         :Lookup account in system;
+         :Store in internal state;
+       repeat while (more account names)
+       if (account mapping empty) then (yes)
+         :Set state to
+         CONFIGURATION;
+       elseif (missing mapping) then (yes)
+         :Create user task to
+          add account mapping;
+         :Store in internal state;
+       else (no)
+         :Set state to
+         IMPORT;
+       endif; 
+    case (IMPORT)
+       :Read transactions;
+       repeat :until all transactions are imported;
+         :Import transaction;
+         :Link to import job;
+         if (should apply rules) then (yes)
+           :Apply rules;
+         endif;
+       repeat while (more transactions)
+       :Set state to
+       COMPLETED;
+  endswitch
 
-### User task: task_configure
+endif
 
-This user task allows the user to change the configuration used during the CSV import.
-Initially the user selected a pre-configured configuration, but this may be slightly outdated.
-Or the user may wish to enable or disable automatic account creation.
-
-#### Ingoing variables
-
-- `initialConfig`, the default configuration used by the process.
-This is loaded from the importer configuration settings known in Pledger.io.
-
-#### Outgoing variables
-
-- `updatedConfig`, the updated configuration by the user.
-This will be the version of the configuration that is actually used during the import process.
-
-### User task: confirm_mappings
-
-This user task gives the user the opportunity to change the mapping between account names found in the CSV and ones already present in Pledger.io.
-
-#### Ingoing variables
-
-- `account_mappings`, the mappings that Pledger.io detected for itself using existing accounts.
-
-#### Outgoing variables
-
-- `account_mappings`, the updated mappings as they were set by the user.
-
-.Example of the JSON for the account_mappings
-[source,json,linenums]
-....
-{
-  "content": [{
-    "name": "The account name in the CSV",
-    "accountId": 123,
-    "_type": "com.jongsoft.finance.bpmn.delegate.importer.ExtractionMapping"
-  }],
-  "_type": "com.jongsoft.finance.rest.process.VariableMap$VariableList"
-}
-....
-
-### User task: user_create_account
-
-This user task is triggered when the user did not provide a mapping for an account in the `confirm_mappings` task and the feature to automatically create accounts is disabled.
-
-#### Ingoing variables
-
-- `accountName`, the name of the account that needs to be created.
-
-#### Outgoing variables
-
-- `accountId`, the ID of the account that was created.
+stop
+@enduml
+{{< /plantuml >}}

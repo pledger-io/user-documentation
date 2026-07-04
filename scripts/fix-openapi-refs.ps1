@@ -1,19 +1,17 @@
 # Rewrites #/components/... refs in split OpenAPI files to point at the root spec.
 $ErrorActionPreference = 'Stop'
-$rootDir = Join-Path $PSScriptRoot '..' 'static' 'openapi' | Resolve-Path
+$rootDir = Join-Path (Join-Path (Join-Path $PSScriptRoot '..') 'static') 'openapi' | Resolve-Path
 
 Get-ChildItem -Path $rootDir -Recurse -Filter '*.yaml' |
     Where-Object { $_.Name -notin @('openapi.yml', 'openapi.bundle.yaml') } |
     ForEach-Object {
-        $relativeDir = $_.DirectoryName.Substring($rootDir.Path.Length).Trim('\', '/')
-        $prefix = if ([string]::IsNullOrEmpty($relativeDir)) {
+        $relativeDir = $_.DirectoryName.Substring($rootDir.Path.Length).TrimStart('\', '/').Trim('\', '/')
+        $depth = @(($relativeDir -split '[\\/]') | Where-Object { $_ }).Count
+        $prefix = if ($depth -eq 0) {
             './openapi.yml'
         }
-        elseif ($relativeDir -notmatch '[\\/]') {
-            '../openapi.yml'
-        }
         else {
-            '../../openapi.yml'
+            ('../' * $depth) + 'openapi.yml'
         }
 
         $content = Get-Content -LiteralPath $_.FullName -Raw -Encoding UTF8

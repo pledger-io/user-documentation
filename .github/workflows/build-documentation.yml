@@ -33,6 +33,11 @@ jobs:
           hugo-version: 0.163.1
           extended: true
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - name: Generate release notes
         shell: pwsh
         run: ./scripts/generate-releases.ps1

@@ -1,12 +1,12 @@
-# Parses content/architecture/releases.md and generates the releases section.
+# Parses scripts/releases-source.md and generates the releases section.
 $ErrorActionPreference = "Stop"
 $root = Split-Path $PSScriptRoot -Parent
 
-$source = Join-Path $root "scripts\releases-source.md"
+$source = Join-Path $root "scripts/releases-source.md"
 if (-not (Test-Path $source)) {
-    $source = Join-Path $root "content\architecture\releases.md"
+    $source = Join-Path $root "content/architecture/releases.md"
 }
-$releasesDir = Join-Path $root "content\releases"
+$releasesDir = Join-Path $root "content/releases"
 $dataDir = Join-Path $root "data"
 
 if (-not (Test-Path $source)) {
@@ -187,12 +187,35 @@ Write-Host "Generated $($releases.Count) releases into $releasesDir"
 
 $latest = $releases[0]
 $indexPath = Join-Path $releasesDir "_index.md"
-if (Test-Path $indexPath) {
-    $index = Get-Content $indexPath -Raw -Encoding UTF8
-    $index = [regex]::Replace(
-        $index,
-        '\*\*Current stable:\*\* \[v[\d.]+\]\(https://github\.com/pledger-io/build-tooling/releases/tag/v?[\d.]+\)',
-        "**Current stable:** [v$($latest.Version)](https://github.com/pledger-io/build-tooling/releases/tag/$($latest.Version))"
-    )
-    [System.IO.File]::WriteAllText($indexPath, $index, (New-Object System.Text.UTF8Encoding $false))
+$indexLines = New-Object System.Collections.Generic.List[string]
+$indexLines.Add("---")
+$indexLines.Add("title: Releases")
+$indexLines.Add("description: Version history and release notes for Pledger.io.")
+$indexLines.Add("type: docs")
+$indexLines.Add("weight: 50")
+$indexLines.Add("includeToc: false")
+$indexLines.Add("---")
+$indexLines.Add("")
+$indexLines.Add("**Current stable:** [v$($latest.Version)](https://github.com/pledger-io/build-tooling/releases/tag/$($latest.Version))")
+$indexLines.Add("")
+$indexLines.Add("Download installers and changelogs from [GitHub Releases](https://github.com/pledger-io/build-tooling/releases).")
+$indexLines.Add("")
+$indexLines.Add("## Recent releases")
+$indexLines.Add("")
+$indexLines.Add('{{< timeline data="releases-recent" >}}')
+$indexLines.Add("")
+$indexLines.Add("## By major version")
+$indexLines.Add("")
+$indexLines.Add("Browse release notes grouped by major version:")
+$indexLines.Add("")
+$indexLines.Add('{{< card-group gutter="3" cols="2" >}}')
+$indexLines.Add("")
+foreach ($group in $majorVersions) {
+    $major = $group.Name
+    $indexLines.Add("    {{< card path=`"releases/v$major`" header-style=`"none`" />}}")
 }
+$indexLines.Add("")
+$indexLines.Add("{{</ card-group>}}")
+$indexLines.Add("")
+[System.IO.File]::WriteAllText($indexPath, ($indexLines -join "`n"), (New-Object System.Text.UTF8Encoding $false))
+Write-Host "Generated releases index -> $indexPath"

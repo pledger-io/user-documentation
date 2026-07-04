@@ -1,7 +1,7 @@
 # Bundles the split OpenAPI spec into a single file for browser-based viewers.
 $ErrorActionPreference = 'Stop'
 $root = Join-Path $PSScriptRoot '..' | Resolve-Path
-$specDir = Join-Path $root 'static' 'openapi'
+$specDir = Join-Path (Join-Path $root 'static') 'openapi'
 $inputSpec = Join-Path $specDir 'openapi.yml'
 $outputSpec = Join-Path $specDir 'openapi.bundle.yaml'
 

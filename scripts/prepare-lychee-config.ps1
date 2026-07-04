@@ -7,7 +7,14 @@ $outputConfig = Join-Path $root '.lychee.ci.toml'
 Push-Location $root
 try {
     $draftPaths = @()
-    $csv = hugo list drafts 2>$null | Where-Object { $_ -match '^content/' }
+    $prevEap = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        $csv = @(hugo list drafts --logLevel error 2>&1 | Where-Object { $_ -match '^content/' })
+    }
+    finally {
+        $ErrorActionPreference = $prevEap
+    }
     foreach ($line in $csv) {
         $permalink = ($line -split ',', 9)[7]
         if ([string]::IsNullOrWhiteSpace($permalink)) { continue }
@@ -17,7 +24,7 @@ try {
 
     $base = Get-Content -LiteralPath $baseConfig -Raw -Encoding UTF8
     if ($draftPaths.Count -eq 0) {
-        Set-Content -LiteralPath $outputConfig -Value $base -Encoding utf8NoBOM
+        [System.IO.File]::WriteAllText($outputConfig, $base, [System.Text.UTF8Encoding]::new($false))
         Write-Host 'No draft pages; wrote .lychee.ci.toml from base config.'
         return
     }

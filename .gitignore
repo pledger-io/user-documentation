@@ -2,7 +2,7 @@ public
 _vendor
 resources
 .hugo_build.lock
-content/releases
+content/releases/*.md
 data/releases*.yaml
 static/openapi/openapi.bundle.yaml
 .lychee.ci.toml

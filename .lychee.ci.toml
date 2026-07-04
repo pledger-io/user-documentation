@@ -1,0 +1,29 @@
+# Link checker for CI. Focuses on internal links and static assets in the built site.
+offline = true
+root_dir = "public"
+include_fragments = "none"
+max_redirects = 5
+retry_wait_time = 1
+max_retries = 2
+
+# Skip large OpenAPI tree and known external-only targets.
+exclude_path = [
+  "public/openapi",
+]
+
+exclude = [
+
+  '^mailto:',
+  '^https://jongsoftdev\.atlassian\.net/',
+  # Tutorial screenshots not yet restored — see DOCUMENTATION-AUDIT.md
+  '/img/getting-started/',
+  '/img/architecture/data-model',
+  '^/architecture/process/contract-termination/?',
+  '^/architecture/process/scheduled-transactions/?',
+  '^/getting-started/advanced/schedule-bills/?',
+  '^/how-to/advanced/rules/?',
+  '^/how-to/advanced/scheduling/?',
+  '^/how-to/your-finances/contracts/?',
+  '^/how-to/your-finances/overview/?',
+  '^/how-to/your-finances/transactions/?',
+]

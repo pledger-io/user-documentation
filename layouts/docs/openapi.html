@@ -30,6 +30,9 @@
                     {{ partial "utilities/ProcessContent" (dict "page" .Page "raw" .RawContent) }}
                 </div>
                 <div id="redoc-container" class="border-top{{ if $hideRedocSidebar }} redoc-no-sidebar{{ end }}"></div>
+                <div class="px-3 px-lg-4 mt-4 pt-4 border-top">
+                    {{ partial "utilities/git.html" . }}
+                </div>
                 <noscript>
                     <div class="alert alert-warning m-4">
                         Enable JavaScript to browse the interactive API reference, or download the

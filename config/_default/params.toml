@@ -34,6 +34,7 @@
 
 [docs]
     github = "https://github.com/pledger-io/user-documentation"
+    branch = "hugo-refresh"
     release = "https://github.com/pledger-io/build-tooling/releases/tag/"
 
 [modules.bookshop.hero]

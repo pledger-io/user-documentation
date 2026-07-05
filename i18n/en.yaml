@@ -1,0 +1,4 @@
+- id: lastModified
+  translation: "Last modified on {{ . }}"
+- id: editPageOnGitHub
+  translation: "Edit this page on GitHub"

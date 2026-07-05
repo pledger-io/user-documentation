@@ -3,7 +3,7 @@ locale = "en-us"
 title = "Pledger.io"
 copyright = "Copyright © 2026 Pledger.io"
 enableRobotsTXT = true
-#enableGitInfo = true
+enableGitInfo = true
 
 [security]
   enableInlineShortcodes = true

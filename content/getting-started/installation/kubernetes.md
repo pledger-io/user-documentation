@@ -12,9 +12,8 @@ This will create a deployment, pod and service registration in the Kubernetes cl
 
 After this you should create your own reverse proxy to expose it, either using Nginx, Apache or a Traefik ingress.
 
-{{< alert color="danger" icon="fas triangle-exclamation" >}}
-    Kubernetes is an advanced platform and should only be used if you already have some experience.
-{{< /alert >}}
+>[!WARNING]
+>Kubernetes is an advanced platform and should only be used if you already have some experience.
 
 ## Kubernetes deployment
 
@@ -117,9 +116,8 @@ spec:
 
 The following snippet can be used to create an ingress registration for Pledger.io in a Kubernetes cluster.
 
-{{< alert alert-type="info" >}}
-  Your K8S cluster should have an ingress controller installed and configured.
-{{< /alert >}}
+> [!TIP]
+> Your K8S cluster should have an ingress controller installed and configured.
 
 ```yaml
 apiVersion: networking.k8s.io/v1

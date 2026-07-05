@@ -1,0 +1,22 @@
+{{- $repo := strings.TrimSuffix "/" (site.Params.docs.github | default site.Params.schema.github) -}}
+{{- $branch := site.Params.docs.branch | default "master" -}}
+{{- $page := . -}}
+{{- with $page.File -}}
+  {{- $contentPath := printf "content/%s" (path.Clean $page.File.Path) -}}
+  {{- $editUrl := printf "%s/edit/%s/%s" $repo $branch $contentPath -}}
+  {{- $modified := "" -}}
+  {{- if $page.GitInfo -}}
+    {{- $modified = partial "utilities/date.html" (dict "date" $page.GitInfo.AuthorDate "format" "long") -}}
+  {{- else if not $page.Lastmod.IsZero -}}
+    {{- $modified = partial "utilities/date.html" (dict "date" $page.Lastmod "format" "long") -}}
+  {{- end -}}
+  <div class="d-flex flex-wrap align-items-center gap-2 text-body-secondary small">
+    {{- with $modified -}}
+      <span>{{ i18n "lastModified" . }}</span>
+      <span aria-hidden="true">&bull;</span>
+    {{- end -}}
+    <a href="{{ $editUrl }}" class="link-primary link-underline-opacity-0 link-underline-opacity-100-hover">
+      {{- i18n "editPageOnGitHub" -}}
+    </a>
+  </div>
+{{- end -}}

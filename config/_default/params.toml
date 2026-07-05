@@ -39,3 +39,7 @@
 
 [modules.bookshop.hero]
     default = []
+
+[favicon]
+    logo = "img/favicon.png"
+    sizes = [16, 32, 48]

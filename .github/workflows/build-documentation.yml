@@ -56,7 +56,7 @@ jobs:
       - name: Check internal links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --config .lychee.ci.toml ./public
+          args: --config .lychee.ci.toml --root-dir public ./public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

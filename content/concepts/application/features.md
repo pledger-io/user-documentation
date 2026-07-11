@@ -20,10 +20,11 @@ With the reporting you get a quick and easy overview of your finances.
 
 ## What does Pledger.io offer?
 
-* Tracking of multiple accounts, each with separate transactions and statistics
-* Multiple users supported, all with their own accounts and transactions
-* Importing of bank statements using:
-** CSV import, with advanced mapping features
-* Budgets to keep track of your finances
-* Manage any running contracts with service providers
+* Tracking of multiple accounts, each with separate transactions and statistics.
+* Multiple users supported, all with their own accounts and transactions.
+* A navigation model with section-level pages and local in-section navigation for faster discovery.
+* Global quick search (`Ctrl+K`) to jump directly to pages and common actions.
+* Importing bank statements with CSV mapping support, including import overview and continuation workflows.
+* Monthly budgeting with setup wizard, forecast/risk visibility, and corrective action links.
+* Contract and automation support for recurring financial processes.
 * Easy installation using [Docker](/getting-started/installation/) or a [Windows installer](/getting-started/installation/windows/).

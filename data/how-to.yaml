@@ -1,7 +1,7 @@
 - title: Your Finances
   pages:
     - title: Accounts
-    # - title: Transactions
+    - title: Transactions
     - title: Budgeting
     # - title: Contracts
     - title: Liabilities

@@ -17,16 +17,22 @@ Pledger.io will then keep track of your expected and the actual expenses.
 ## Getting started with budgets
 
 Upon visiting the budget overview page for the first time you will be asked to create your first budget.
+The setup flow is a short wizard:
+
+1. Choose the month and year where budgeting starts.
+2. Enter your expected monthly net income.
+3. Review and confirm.
+
 To do this you need to provide the month and year that the budget should begin, and your expected monthly net income.
 The net income is the amount of money your employer deposits in your bank account.
 
 Once a budget exists you will see the budget overview.
-This is a monthly overview since the actual transaction amount is displayed linked to the budget.
+This is a monthly overview with status, forecast, and risk indicators per expense group.
 
 {{< image src="img/how-to/budgets/no-budget-present.png" caption="Create budget form" >}}
 
-Once a budget exists you will see the budget overview.
-This is a monthly overview since the actual transaction amount is displayed linked to the budget.
+Use the month/year selector to review past months and switch context.
+Pledger.io keeps budget details in sync with the selected month, including recommendation actions.
 
 {{< image src="img/how-to/budgets/monthly-overview.png" caption="Monthly budget overview" >}}
 
@@ -41,3 +47,13 @@ In the `Add expense` form you need to provide the label for the expected expense
 
 During the year you may notice that your expense habits or income has changed.
 Once this happens you should update your budget to reflect the changes.
+
+## Corrective actions and follow-up
+
+Each budget category shows a recommendation based on projected month-end usage.
+Depending on risk level, you can:
+
+- Edit planned values for the category (when the budget period is still open).
+- Open the matching transaction list for deeper analysis.
+
+This helps you move from budget monitoring to direct corrective action in one flow.

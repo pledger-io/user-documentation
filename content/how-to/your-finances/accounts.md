@@ -22,8 +22,9 @@ For a quick guide to help you with getting started with your first account setup
 
 ## Managing accounts
 
-You can list all the regular accounts by clicking on the `Checking accounts` option in the sidebar navigation.
-This will open the account overview page with all the accounts that you have.
+Open the **Accounts** section in the left navigation.
+Use the local section navigation to switch between account types (own accounts, creditor, debtor, and liability accounts).
+The overview page lists all accounts for the selected type.
 
 {{< image src="img/how-to/accounts/asset-overview.png" caption="The account overview page" >}}
 
@@ -49,8 +50,6 @@ Pledger.io will then add a transaction correction to match the years end balance
 You start an account reconciliation by clicking the icon:check[] icon in the context menu of the account you wish to reconcile.
 This will open a reconciliation form.
 
-{{< image src="img/how-to/accounts/asset-reconcile.png" caption="The account reconciliation form" wrapper="col-6 mx-auto" >}}
-
 In this form enter the year you wish to perform the reconciliation for as well as the opening and closing
 balance as indicated by your bank statement. Once you `Save` the reconciliation Pledger.io will compare the
 opening and closing balance.
@@ -62,9 +61,7 @@ The previous year should be reconciled before you can continue.
 ### Correcting opening balance
 
 When account reconciliation fails due to a mismatch in opening balances you will be presented with the reconciliation overview.
-This is displayed on the `Checking accounts` overview page below the list of accounts.
-
-{{< image src="img/how-to/accounts/asset-reconcile-overview.png" caption="Overview of account reconciliations" wrapper="col-8 mx-auto" >}}
+This is displayed on the accounts overview page below the account list.
 
 You can now either correct the opening balance manually.
 By creating a new transaction with the difference, or start an account reconciliation for the previous year by clicking the icon:hammer[] icon.

@@ -10,6 +10,7 @@ It helps you set up account structures, monitor spending, and maintain financial
 {{< card-group gutter="3" cols="2" >}}
 
     {{< card path="how-to/your-finances/accounts" header-style="none" />}}
+    {{< card path="how-to/your-finances/transactions" header-style="none" />}}
     {{< card path="how-to/your-finances/budgeting" header-style="none" />}}
     {{< card path="how-to/your-finances/liabilities" header-style="none" />}}
 
@@ -18,5 +19,6 @@ It helps you set up account structures, monitor spending, and maintain financial
 ## Suggested reading order
 
 Start with [Accounts](/how-to/your-finances/accounts/) to define your financial structure.
-Then continue with [Budgeting](/how-to/your-finances/budgeting/) to organize spending.
+Continue with [Transactions](/how-to/your-finances/transactions/) to manage daily bookkeeping and imports.
+Then use [Budgeting](/how-to/your-finances/budgeting/) to organize and monitor spending.
 Use [Liabilities](/how-to/your-finances/liabilities/) when modeling debts and repayment obligations.

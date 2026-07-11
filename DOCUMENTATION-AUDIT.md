@@ -72,7 +72,6 @@ Hide incomplete content until written, or add “Coming soon” placeholders.
 |------|-------|
 | `content/how-to/advanced/rules.md` | Empty body |
 | `content/how-to/advanced/scheduling.md` | Empty body |
-| `content/how-to/your-finances/transactions.md` | Empty body |
 | `content/how-to/your-finances/overview.md` | Empty body |
 | `content/how-to/your-finances/contracts.md` | `draft: true`, empty |
 | `content/getting-started/advanced/schedule-bills.md` | `draft: true`, empty |

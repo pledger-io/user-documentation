@@ -17,7 +17,7 @@ used as the primary UI component library for the application.
 - [axios](https://axios-http.com/docs/intro),
 used for the communication with the REST-api.
 
-## Overview
+## High-level overview
 
 The Pledger.io application follows a layered architecture pattern,
 separating concerns into distinct layers that interact with each other in a controlled manner.
@@ -61,6 +61,42 @@ Every `page` can consist out of multiple `components`.
 
 The `components` and `pages` can use the `repository` layer to access the backend application.
 
+## Current application shell design
+
+The current UI is built around a consistent app shell:
+
+- A primary sidebar with top-level sections.
+- A top app header with contextual actions and page title.
+- Section-local navigation for in-section destinations.
+- A command launcher (quick search) to jump to pages and actions.
+
+This model reduces navigation depth while keeping all functional areas discoverable.
+
+{{< image src="img/architecture/application-shell-wireframe.png" caption="Application shell wireframe" >}}
+
+## Navigation model
+
+The navigation is intentionally split into two levels:
+
+1. **Primary section navigation** in the sidebar (overview, transactions, budgets, accounts, automation, settings).
+2. **Local section navigation** that exposes destinations within the active section.
+
+In addition, command search allows keyboard-first navigation using `Ctrl+K`.
+
+## Visual system and theming
+
+The UI uses semantic design tokens to keep visual behavior consistent across components and themes.
+Key token groups include:
+
+- Spacing and radius tokens
+- Interactive state tokens (hover, active, disabled)
+- Focus visibility tokens
+- Surface and border tokens
+- Badge/label tokens
+
+Theme files define concrete values per theme (light, dark, navy), while shared styling logic remains centralized.
+This allows brand updates and contrast improvements without changing component logic.
+
 ## Architectural Layers
 
 ### Entry Points
@@ -73,30 +109,30 @@ The `components` and `pages` can use the `repository` layer to access the backen
 Pages are React components that represent full screens in the application.
 They include:
 
-* *Dashboard Page*: The main landing page showing an overview of the user's financial status.
-* *Login/Register Pages*: Authentication pages for user login and registration.
-* *Account Pages*: Pages for managing financial accounts.
-* *Budget Pages*: Pages for creating and managing budgets.
-* *Transaction Pages*: Pages for viewing, creating, and managing transactions.
-* *Contract Pages*: Pages for managing recurring financial contracts.
-* *Report Pages*: Pages for generating and viewing financial reports.
-* *Automation Pages*: Pages for setting up and managing automation rules.
-* *Settings Pages*: Pages for configuring application settings.
+* *Dashboard*: Action-first overview of balance, budget status, and spending trends.
+* *Authentication*: Login and registration flows.
+* *Transactions*: Income/expense, transfers, import overview/start import, categories.
+* *Budgets*: First-budget setup, monthly overview, category-level follow-up actions.
+* *Accounts*: Own/creditor/debtor/liability account management and reconciliation.
+* *Contracts*: Recurring contract management.
+* *Reports*: Financial and spending insights.
+* *Automation*: Scheduling and rules.
+* *Settings*: Profile and configuration pages.
 
 ### Components
 
 Components are reusable UI elements that are used across multiple pages.
 They include:
 
-* *Layout Components*: Components for page layout, such as headers, footers, and navigation.
-* *Form Components*: Reusable form elements and validation.
-* *Account Components*: Components specific to account management.
-* *Budget Components*: Components for budget visualization and management.
-* *Transaction Components*: Components for transaction listing, filtering, and editing.
-* *Contract Components*: Components for contract management.
-* *Report Components*: Components for report generation and visualization.
-* *Upload Components*: Components for file uploading.
-* *Dashboard Components*: Components for the dashboard, such as summary cards and charts.
+* *Shell and navigation components*: sidebar, app header, section-local navigation, command launcher.
+* *Form components*: reusable form fields, validation, and action controls.
+* *Account components*: account lists, forms, and reconciliation controls.
+* *Budget components*: summaries, detail rows, risk/recommendation actions, and edit dialogs.
+* *Transaction components*: list rendering, filtering, quick presets, chips, and saved views.
+* *Contract components*: contract listing and editing workflows.
+* *Report and chart components*: statistical and category/balance visualizations.
+* *Import/upload components*: import initiation and status tracking.
+* *Shared format/layout components*: money, date, percentage, grid, and loading states.
 
 ### Repositories
 

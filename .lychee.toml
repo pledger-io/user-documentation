@@ -1,7 +1,7 @@
 # Link checker for CI. Focuses on internal links and static assets in the built site.
+# Omit include_fragments: v0.23 expects a bool, v0.24+ a string enum; default is off.
 offline = true
 root_dir = "public"
-include_fragments = false
 max_redirects = 5
 retry_wait_time = 1
 max_retries = 2

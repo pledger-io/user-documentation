@@ -24,8 +24,6 @@ Inside this section, use the local section navigation to switch between:
 
 You can also use the global quick search (`Ctrl+K`) to jump directly to these pages.
 
-{{< image src="img/how-to/transactions/transactions-overview.png" caption="Transactions overview with filters, presets, and saved views" >}}
-
 ## Work with filters
 
 On the income/expense overview, the filter bar supports:
@@ -63,7 +61,3 @@ The transactions section exposes two import destinations:
 - **Start import**: begin a new import run.
 
 Use the overview when you need to audit what happened in a previous import, or continue processing later.
-
-{{< image src="img/how-to/transactions/import-overview.png" caption="Import overview with existing import jobs" >}}
-
-{{< image src="img/how-to/transactions/import-start.png" caption="Start new transaction import" >}}

@@ -5,6 +5,61 @@ Edit this file, then run: `scripts/generate-releases.ps1`
 Use `## 5.1.0` for version headings (or `== 5.1.0` — both work).
 Use `###` / `####` for sections (or `===` / `====`).
 
+== 6.0.0
+
+*Release date: 2026-07-19*
+
+> [!NOTE]
+> This release changes the UX in the application, making it easier for new users.
+> This may require existing users to adjust slightly as some things have gotten new places in the UI.
+
+=== Changes
+
+- Update to the insight system and detection to make it more reliable and usable
+- Rework the navigation throughout the application, making it easier to navigate for new users.
+- Updates to the theming of the application
+- Replacement of the logo
+- 
+=== Dependency management
+
+==== Backend application
+
+- Update `io.micronaut.platform:micronaut-platform` to v5.0.5
+- Update `langchain4j` monorepo to v1.17.1
+- Update plugin `com.diffplug.spotless` to v8.8.0
+- Update `gradle` to v9.6.1
+- Update `org.bouncycastle:bcpkix-jdk18on` to v1.85
+- Update `org.bouncycastle:bcprov-jdk18on` to v1.85
+
+==== Frontend
+
+- Update `sass` to v1.101.0
+- Update `sass-embedded` to v1.100.0
+- Update `react-hook-form` to v7.82.0
+- Update `react-router` to v7.18.1
+- Update `axios` to v1.18.1
+- Update `vite` to v8.1.0
+- Update `eslint` to v10.7.0
+- Update `typescript-eslint` to v8.64.0
+- Update `@eslint-react/eslint-plugin` to v5.17.1
+- Update `jsdom` to v29.1.1
+- Update `web-vitals` to v5.3.0
+- Update `spacetime` to v7.13.0
+- Update `primeicons` to v8
+- Update `lint-staged` to v17.1.0
+- Update Node.js support to `>=22.0.0 <=26.5.0`
+- Update `gradle` to v9.6.1
+- Update plugin `io.micronaut.library` to v5
+- Update `actions/checkout` to v7
+- Update `actions/setup-node` to v7
+
+==== Build tooling
+
+- Update `electron` to v43.1.0
+- Update `ollama/ollama` Docker image to v0.32.1
+- Update `com.jongsoft.finance:pledger-ui` to v6
+- Update `actions/setup-node` to v7
+
 == 5.1.11
 
 *Release date: 2026-07-03*

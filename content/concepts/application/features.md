@@ -28,3 +28,4 @@ With the reporting you get a quick and easy overview of your finances.
 * Monthly budgeting with setup wizard, forecast/risk visibility, and corrective action links.
 * Contract and automation support for recurring financial processes.
 * Easy installation using [Docker](/getting-started/installation/) or a [Windows installer](/getting-started/installation/windows/).
+* A native [Android companion app](/getting-started/android-app/) for accounts, transactions, budgets, reports, and offline viewing.

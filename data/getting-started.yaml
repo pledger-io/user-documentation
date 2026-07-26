@@ -12,6 +12,15 @@
     - title: First Account
     - title: Categorizing
 
+- title: Android app
+  pages:
+    - title: Install and connect
+    - title: App tour
+    - title: Accounts
+    - title: Transactions
+    - title: Budgets and reports
+    - title: Settings and offline use
+
 - title: Advanced
   pages:
     # - title: Schedule Bills

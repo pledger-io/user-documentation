@@ -38,3 +38,4 @@ For production usage, prefer a dedicated MySQL/MariaDB database and regular back
 1. Open one of the installation guides above and complete the setup.
 2. Review [Configuration](/getting-started/installation/configuration/) to tune database, mail, and optional AI settings.
 3. Continue with [First steps](/getting-started/first-steps/) to create your first user, accounts, and transactions.
+4. Optionally, [connect the Android app](/getting-started/android-app/install-and-connect/) to use Pledger.io from your phone.

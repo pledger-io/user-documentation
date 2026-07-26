@@ -13,10 +13,11 @@ content_blocks:
       subtle: true
 ---
 
-{{< card-group gutter="3" cols="3" >}}
+{{< card-group gutter="3" cols="2" >}}
 
     {{< card path="getting-started/installation" header-style="none" />}}
     {{< card path="getting-started/first-steps" header-style="none" />}}
+    {{< card path="getting-started/android-app" header-style="none" />}}
     {{< card path="getting-started/advanced" header-style="none" />}}
 
 {{</ card-group>}}

@@ -1,5 +1,5 @@
 ---
-title: Getting started
+title: Getting Started
 type: docs
 weight: 1
 description: Tutorial guides to get productive with Pledger.io quickly.

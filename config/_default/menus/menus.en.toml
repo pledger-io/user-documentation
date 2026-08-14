@@ -4,12 +4,12 @@
   weight = 10
 
 [[main]]
-  name = "How to guides"
+  name = "How-to guides"
   pageRef = "/how-to/"
   weight = 20
 
 [[main]]
-  name = "Financial concepts"
+  name = "Concepts"
   pageRef = "/concepts/"
   weight = 30
 

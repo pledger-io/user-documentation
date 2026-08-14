@@ -14,7 +14,4 @@ exclude_path = [
 exclude = [
   '^mailto:',
   '^https://jongsoftdev\.atlassian\.net/',
-  # Tutorial screenshots not yet restored — see DOCUMENTATION-AUDIT.md
-  '/img/getting-started/',
-  '/img/architecture/data-model',
 ]

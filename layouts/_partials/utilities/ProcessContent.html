@@ -1,0 +1,16 @@
+<!--
+    Purges any HTML comments from raw content, if applicable. The partial supports the following arguments:
+    "page"          Required page context, used to render shortcodes properly.
+    "raw"           Raw page content, e.g. .Page.RawContent.
+
+    Also expands AsciiDoc-style icon:name[] macros to images in static/images/icons.
+-->
+
+{{ $page := .page -}}
+{{ $raw := .raw -}}
+{{- if site.Params.debugging.purgeHTMLComments -}}
+    {{- $raw = replaceRE "<!--(.|\n)*?-->" "" $raw -}}
+{{- end -}}
+{{ $raw = partial "utilities/expand-ui-icons.html" (dict "page" $page "raw" $raw) }}
+{{ $content := emojify $raw | $page.RenderString }}
+{{ return $content }}

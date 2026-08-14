@@ -37,14 +37,28 @@ Use the checkboxes below to track progress. Tasks are grouped by priority.
 
 ### Missing tutorial screenshots
 
-Tutorial pages reference PNGs that are **not** in the repo. Only logos + 3 SVG thumbnails exist under `assets/img/`.
+Tracked in [pledger-io/.github#39](https://github.com/pledger-io/.github/issues/39). Referenced screenshots now live under `assets/img/`; CI fails if a page points at a missing local file.
 
-- [ ] Restore `assets/img/getting-started/create-user/` (2 PNGs referenced in `create-user.md`)
-- [ ] Restore `assets/img/getting-started/first-accounts/` (6 PNGs referenced in `first-account.md`)
+- [x] Restore `assets/img/getting-started/create-user/` (2 PNGs referenced in `create-user.md`)
+- [x] Restore `assets/img/getting-started/first-accounts/` (6 PNGs referenced in `first-account.md`)
 - [x] Restore `assets/img/getting-started/catagorizing/` (7 PNGs; legacy folder name matches image paths in `categorizing.md`)
-- [ ] Add `assets/img/architecture/data-model.png` (referenced in `architecture/design/domain.md`)
-- [ ] Audit how-to pages for missing images (`accounts.md`, `budgeting.md`, `liabilities.md`)
-- [ ] Run link/image check after restore (manual or CI)
+- [x] Add `assets/img/architecture/data-model.png` (referenced in `architecture/design/domain.md`)
+- [x] Audit how-to pages for missing images (`accounts.md`, `budgeting.md`, `liabilities.md`)
+- [x] Run link/image check after restore (`scripts/check-content-images.ps1` in CI; lychee no longer excludes restored paths)
+
+How-to audit (2026-08-14):
+
+| Page | Result |
+|------|--------|
+| `accounts.md` | Overview, create, and reconcile screenshots present |
+| `budgeting.md` | Create, monthly overview, and add-expense screenshots present |
+| `liabilities.md` | Create screenshot present; **no liability overview screenshot** |
+| `transactions.md` | Overview, imported-files, and start-import screenshots present |
+
+Follow-ups (not blocking #39):
+
+- [ ] Capture a liability overview screenshot for `liabilities.md`
+- [ ] Decide whether to use unused `assets/img/getting-started/first-accounts/dashboard-overview.png` in the first-account tutorial
 
 ### Home page & messaging
 
@@ -117,6 +131,7 @@ Hide incomplete content until written, or add “Coming soon” placeholders.
 - [x] Add GitHub Actions workflow: `hugo --gc --minify` on push/PR
 - [x] Pin Hugo version in CI (0.163.1 extended)
 - [x] Add link checker step (internal links with lychee)
+- [x] Add content image reference check (`scripts/check-content-images.ps1`)
 - [x] Configure deploy (Azure Static Web Apps via `deployment.yml`)
 - [x] Add `README.md` with local dev and CI instructions
 
@@ -201,7 +216,7 @@ content/
   architecture/          # technical docs, ADRs, API, releases
   promo/                 # marketing page (review needed)
 
-assets/img/              # logos, screenshots (many missing)
+assets/img/              # logos and screenshots
 static/openapi/          # OpenAPI spec
 layouts/                 # theme overrides
 ```
@@ -213,6 +228,9 @@ layouts/                 # theme overrides
 ```bash
 # Local preview (includes drafts)
 hugo server -D
+
+# Fail if Markdown references a missing local image
+pwsh scripts/check-content-images.ps1
 
 # Production build
 hugo --gc --minify
@@ -227,6 +245,6 @@ hugo --gc
 
 **Strengths:** Solid Diátaxis structure, good Getting Started prose, sensible Hugo/Hinode setup, OpenAPI spec included.
 
-**Main gaps:** Missing tutorial screenshots, empty how-to pages, brand/theming partially fixed, mixed personal-finance vs enterprise messaging, no CI/README/git hygiene.
+**Main gaps:** Empty how-to pages, brand/theming partially fixed, mixed personal-finance vs enterprise messaging.
 
-**Highest ROI:** Restore screenshots → fix home page journey → hide incomplete pages → add CI + README.
+**Highest ROI:** Hide incomplete pages → finish remaining how-to screenshots (liability overview) → keep CI image checks green.

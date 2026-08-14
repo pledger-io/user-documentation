@@ -1,0 +1,33 @@
+{{/*
+  Turns leftover AsciiDoc icon:name[] macros into inline images from
+  static/images/icons. Skips fenced code blocks and inline code spans so
+  examples of the syntax are left untouched.
+*/}}
+{{- $page := .page -}}
+{{- $raw := .raw | default "" -}}
+{{- $fenceParts := split $raw "```" -}}
+{{- $rewritten := slice -}}
+{{- range $i, $part := $fenceParts -}}
+    {{- if eq (mod $i 2) 1 -}}
+        {{- $rewritten = $rewritten | append $part -}}
+    {{- else -}}
+        {{- $inlineParts := split $part "`" -}}
+        {{- $prose := slice -}}
+        {{- range $j, $seg := $inlineParts -}}
+            {{- if eq (mod $j 2) 1 -}}
+                {{- $prose = $prose | append $seg -}}
+            {{- else -}}
+                {{- $text := $seg -}}
+                {{- range findRE `icon:[A-Za-z0-9_-]+\[\]` $text -}}
+                    {{- $match := . -}}
+                    {{- $name := strings.TrimSuffix "[]" (strings.TrimPrefix "icon:" $match) -}}
+                    {{- $html := partial "utilities/ui-icon.html" (dict "name" $name "page" $page) -}}
+                    {{- $text = replace $text $match $html -}}
+                {{- end -}}
+                {{- $prose = $prose | append $text -}}
+            {{- end -}}
+        {{- end -}}
+        {{- $rewritten = $rewritten | append (delimit $prose "`") -}}
+    {{- end -}}
+{{- end -}}
+{{- return (delimit $rewritten "```") -}}

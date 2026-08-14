@@ -38,7 +38,7 @@ Tags are used to add additional information to a transaction.
 To get started with categorizing transactions, you need to create categories.
 Navigate to the category overview page by clicking on the `Categories` in the sidebar.
 
-{{< image src="/img/getting-started/catagorizing/catagories-menu-location.png" caption="The category menu" wrapper="col-3 mx-auto" >}}
+{{< image src="img/getting-started/catagorizing/catagories-menu-location.png" caption="The category menu" wrapper="col-3 mx-auto" >}}
 
 On the category overview page, you can see all the categories you have already created.
 

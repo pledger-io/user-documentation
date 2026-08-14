@@ -16,13 +16,15 @@ The transaction workflow is optimized for fast filtering and recurring review.
 Use the left navigation and open **Transactions**.
 Inside this section, use the local section navigation to switch between:
 
-- **Income & expense transactions**
+- **Income / Expense**
 - **Transfers**
-- **Import overview**
-- **Start import**
 - **Categories**
+- **Imported files**
+- **Start import**
 
 You can also use the global quick search (`Ctrl+K`) to jump directly to these pages.
+
+{{< image src="img/how-to/transactions/transactions-overview.png" caption="The income and expense transaction overview" >}}
 
 ## Work with filters
 
@@ -55,9 +57,15 @@ This keeps account-to-account movements separated from income/expense reporting 
 
 ## Use the import workflow
 
-The transactions section exposes two import destinations:
+The transactions section includes two import pages:
 
-- **Import overview**: inspect previously imported files and continue existing imports.
+- **Imported files**: inspect previously imported files and continue existing imports.
 - **Start import**: begin a new import run.
 
-Use the overview when you need to audit what happened in a previous import, or continue processing later.
+Open **Imported files** when you need to audit a previous import or continue processing later.
+
+{{< image src="img/how-to/transactions/import-overview.png" caption="The imported files overview" >}}
+
+To start a new import, open **Start import**. Choose a configuration, upload the bank file, and continue with **Next**.
+
+{{< image src="img/how-to/transactions/import-start.png" caption="Start a new transaction import" >}}

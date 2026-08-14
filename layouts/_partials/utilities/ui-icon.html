@@ -1,0 +1,23 @@
+{{/*
+  Renders an inline UI icon from static/images/icons/{name}.png (or .svg).
+  Used by the AsciiDoc-style icon:name[] expansion and the ui-icon shortcode.
+*/}}
+{{- $name := .name | default "" -}}
+{{- $page := .page -}}
+{{- if not $name -}}
+    {{- errorf "utilities/ui-icon.html: missing icon name%s" (cond (and $page $page.File) (printf " (page %s)" $page.File.Path) "") -}}
+{{- else -}}
+    {{- $png := printf "static/images/icons/%s.png" $name -}}
+    {{- $svg := printf "static/images/icons/%s.svg" $name -}}
+    {{- $rel := "" -}}
+    {{- if fileExists $png -}}
+        {{- $rel = printf "images/icons/%s.png" $name -}}
+    {{- else if fileExists $svg -}}
+        {{- $rel = printf "images/icons/%s.svg" $name -}}
+    {{- else -}}
+        {{- $where := "" -}}
+        {{- with $page -}}{{- with .File -}}{{- $where = printf " in %s" .Path -}}{{- end -}}{{- end -}}
+        {{- errorf "Unknown UI icon %q%s (expected %s or %s)" $name $where $png $svg -}}
+    {{- end -}}
+    {{- with $rel -}}<img src="{{ . | relURL }}" alt="" class="docs-ui-icon" width="18" height="18">{{- end -}}
+{{- end -}}

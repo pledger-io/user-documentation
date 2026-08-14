@@ -50,6 +50,8 @@ Pledger.io will then add a transaction correction to match the years end balance
 You start an account reconciliation by clicking the icon:check[] icon in the context menu of the account you wish to reconcile.
 This will open a reconciliation form.
 
+{{< image src="img/how-to/accounts/asset-reconcile.png" caption="Start account reconciliation for a year" >}}
+
 In this form enter the year you wish to perform the reconciliation for as well as the opening and closing
 balance as indicated by your bank statement. Once you `Save` the reconciliation Pledger.io will compare the
 opening and closing balance.
@@ -60,11 +62,11 @@ The previous year should be reconciled before you can continue.
 
 ### Correcting opening balance
 
-When account reconciliation fails due to a mismatch in opening balances you will be presented with the reconciliation overview.
-This is displayed on the accounts overview page below the account list.
+When account reconciliation fails due to a mismatch in opening balances you will be presented with the active reconciliation dialog.
 
-You can now either correct the opening balance manually.
-By creating a new transaction with the difference, or start an account reconciliation for the previous year by clicking the icon:hammer[] icon.
+{{< image src="img/how-to/accounts/asset-reconcile-overview.png" caption="Active account reconciliation with a start-balance mismatch" >}}
+
+You can now either correct the opening balance manually by creating a new transaction with the difference, or start an account reconciliation for the previous year by clicking the icon:hammer[] icon.
 Once the previous year is reconciled Pledger.io will automatically resume the incomplete account reconciliation as well.
 
 If you have chosen to enter a manual correction then you can click the icon:redo[] icon to retry the account reconciliation.

@@ -21,6 +21,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Check content image references
+        shell: pwsh
+        run: ./scripts/check-content-images.ps1
+
       - name: Setup Go
         uses: actions/setup-go@v5
         with:

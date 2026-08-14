@@ -48,10 +48,10 @@ Tutorial pages reference PNGs that are **not** in the repo. Only logos + 3 SVG t
 
 ### Home page & messaging
 
-- [ ] Change home hero CTA from `/architecture/` to `/getting-started/` (or `/getting-started/installation/docker/`)
-- [ ] Rewrite home hero copy: align with personal finance positioning (not “teams” / “operational finance”)
-- [ ] Fix home page link: Docker install is under Getting Started, not How-To (`content/_index.md` line ~43)
-- [ ] Unify terminology: home uses “Reference guide” / “Explanations” but nav uses “Architecture” / “Financial concepts”
+- [x] Change home hero CTA from `/architecture/` to `/getting-started/` (or `/getting-started/installation/docker/`)
+- [x] Rewrite home hero copy: align with personal finance positioning (not “teams” / “operational finance”)
+- [x] Fix home page link: Docker install is under Getting Started, not How-To (`content/_index.md` line ~43)
+- [x] Unify terminology: home uses “Reference guide” / “Explanations” but nav uses “Architecture” / “Financial concepts”
 
 ### Brand assets
 

@@ -1,12 +1,12 @@
 ---
-title: How-To Guides
+title: How-to guides
 description: Task-focused guides for managing and operating Pledger.io.
 type: docs
 weight: 2
 content_blocks:
   - _bookshop_name: hero
     heading:
-      title: How-To Guides
+      title: How-to guides
       content: Step-by-step instructions to help you complete common tasks in Pledger.io.
     background:
       color: primary

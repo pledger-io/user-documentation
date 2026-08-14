@@ -1,12 +1,12 @@
 ---
-title: Technical documentation
+title: Architecture
 description: Technical documentation of Pledger.io
 type: docs
 weight: 3
 content_blocks:
   - _bookshop_name: hero
     heading:
-      title: Architecture & Technical Documentation
+      title: Architecture
       content: Explore how Pledger.io is designed, how core processes work, and how the API is structured.
     background:
       color: primary

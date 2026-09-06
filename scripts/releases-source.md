@@ -5,6 +5,49 @@ Edit this file, then run: `scripts/generate-releases.ps1`
 Use `## 5.1.0` for version headings (or `== 5.1.0` — both work).
 Use `###` / `####` for sections (or `===` / `====`).
 
+## 6.0.2
+
+*Release date: 2026-09-06*
+
+## Changes
+- Fix account creation flow for the reconcile account
+- Fix budget expense ordering
+- Fix balance partitioning by account when using an account filter
+- Fix incorrect splits response
+- Fix missing OpenID option on the login screen
+
+## Dependency management
+
+### Backend
+- Update `io.micronaut.platform:micronaut-platform` to v5.1.2
+- Update `com.diffplug.spotless` to v8.10.0
+- Update `gradle` to v9.7.1
+- Update `org.sonarqube` to v7.5.0.8588
+- Update `crowdin/github-action` to v3
+- Update `actions/setup-java` to v6
+- Update non-major dependency updates
+
+### Frontend
+- Update `sass` to v1.104.0
+- Update `eslint` to v10.9.1
+- Update `sass-embedded` to v1.103.1
+- Update `react-hook-form` to v7.87.0
+- Update `typescript-eslint` to v8.69.0
+- Update `web-vitals` to v6.2.1
+- Update `lint-staged` to v17.4.1
+- Update Node.js support to `>=22.0.0 <=26.8.1`
+- Update `gradle` to v9.7.1
+- Update `actions/setup-java` to v6
+- Update patch version bumps
+
+### Build tooling
+- Update `electron` to v44.2.0
+- Update `ollama/ollama` Docker image to v0.33.2
+- Update `actions/setup-java` to v6
+- Update `com.jongsoft.finance:pledger-io` to v6.2.2
+- Update `com.jongsoft.finance:pledger-ui` to v6.0.2
+- Update patch updates
+
 == 6.0.1
 
 *Release date: 2026-08-15*

@@ -5,6 +5,50 @@ Edit this file, then run: `scripts/generate-releases.ps1`
 Use `## 5.1.0` for version headings (or `== 5.1.0` — both work).
 Use `###` / `####` for sections (or `===` / `====`).
 
+== 6.0.1
+
+*Release date: 2026-08-15*
+
+=== Changes
+
+- Minor fixes in the scheduling system
+- Feature/update insight analysis
+
+=== Dependency management
+
+==== Backend application
+
+- Update plugin com.diffplug.spotless to v8.9.0
+- Update dependency com.tngtech.archunit:archunit-junit5 to v1.5.0
+- Update plugin pl.allegro.tech.build.axion-release to v1.21.3
+- Update plugin org.sonarqube to v7.4.0.8496
+- Update Gradle to v9.7.0
+- Update langchain4j monorepo to v1.19.0
+
+==== Frontend
+
+- Update `typescript-eslint` to v8.67.0
+- Update `@testing-library/jest-dom` to v7
+- Update `react-router` to v8.3.0
+- Update `lint-staged` to v17.3.0
+- Update `@eslint-react/eslint-plugin` to v5.18.0
+- Update `sass` to v1.102.0
+- Update `sass-embedded` to v1.102.0
+- Update `eslint` to v10.8.0
+- Update `jsdom` to v30
+- Update `axios` to v1.19.0
+- Update `vite` to v8.2.0
+- Update `react-hook-form` to v7.85.0
+- Update `web-vitals` to v6.1.1
+- Update patch version bumps
+
+==== Build tooling
+
+- Update dependency micronaut to v5.1.0
+- Update ollama/ollama Docker tag to v0.32.6
+- Update Gradle to v9.7.0
+- Update dependency electron to v43.4.0
+
 == 6.0.0
 
 *Release date: 2026-07-19*
